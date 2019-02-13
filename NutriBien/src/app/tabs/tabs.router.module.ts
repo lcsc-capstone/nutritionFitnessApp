@@ -56,6 +56,15 @@ const routes: Routes = [
         path: '',
         redirectTo: '/tabs/tab1',
         pathMatch: 'full'
+      },
+      {
+        path: 'nutrition',
+        children: [
+          {
+            path: '',
+            loadChildren: '../nutrition/nutrition.module#nutritionPageModule'
+          }
+        ]
       }
     ]
   },
