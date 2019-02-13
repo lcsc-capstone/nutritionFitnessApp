@@ -57,7 +57,7 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: '../nutrition/nutrition.module#nutritionPageModule'
+            loadChildren: '../nutrition/nutrition.module#NutritionPageModule'
           }
         ]
       },
