@@ -7,8 +7,6 @@ import { IonicModule } from '@ionic/angular';
 
 import { LoginPage } from './login.page';
 
-
-
 @NgModule({
   imports: [
     CommonModule,
