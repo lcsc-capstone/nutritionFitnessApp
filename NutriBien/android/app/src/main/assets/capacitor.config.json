@@ -1,0 +1,6 @@
+{
+  "appId": "io.ionic.starter",
+  "appName": "NutriBien",
+  "bundledWebRuntime": false,
+  "webDir": "www"
+}
