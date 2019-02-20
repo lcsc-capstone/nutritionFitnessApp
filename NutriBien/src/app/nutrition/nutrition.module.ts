@@ -1,33 +1,30 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
-import { Routes, RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule, Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
 import { NutritionPage } from './nutrition.page';
 
-const routes: Routes = [
-  {
-    path: '',
-    component: NutritionPage
-  }
-];
-
 @NgModule({
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild([{ path: '', component: NutritionPage }])
   ],
   declarations: [NutritionPage]
 })
+
+/*export class NutritionPageModule {}*/
+
 export class NutritionPageModule {
-  private nutrition : FormGroup;
+  nutrition : FormGroup;
   
   constructor( private formBuilder: FormBuilder )
-  { this.nutrition = this.formBuilder.group(
+  { this.nutrition = new FormGroup(
     {
       Proteins: new FormControl('Proteins', Validators.required),
       Carbs: new FormControl('Carbs', Validators.required),
@@ -40,5 +37,6 @@ export class NutritionPageModule {
   private submit()
   {}
 }
+
 
 
