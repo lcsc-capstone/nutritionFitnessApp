@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule, Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-
 import { IonicModule } from '@ionic/angular';
 
 import { NutritionPage } from './nutrition.page';
@@ -17,6 +16,7 @@ import { NutritionPage } from './nutrition.page';
   ],
   declarations: [NutritionPage]
 })
+
 
 /*export class NutritionPageModule {}*/
 
