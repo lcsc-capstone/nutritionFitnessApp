@@ -30,7 +30,7 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: '../Measurements/Measurements.module#Tab3PageModule'
+            loadChildren: '../Measurements/Measurements.module#MeasurementsPageModule'
           }
         ]
       },
