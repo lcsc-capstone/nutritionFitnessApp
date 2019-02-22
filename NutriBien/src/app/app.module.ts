@@ -9,10 +9,6 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-//import { Module, HttpModule } from '@nestjs/common';
-//import { MongooseModule } from '@nestjs/mongoose';
-//import { AppController } from './app.controller';
-//import { AppService } from './app.service';
 
 
 @NgModule({
@@ -26,13 +22,5 @@ import { AppComponent } from './app.component';
   ],
   bootstrap: [AppComponent]
 })
-/*
-@Module({
-  imports: [
-    HttpModule,
-    MongooseModule.forRoot('mongodb://localhost/mydb')
-  ],
-  controllers: [AppController],
-  providers: [AppService]
-})*/
+
 export class AppModule {}
