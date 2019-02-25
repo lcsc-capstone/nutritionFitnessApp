@@ -1,12 +1,16 @@
+import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
+
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
 
 const DATABASE_FILE_NAME: string = 'nutri.db';
 
-export class DatabasePage
+@Injectable()
+export class DatabaseProvider
 {
-    private db: SQLiteObject;
+    public db: SQLiteObject;
 
-    constructor(private sqlite: SQLite) 
+    constructor(public http: Http, public sqlite: SQLite) 
     {
         this.createDbFile();
     }

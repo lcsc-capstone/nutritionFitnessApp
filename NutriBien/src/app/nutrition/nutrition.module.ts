@@ -6,6 +6,9 @@ import { IonicModule } from '@ionic/angular';
 
 import { NutritionPage } from './nutrition.page';
 
+import { Http } from '@angular/http';
+import { DatabaseProvider } from '/Users/chelseamessan/Desktop/nutritionFitnessApp/NutriBien/src/app/database';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -16,9 +19,6 @@ import { NutritionPage } from './nutrition.page';
   ],
   declarations: [NutritionPage]
 })
-
-
-/*export class NutritionPageModule {}*/
 
 export class NutritionPageModule {
   nutrition : FormGroup;
@@ -34,8 +34,19 @@ export class NutritionPageModule {
     });
   }
   
-  private submit()
-  {}
+  submit(value: any): void 
+  {
+    var proteins = (<HTMLInputElement>document.getElementById("Proteins")).value;
+    var carbs = (<HTMLInputElement>document.getElementById("Carbs")).value;
+    var fats = (<HTMLInputElement>document.getElementById("Fats")).value;
+    var fibers = (<HTMLInputElement>document.getElementById("Fibers")).value;
+    var calories = (<HTMLInputElement>document.getElementById("Calories")).value;
+
+    console.log(value.proteins);
+    console.log(value.carbs);
+    console.log(value.fats);
+  }
+
 }
 
 
