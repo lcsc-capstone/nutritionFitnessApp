@@ -7,7 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { NutritionPage } from './nutrition.page';
 
 import { Http } from '@angular/http';
-import { DatabaseProvider } from '/Users/chelseamessan/Desktop/nutritionFitnessApp/NutriBien/src/app/database';
+
+import { DatabaseProvider } from './../../../../NutriBien/src/app/database';
 
 @NgModule({
   imports: [
