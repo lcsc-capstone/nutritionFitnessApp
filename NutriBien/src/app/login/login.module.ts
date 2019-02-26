@@ -7,6 +7,8 @@ import { IonicModule } from '@ionic/angular';
 
 import { LoginPage } from './login.page';
 
+import { DatabaseProvider } from './../../../../NutriBien/src/app/database';
+
 @NgModule({
   imports: [
     CommonModule,
