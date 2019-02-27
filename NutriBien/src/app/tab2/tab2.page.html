@@ -6,14 +6,14 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-contenti padding>
   <ion-img src="https://officeteam.co.uk/wp-content/uploads/2017/12/iStock-636342222-1.jpg"></ion-img>
   <ion-label>What was your workout today?</ion-label>
 
   <form (ngSubmit)="logForm()">
     <ion-item>
-      <ion-label>Enter the sport</ion-label>
-      <ion-input type="text" [(ngModel)]="workout.title" name="title"></ion-input>
+      <ion-label position="stacked"></ion-label>
+      <ion-input type="text" [(ngModel)]="workout.title"  placeholder="sport" name="title"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Distance</ion-label>
