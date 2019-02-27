@@ -1,6 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
-
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
 
 const DATABASE_FILE_NAME: string = 'nutri.db';
@@ -10,12 +8,10 @@ export class DatabaseProvider
 {
     public db: SQLiteObject;
 
-    constructor(public http: Http, public sqlite: SQLite) 
-    {
-        this.createDbFile();
-    }
+    constructor(public sqlite: SQLite) {}
+    
 
-    private createDbFile(): void
+    public createDbFile()
     {
         this.sqlite.create
         ({
@@ -26,12 +22,13 @@ export class DatabaseProvider
         .then((db: SQLiteObject) => 
         {
             this.db=db;
-            this.createTables();
-        })   
+            this.createTables()
+         })   
+        .then(res => console.log('Executed SQL'))
         .catch(e => console.log(e));   
     }
 
-    private createTables(): void
+    public createTables()
     {
         this.db.executeSql('create table IF NOT EXISTS CUSTOMER_PROFILE(ID_NUM int(10) PRIMARY KEY, LAST_NAME character(10),FIRST_NAME character(10),PHONE_NUMBER int(10), DATE_OF_BIRTH int(8),HEIGHT int(3),EMAIL character(20), PASSWD character(20))', [])
         .then(() => 

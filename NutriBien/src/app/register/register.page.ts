@@ -13,7 +13,8 @@ export class  RegisterPage {
   data = {lastName: "", firstName: "", phoneNumber: 0, emailAddress: "", password: "", birthday: "", height: 0}
 
   constructor(private router: Router,
-    private sqlite: SQLite){}
+    private sqlite: SQLite,
+    public database: DatabaseProvider){}
 
 
   registerData(){
