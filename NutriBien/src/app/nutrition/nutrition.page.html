@@ -13,26 +13,26 @@
     
     <ion-item>
       <ion-label position="stacked"></ion-label>
-      <ion-input type="number" placeholder="Proteins" id="Proteins" formControlName="Proteins"></ion-input>
+      <ion-input type="number" [value]="Proteins" placeholder="Proteins" id="Proteins" formControlName="Proteins"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="stacked"></ion-label>
-      <ion-input type="number" placeholder="Carbs" id="Carbs" formControlName="Carbs"></ion-input>
+      <ion-input type="number" [value]="Carbs" placeholder="Carbs" id="Carbs" formControlName="Carbs"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="stacked"></ion-label>
-      <ion-input type="number" placeholder="Fats" id="Fats" formControlName="Fats"></ion-input>
+      <ion-input type="number" [value]="Fats" placeholder="Fats" id="Fats" formControlName="Fats"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="stacked"></ion-label>
-      <ion-input type="number" placeholder="Fibers" id="Fibers" formControlName="Fibers"></ion-input>
+      <ion-input type="number" [value]="Fibers" placeholder="Fibers" id="Fibers" formControlName="Fibers"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="stacked"></ion-label>
-      <ion-input type="number" placeholder="Total Calories" id="Calories" formControlName="Calories"></ion-input>
+      <ion-input type="number" [value]="Calories" placeholder="Total Calories" id="Calories" formControlName="Calories"></ion-input>
     </ion-item>
     
-    <ion-button mode="ios" type="submit" [disabled]="!todo.valid" (click)="submit()">Submit</ion-button>
+    <ion-button mode="ios" type="submit" [disabled]="!todo.valid" (click)="submit($event)">Submit</ion-button>
   </form>
 
 

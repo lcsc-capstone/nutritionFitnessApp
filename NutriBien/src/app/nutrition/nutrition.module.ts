@@ -7,7 +7,6 @@ import { IonicModule } from '@ionic/angular';
 import { NutritionPage } from './nutrition.page';
 
 import { Http } from '@angular/http';
-
 import { DatabaseProvider } from './../../../../NutriBien/src/app/database';
 
 @NgModule({
@@ -37,15 +36,19 @@ export class NutritionPageModule {
   
   submit(value: any): void 
   {
-    var proteins = (<HTMLInputElement>document.getElementById("Proteins")).value;
-    var carbs = (<HTMLInputElement>document.getElementById("Carbs")).value;
-    var fats = (<HTMLInputElement>document.getElementById("Fats")).value;
-    var fibers = (<HTMLInputElement>document.getElementById("Fibers")).value;
-    var calories = (<HTMLInputElement>document.getElementById("Calories")).value;
-
-    console.log(value.proteins);
-    console.log(value.carbs);
+    console.log("garbage1");
+    /*var proteins = (<HTMLInputElement>this.nutrition.getElementById("Proteins")).value;*/
+    var proteins = value.Proteins;
+    //var carbs = this.nutrition.Carbs;
+    //var fats = this.Fats;
+    //var fibers = ;
+    //var calories = ;
+    //$event.target.value
+    //console.log(value.proteins);
+    console.log(proteins);
     console.log(value.fats);
+    console.log("garbage2");
+    
   }
 
 }
