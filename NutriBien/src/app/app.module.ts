@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
+import { DatabaseProvider } from './database';
 
 
 
@@ -21,6 +22,7 @@ import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
     StatusBar,
     SplashScreen,
     SQLite,
+    DatabaseProvider,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
