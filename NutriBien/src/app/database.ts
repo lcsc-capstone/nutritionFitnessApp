@@ -10,7 +10,7 @@ export class DatabaseProvider
 {
     public db: SQLiteObject;
 
-    constructor(public http: Http, public sqlite: SQLite) 
+    constructor(public sqlite: SQLite) 
     {
         this.createDbFile();
     }
@@ -46,7 +46,7 @@ export class DatabaseProvider
         .then(() => 
         this.db.executeSql('create table IF NOT EXISTS NUTRITION(PROTEIN decimal(3,3),CARBS decimal(3,3),FATS decimal(3,3),FIBERS decimal(3,3),CALORIES int(255))', [])
         )
-    
+        
         .catch(e => console.log(e));
     }
 }
