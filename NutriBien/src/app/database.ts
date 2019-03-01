@@ -7,10 +7,9 @@ const DATABASE_FILE_NAME: string = 'nutri.db';
 export class DatabaseProvider
 {
     public db: SQLiteObject
-    
+
     constructor(public sqlite: SQLite) {}
     
-
     public createDbFile()
     {
         this.sqlite.create({
@@ -44,7 +43,7 @@ export class DatabaseProvider
         .then(() => 
         this.db.executeSql('create table IF NOT EXISTS NUTRITION(PROTEIN decimal(3,3),CARBS decimal(3,3),FATS decimal(3,3),FIBERS decimal(3,3),CALORIES int(255))', [])
         )
-    
+        
         .catch(e => console.log(e));
     }
 }
