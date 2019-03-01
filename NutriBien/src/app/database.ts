@@ -17,7 +17,7 @@ export class DatabaseProvider
         this.sqlite.create
         ({
             name: DATABASE_FILE_NAME,
-            location: 'default'
+            location: 'default',
         })
         .then((db: SQLiteObject) => 
         {
