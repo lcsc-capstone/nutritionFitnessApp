@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule, Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { Http } from '@angular/http';
+import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
 import { DatabaseProvider } from './../../../../NutriBien/src/app/database';
 
 @Component({
@@ -21,31 +22,37 @@ import { DatabaseProvider } from './../../../../NutriBien/src/app/database';
 export class NutritionPage implements OnInit {
 
   
-  public Proteins; 
-  public Carbs; 
-  public Fats; 
-  public Fibers; 
-  public Calories; 
-
-
-  constructor( private formBuilder: FormBuilder )
-  {
-  }
-  public logForm(){
-    console.log("See? I WORK!")
-  }
+  
+  
+  constructor(
+    private formBuilder: FormBuilder,
+    private sqlite: SQLite,
+    public database: DatabaseProvider,
+    public Proteins,
+    public Carbs,
+    public Fats,
+    public Fibers, 
+    public Calories, ){}
+  
 
   public submit(ngModel: any): void 
   {
-    var proteins = this.Proteins;
+    this.database.createDbFile();
+    this.database
+    /*var proteins = this.Proteins;
     var carbs = this.Carbs;
     var fats = this.Fats;
     var fibers = this.Fibers;
-    var calories = this.Calories;
+    var calories = this.Calories;*/
+
+    
+
   
     //TESTING THE VARIABLE CONTAIN CORRECT VALUES 
     /*console.log(proteins);
     console.log(fibers); */
+    
+
   }
 
   ngOnInit() {

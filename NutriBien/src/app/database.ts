@@ -8,19 +8,15 @@ export class DatabaseProvider
 {
     public db: SQLiteObject;
 
-
-
     constructor(public sqlite: SQLite) {}
-    
+
     public createDbFile()
     {
-        this.sqlite.create
+        return this.sqlite.create
         ({
             name: DATABASE_FILE_NAME,
             location: 'default'
-        })
-
-        .then((db: SQLiteObject) => 
+        }).then((db: SQLiteObject) => 
         {
             this.db=db;
             this.createTables()
