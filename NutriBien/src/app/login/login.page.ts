@@ -13,11 +13,12 @@ export class  LoginPage {
     public database: DatabaseProvider){}
 
   ionViewDidLoad() {
-    this.database.createDbFile();
+    this.database.createDbFile()
+    
   }
 
   ionViewWillEnter() {
-    this.database.createDbFile();
+    this.database.createDbFile()
   }
 
   signUp(){
