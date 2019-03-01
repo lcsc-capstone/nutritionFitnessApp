@@ -13,7 +13,7 @@
   <form name="sport_form" padding>
     <ion-item>
       <ion-label position="stacked">Workout</ion-label>
-      <ion-select type="text"  placeholder="Select one" name="Sport">
+      <ion-select [(ngModel)]="sport" (ionChange)="changeSport()" type="text"  placeholder="Select one" name="Sport">
         <ion-select-option value="Basketball">Basketball</ion-select-option>
         <ion-select-option value="Soccer">Soccer</ion-select-option>
         <ion-select-option value="Baseball">Baseball</ion-select-option>
@@ -29,7 +29,7 @@
         <ion-select-option value="Other">Other</ion-select-option>
       </ion-select>
     </ion-item>
-    <ion-item>
+    <ion-item *ngIf="showDistance">
       <ion-label position="stacked">Distance</ion-label>
       <ion-input type="number" placeholder="Enter miles" name="distance"></ion-input>
     </ion-item>

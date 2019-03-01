@@ -16,9 +16,13 @@ import { FormsModule, ReactiveFormsModule, Validators, FormBuilder, FormGroup, F
     RouterModule.forChild([{ path: '', component: NutritionPage }])
   ],
   declarations: [NutritionPage]
+
 })
 
-export class NutritionPageModule {}
+export class NutritionPageModule {
+
+
+}
 
 
 
