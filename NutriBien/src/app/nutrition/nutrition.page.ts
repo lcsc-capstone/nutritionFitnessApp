@@ -26,29 +26,25 @@ export class NutritionPage implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private sqlite: SQLite,
-    public database: DatabaseProvider)
-   {}
-    public Proteins;
-    public Carbs;
-    public Fats;
-    public Fibers;
-    public Calories;
+    public database: DatabaseProvider){}
+    
+    public Proteins: number;
+    public Carbs: number;
+    public Fats: number;
+    public Fibers: number;
+    public Calories: number;
+    private querry: string = '';
 
   public submit(ngModel: any): void 
   {
+    
+    this.querry = 'INSERT INTO NUTRITION VALUES (NULL, ?, ?, ?, ?, ?)', [this.Proteins, this.Carbs, this.Fats, this.Fibers, this.Calories];
     this.database.createDbFile();
+    this.database.executeSql(this.querry);
 
-
-    /*var proteins = this.Proteins;
-    var carbs = this.Carbs;
-    var fats = this.Fats;
-    var fibers = this.Fibers;
-    var calories = this.Calories;*/
-
-  
-    //TESTING THE VARIABLE CONTAIN CORRECT VALUES 
-    /*console.log(proteins);
-    console.log(fibers); */
+    // TESTING THE VARIABLE CONTAIN CORRECT VALUES 
+    // console.log(this.Proteins);
+    // console.log(this.Fibers); 
   }
     
 
