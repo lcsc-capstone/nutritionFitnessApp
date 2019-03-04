@@ -12,7 +12,7 @@ import { DatabaseProvider } from './../../../../NutriBien/src/app/database';
 })
 
 @NgModule({
-  imports: [
+  imports:[
     ReactiveFormsModule,
     FormsModule,
   ],
@@ -21,39 +21,36 @@ import { DatabaseProvider } from './../../../../NutriBien/src/app/database';
 
 export class NutritionPage implements OnInit {
 
-  
-  
+
   
   constructor(
     private formBuilder: FormBuilder,
     private sqlite: SQLite,
-    public database: DatabaseProvider,
-    public Proteins,
-    public Carbs,
-    public Fats,
-    public Fibers, 
-    public Calories, ){}
-  
+    public database: DatabaseProvider)
+   {}
+    public Proteins;
+    public Carbs;
+    public Fats;
+    public Fibers;
+    public Calories;
 
   public submit(ngModel: any): void 
   {
     this.database.createDbFile();
-    this.database
+
+
     /*var proteins = this.Proteins;
     var carbs = this.Carbs;
     var fats = this.Fats;
     var fibers = this.Fibers;
     var calories = this.Calories;*/
 
-    
-
   
     //TESTING THE VARIABLE CONTAIN CORRECT VALUES 
     /*console.log(proteins);
     console.log(fibers); */
-    
-
   }
+    
 
   ngOnInit() {
   }
