@@ -1,8 +1,21 @@
 <ion-header>
   <ion-toolbar>
-      <ion-title>nutrition</ion-title>
+
+    <ion-nav>
+      <button start>
+        <button ion-button icon-only menuToggle>
+          <ion-icon name="menu"></ion-icon>
+          
+        </button>
+      </button>
+    </ion-nav>
+
+    <ion-title>
+      Nutrition
+    </ion-title>
   </ion-toolbar>
 </ion-header>
+<ion-content>
 
 <ion-content padding>
   <ion-img src="https://www.urban-balance.com/wp-content/uploads/2018/01/Nutrition-vs1.jpg"></ion-img>
@@ -13,23 +26,23 @@
     
     <ion-item>
       <ion-label position="stacked"></ion-label>
-      <ion-input type="number" [(ngModel)]="Proteins" placeholder="Proteins" name="Proteins" id="Proteins" ></ion-input>
+      <ion-input type="number" min="0" [(ngModel)]="Proteins" placeholder="Proteins" name="Proteins" id="Proteins" ></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="stacked"></ion-label>
-      <ion-input type="number" [(ngModel)]="Carbs" placeholder="Carbs" id="Carbs" name="Carbs"></ion-input>
+      <ion-input type="number" min="0" [(ngModel)]="Carbs" placeholder="Carbs" id="Carbs" name="Carbs"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="stacked"></ion-label>
-      <ion-input type="number" [(ngModel)]="Fats" placeholder="Fats" id="Fats" name="Carbs"></ion-input>
+      <ion-input type="number" min="0" [(ngModel)]="Fats" placeholder="Fats" id="Fats" name="Carbs"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="stacked"></ion-label>
-      <ion-input type="number" [(ngModel)]="Fibers" placeholder="Fibers" id="Fibers" name="Carbs"></ion-input>
+      <ion-input type="number" min="0" [(ngModel)]="Fibers" placeholder="Fibers" id="Fibers" name="Carbs"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="stacked"></ion-label>
-      <ion-input type="number" [(ngModel)]="Calories" placeholder="Total Calories" id="Calories" name="Carbs"></ion-input>
+      <ion-input type="number" min="0" [(ngModel)]="Calories" placeholder="Total Calories" id="Calories" name="Carbs"></ion-input>
     </ion-item>
     
     <ion-button (click)="submit()" mode="ios" type="submit" >Submit</ion-button>
