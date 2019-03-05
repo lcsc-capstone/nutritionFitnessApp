@@ -11,7 +11,7 @@ import { AppComponent } from './app.component';
 
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
 import { DatabaseProvider } from './database';
-
+import { Toast } from '@ionic-native/toast/ngx';
 
 
 @NgModule({
@@ -23,6 +23,7 @@ import { DatabaseProvider } from './database';
     SplashScreen,
     SQLite,
     DatabaseProvider,
+    Toast,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

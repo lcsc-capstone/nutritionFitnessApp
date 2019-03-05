@@ -19,12 +19,6 @@ export class DatabaseProvider
             name: DATABASE_FILE_NAME,
             location: 'default',
         })
-        .then((db: SQLiteObject) => 
-        {
-            console.log("test")
-            this.db=db;
-            this.createTables()
-         })   
         .then(res => console.log('Executed SQL'))    
         .catch(e => console.log(e));   
     }
