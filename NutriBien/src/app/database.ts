@@ -19,12 +19,6 @@ export class DatabaseProvider
             name: DATABASE_FILE_NAME,
             location: 'default',
         })
-        .then((db: SQLiteObject) => 
-        {
-            console.log("test")
-            this.db=db;
-            this.createTables()
-         })   
         .then(res => console.log('Executed SQL'))    
         .catch(e => console.log(e));   
     }
@@ -40,12 +34,18 @@ export class DatabaseProvider
         this.db.executeSql('create table IF NOT EXISTS EXERCISE(ID_NUM int(10) PRIMARY KEY,TIME text,TYPE character(20),Distance decimal(10,7))', [])
         )
         .then(() => 
-        this.db.executeSql('create table iIF NOT EXISTS MEASUREMENTS(ID_NUM int(10) PRIMARY KEY,NECK decimal(3,3), HIPS decimal(3,3),THIGHS decimal(3,3),BELLY decimal(3,3),BICEP decimal(3,3))', [])
+        this.db.executeSql('create table IF NOT EXISTS MEASUREMENTS(ID_NUM int(10) PRIMARY KEY,NECK decimal(3,3), HIPS decimal(3,3),THIGHS decimal(3,3),BELLY decimal(3,3),BICEP decimal(3,3))', [])
         )
         .then(() => 
         this.db.executeSql('create table IF NOT EXISTS NUTRITION(PROTEIN decimal(3,3),CARBS decimal(3,3),FATS decimal(3,3),FIBERS decimal(3,3),CALORIES int(255))', [])
         )
         
+        .catch(e => console.log(e));
+    }
+
+    public executeSql(sql: string)
+    {
+        this.db.executeSql(sql)
         .catch(e => console.log(e));
     }
 }

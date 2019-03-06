@@ -26,23 +26,23 @@
     
     <ion-item>
       <ion-label position="stacked"></ion-label>
-      <ion-input type="number" [(ngModel)]="Proteins" placeholder="Proteins" name="Proteins" id="Proteins" ></ion-input>
+      <ion-input type="number" min="0" [(ngModel)]="Proteins" placeholder="Proteins" name="Proteins" id="Proteins" ></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="stacked"></ion-label>
-      <ion-input type="number" [(ngModel)]="Carbs" placeholder="Carbs" id="Carbs" name="Carbs"></ion-input>
+      <ion-input type="number" min="0" [(ngModel)]="Carbs" placeholder="Carbs" id="Carbs" name="Carbs"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="stacked"></ion-label>
-      <ion-input type="number" [(ngModel)]="Fats" placeholder="Fats" id="Fats" name="Carbs"></ion-input>
+      <ion-input type="number" min="0" [(ngModel)]="Fats" placeholder="Fats" id="Fats" name="Carbs"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="stacked"></ion-label>
-      <ion-input type="number" [(ngModel)]="Fibers" placeholder="Fibers" id="Fibers" name="Carbs"></ion-input>
+      <ion-input type="number" min="0" [(ngModel)]="Fibers" placeholder="Fibers" id="Fibers" name="Carbs"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="stacked"></ion-label>
-      <ion-input type="number" [(ngModel)]="Calories" placeholder="Total Calories" id="Calories" name="Carbs"></ion-input>
+      <ion-input type="number" min="0" [(ngModel)]="Calories" placeholder="Total Calories" id="Calories" name="Carbs"></ion-input>
     </ion-item>
     
     <ion-button (click)="submit()" mode="ios" type="submit" >Submit</ion-button>
