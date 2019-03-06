@@ -14,4 +14,4 @@ import { WorkoutPage } from './Workout.page';
   ],
   declarations: [WorkoutPage]
 })
-export class Tab2PageModule {}
+export class WorkoutPageModule {}
