@@ -26,8 +26,18 @@ export class NutritionPage implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private sqlite: SQLite,
-    public database: DatabaseProvider){}
-    
+    public database: DatabaseProvider)
+    {
+      this.nutrition = this.formBuilder.group(
+      {
+        Proteins: new FormControl('Proteins', Validators.required),
+        Carbs: new FormControl('Carbs', Validators.required),
+        Fats: new FormControl('Fats', Validators.required),
+        Fibers: new FormControl('Fibers', Validators.required),
+        Calories: new FormControl('Calories', Validators.required)
+      });
+    }
+
     public Proteins: number;
     public Carbs: number;
     public Fats: number;
@@ -47,7 +57,8 @@ export class NutritionPage implements OnInit {
     // console.log(this.Fibers); 
   }
     
-
+  private nutrition : FormGroup;
+  
   ngOnInit() {
   }
 
