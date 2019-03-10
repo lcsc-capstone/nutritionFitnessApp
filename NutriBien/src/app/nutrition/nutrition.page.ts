@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule, Validators, FormBuilder, FormGroup, F
 import { Http } from '@angular/http';
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
 import { DatabaseProvider } from './../../../../NutriBien/src/app/database';
+import { NutrientsValidator } from  './../../../../NutriBien/src/app/validators/nutrients';
 
 @Component({
   selector: 'app-nutrition',
@@ -30,11 +31,26 @@ export class NutritionPage implements OnInit {
     {
       this.nutrition = this.formBuilder.group(
       {
-        Proteins: new FormControl('Proteins', Validators.required),
-        Carbs: new FormControl('Carbs', Validators.required),
-        Fats: new FormControl('Fats', Validators.required),
-        Fibers: new FormControl('Fibers', Validators.required),
-        Calories: new FormControl('Calories', Validators.required)
+        Proteins: new FormControl('Proteins', Validators.compose([
+          Validators.required,
+          NutrientsValidator.isValid
+        ])),
+        Carbs: new FormControl('Carbs', Validators.compose([
+          Validators.required,
+          NutrientsValidator.isValid
+        ])),
+        Fats: new FormControl('Fats', Validators.compose([
+          Validators.required,
+          NutrientsValidator.isValid
+        ])),
+        Fibers: new FormControl('Fibers', Validators.compose([
+          Validators.required,
+          NutrientsValidator.isValid
+        ])),
+        Calories: new FormControl('Calories', Validators.compose([
+          Validators.required,
+          NutrientsValidator.isValid
+        ]))
       });
     }
 
