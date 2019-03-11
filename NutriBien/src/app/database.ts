@@ -26,7 +26,7 @@ export class DatabaseProvider
     public createTables()
     {
         console.log("table")
-        this.db.executeSql('create table IF NOT EXISTS CUSTOMER_PROFILE(ID_NUM int(10) PRIMARY KEY, LAST_NAME character(10),FIRST_NAME character(10),PHONE_NUMBER int(10), DATE_OF_BIRTH int(8),HEIGHT int(3),EMAIL character(20), PASSWD character(20))', [])
+        this.db.executeSql('create table IF NOT EXISTS CUSTOMER_PROFILE(ID_NUM int(10) PRIMARY KEY, LAST_NAME character(10),FIRST_NAME character(10),PHONE_NUMBER int(10), DATE_OF_BIRTH int(8),HEIGHT int(3),EMAIL character(20), PASSWD character(20), IMAGE blob)', [])
         .then(() => 
         this.db.executeSql('create table IF NOT EXISTS STATISTICS(ID_NUM int(10) PRIMARY KEY,DATE text,WEIGHT int(255),WEEKLY_AVERAGE int(255),DIFFERENCE_TO_PRIOR_WEEK int(255), QUESTIONS varchar(255))', [])
         )
