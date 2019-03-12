@@ -12,7 +12,7 @@ import { LoginPage } from '../login/login.page';
   styleUrls: ['Measurements.page.scss']
 })
 
-export class  RegisterPage {
+export class  MeasurementsPage {
   
   data = {ID_NUM: 1, NECK: 1, HIPS: 1, THIGHS: 1, BELLY: 1, BICEP: 1}
 
@@ -55,12 +55,5 @@ export class  RegisterPage {
   });
   }
 }
-
-
-
-export class MeasurementsPage {}
-
-
-
 
 
