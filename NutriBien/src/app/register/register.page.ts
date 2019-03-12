@@ -4,7 +4,19 @@ import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
 import { DatabaseProvider } from './../../../../NutriBien/src/app/database';
 import { Toast } from '@ionic-native/toast/ngx';
 import { NavController } from '@ionic/angular'; 
+import { ChangeDetectorRef } from '@angular/core';
+import { Camera, CameraOptions, PictureSourceType } from '@ionic-native/Camera/ngx';
+import { ActionSheetController, ToastController, Platform, LoadingController } from '@ionic/angular';
+import { File, FileEntry } from '@ionic-native/File/ngx';
+import { HttpClient } from '@angular/common/http';
+import { WebView } from '@ionic-native/ionic-webview/ngx';
+import { Storage } from '@ionic/storage';
+import { FilePath } from '@ionic-native/file-path/ngx';
+ 
+import { finalize } from 'rxjs/operators';
 import { LoginPage } from '../login/login.page';
+
+const STORAGE_KEY = 'my_images';
 
 @Component({
   selector: 'app-register',
@@ -15,12 +27,9 @@ import { LoginPage } from '../login/login.page';
 export class  RegisterPage {
   
   data = {lastName: "", firstName: "", phoneNumber: 0, emailAddress: "", password: "", birthday: "", height: 0}
+  images = [];
 
-  constructor(private router: Router,
-    private sqlite: SQLite,
-    public database: DatabaseProvider,
-    private toast: Toast,
-    public navCtrl: NavController){}
+  constructor(private router: Router, private sqlite: SQLite, private database: DatabaseProvider, private toast: Toast, private navCtrl: NavController, private camera: Camera, private file: File, private http: HttpClient, private webview: WebView, private actionSheetController: ActionSheetController, private toastController: ToastController, private storage: Storage, private plt: Platform, private loadingController: LoadingController, private ref: ChangeDetectorRef, private filePath: FilePath){}
 
 
   registerData(){
@@ -53,6 +62,76 @@ export class  RegisterPage {
       }
     );
   });
+  }
+  pathForImage(img) {
+    if (img === null) {
+      return '';
+    } else {
+      let converted = this.webview.convertFileSrc(img);
+      return converted;
+    }
+  }
+ 
+  async presentToast(text) {
+    const toast = await this.toastController.create({
+        message: text,
+        position: 'bottom',
+        duration: 3000
+    });
+    toast.present();
+  }
+  async selectImage() {
+    const actionSheet = await this.actionSheetController.create({
+      header: "Select Image source",
+      buttons: [{
+        text: 'Load from Library',
+        handler: () => {
+          this.takePicture(this.camera.PictureSourceType.PHOTOLIBRARY);
+        }
+      },
+      {
+        text: 'Use Camera',
+        handler: () =>  {
+          this.takePicture(this.camera.PictureSourceType.CAMERA);
+        }
+      },
+      {
+        text: 'Cancel',
+        role: 'cancel'
+      }]
+      });
+    await actionSheet.present();
+  }
+  
+  takePicture(sourceType: PictureSourceType) {
+      var options: CameraOptions = {
+          quality: 100,
+          sourceType: sourceType,
+          saveToPhotoAlbum: false,
+          correctOrientation: true
+      };
+  
+      this.camera.getPicture(options).then(imagePath => {
+          if (this.plt.is('android') && sourceType === this.camera.PictureSourceType.PHOTOLIBRARY) {
+              this.filePath.resolveNativePath(imagePath)
+                  .then(filePath => {
+                      let correctPath = filePath.substr(0, filePath.lastIndexOf('/') + 1);
+                      let currentName = imagePath.substring(imagePath.lastIndexOf('/') + 1, imagePath.lastIndexOf('?'));
+                      this.createFileName();
+                  });
+          } else {
+              var currentName = imagePath.substr(imagePath.lastIndexOf('/') + 1);
+              var correctPath = imagePath.substr(0, imagePath.lastIndexOf('/') + 1);
+              this.createFileName();
+          }
+      });
+  
+  }
+  createFileName() {
+      var d = new Date(),
+          n = d.getTime(),
+          newFileName = n + ".jpg";
+      return newFileName;
   }
 }
 
