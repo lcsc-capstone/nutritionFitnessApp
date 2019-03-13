@@ -66,6 +66,7 @@ export class NutritionPage implements OnInit {
     
     this.querry = 'INSERT INTO NUTRITION VALUES (NULL, ?, ?, ?, ?, ?)', [this.Proteins, this.Carbs, this.Fats, this.Fibers, this.Calories];
     this.database.createDbFile();
+    this.database.createTables();
     this.database.executeSql(this.querry);
 
     // TESTING THE VARIABLE CONTAIN CORRECT VALUES 
