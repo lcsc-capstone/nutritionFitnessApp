@@ -22,15 +22,22 @@ import { FilePath } from '@ionic-native/file-path/ngx';
  
 import { IonicStorageModule } from '@ionic/storage';
 
-import { Module, DynamicModule } from '@nestjs/common';
-import { MongooseModule } from '@nestjs/mongoose';
+//import { Module} from '@nestjs/common';
+//import { DynamicModule} from '@nestjs/common';
+
+//import { MongooseModule } from '@nestjs/mongoose';
 
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule,IonicStorageModule.forRoot(),
-  MongooseModule.forRoot('mongodb://127.0.0.1/mydb'):DynamicModule
+  imports: [
+    BrowserModule, 
+    IonicModule.forRoot(), 
+    AppRoutingModule, 
+    HttpClientModule,
+    IonicStorageModule.forRoot(),
+    //MongooseModule.forRoot('mongodb://127.0.0.1/mydb')
   ],
   providers: [
     StatusBar,
