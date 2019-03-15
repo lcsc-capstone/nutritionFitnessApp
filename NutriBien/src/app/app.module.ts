@@ -30,7 +30,7 @@ import { MongooseModule } from '@nestjs/mongoose';
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule,IonicStorageModule.forRoot(),
-  MongooseModule.forRoot('mongodb://127.0.0.1/mydb'):DynamicModule
+  MongooseModule.forRoot('mongodb://127.0.0.1/mydb'), DynamicModule
   ],
   providers: [
     StatusBar,
