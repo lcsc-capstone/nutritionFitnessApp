@@ -1,6 +1,6 @@
 import { Component} from '@angular/core';
 import { Router } from '@angular/router';
-import { DatabaseProvider } from './../../../../NutriBien/src/app/database';
+import { DatabaseProvider } from '../database';
 
 
 @Component({

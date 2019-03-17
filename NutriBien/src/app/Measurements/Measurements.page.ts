@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
-import { DatabaseProvider } from './../../../../NutriBien/src/app/database';
+import { DatabaseProvider } from '../database';
 import { Toast } from '@ionic-native/toast/ngx';
 import { NavController } from '@ionic/angular'; 
 import { LoginPage } from '../login/login.page';
