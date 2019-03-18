@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
-import { DatabaseProvider } from './../../../../NutriBien/src/app/database';
+import { DatabaseProvider } from '../database';
 import { Toast } from '@ionic-native/toast/ngx';
 import { NavController } from '@ionic/angular'; 
 import { LoginPage } from '../login/login.page';
@@ -53,6 +53,30 @@ export class  MeasurementsPage {
       }
     );
   });
+  }
+}
+
+@Component({
+  selector: 'Measurements.module.ts',
+  templateUrl: 'Measurements.page.html',
+  styleUrls: ['./Measurements.page.scss'],
+})
+export class MenuExample {
+
+constructor(private menu: MenuController) { }
+
+  openFirst() {
+    this.menu.enable(true, 'first');
+    this.menu.open('first');
+  }
+
+  openEnd() {
+    this.menu.open('end');
+  }
+
+  openCustom() {
+    this.menu.enable(true, 'custom');
+    this.menu.open('custom');
   }
 }
 
