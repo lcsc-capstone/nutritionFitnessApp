@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
 import { DatabaseProvider } from '../database';
 import { Toast } from '@ionic-native/toast/ngx';
-import { NavController, MenuController } from '@ionic/angular'; 
+import { NavController } from '@ionic/angular'; 
 import { LoginPage } from '../login/login.page';
 
 @Component({
