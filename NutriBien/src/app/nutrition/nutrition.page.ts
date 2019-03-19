@@ -62,6 +62,8 @@ export class NutritionPage implements OnInit {
     public Fibers: number;
     public Calories: number;
     private querry: string = '';
+    private nutrition : FormGroup;
+
 
   public submit(ngModel: any): void 
   {
@@ -98,7 +100,6 @@ export class NutritionPage implements OnInit {
     // console.log(this.Fibers); 
   }
     
-  private nutrition : FormGroup;
   
   ngOnInit() {
   }
