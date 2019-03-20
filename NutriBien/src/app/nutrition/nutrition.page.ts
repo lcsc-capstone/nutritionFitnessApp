@@ -78,14 +78,8 @@ export class NutritionPage implements OnInit {
     const MongoClient = require('mongodb').MongoClient;
     const uri = "mongodb+srv://nutri:<password>@nutrition-fitness-app-dsodq.gcp.mongodb.net/test?retryWrites=true";
     const client = new MongoClient(uri, { useNewUrlParser: true });
-    client.connect((_err: any) => {
-      const collection = client.db("nutritionFitnessApp").collection("NUTRITION");
-      // perform actions on the collection object
-      client.close();
-    });
-    
-    client.connect(async (_err: any) => {
-      const collection = client.db("test").collection("devices");
+    client.connect(async(_err: any) => {
+      const collection = client.db("nutritionFitnessApp");
       // perform actions on the collection object
       await client.db.collection('NUTRITION').insertOne({
         PROTEINS: this.Proteins,
@@ -95,7 +89,20 @@ export class NutritionPage implements OnInit {
         CALORIES: this.Calories
       });
       client.close();
-    })
+    });
+    
+    // client.connect(async (_err: any) => {
+    //   const collection = client.db("test").collection("devices");
+    //   // perform actions on the collection object
+    //   await client.db.collection('NUTRITION').insertOne({
+    //     PROTEINS: this.Proteins,
+    //     CARBS: this.Carbs,
+    //     FATS: this.Fats,
+    //     FIBERS: this.Fibers,
+    //     CALORIES: this.Calories
+    //   });
+    //   client.close();
+    // })
 
     // TESTING THE VARIABLE CONTAIN CORRECT VALUES 
     // console.log(this.Proteins);
