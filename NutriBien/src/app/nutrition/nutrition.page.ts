@@ -61,7 +61,6 @@ export class NutritionPage implements OnInit {
     public Fats: number;
     public Fibers: number;
     public Calories: number;
-    private querry: string = '';
     private nutrition : FormGroup;
 
 
