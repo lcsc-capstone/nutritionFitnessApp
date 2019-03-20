@@ -73,9 +73,9 @@ export class NutritionPage implements OnInit {
     this.database.createTables();
     this.database.executeSql(this.querry);*/
 
-    const MongoClient = require('mongodb').MongoClient;
-    const uri = "mongodb+srv://nutri:<password>@nutrition-fitness-app-dsodq.gcp.mongodb.net/test?retryWrites=true";
-    const client = new MongoClient(uri, { useNewUrlParser: true });
+    let MongoClient = require('mongodb').MongoClient;
+    let uri = "mongodb+srv://nutri:<bien>@nutrition-fitness-app-dsodq.gcp.mongodb.net/test?retryWrites=true";
+    let client = new MongoClient(uri, { useNewUrlParser: true });
     client.connect((_err: any) => {
       const collection = client.db("test").collection("devices");
       // perform actions on the collection object
