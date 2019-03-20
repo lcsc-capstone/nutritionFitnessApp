@@ -79,9 +79,9 @@ export class NutritionPage implements OnInit {
     const uri = "mongodb+srv://nutri:<password>@nutrition-fitness-app-dsodq.gcp.mongodb.net/test?retryWrites=true";
     const client = new MongoClient(uri, { useNewUrlParser: true });
     client.connect(async(_err: any) => {
-      const collection = client.db("nutritionFitnessApp");
+      const nutri = client.db("nutritionFitnessApp");
       // perform actions on the collection object
-      await client.db.collection('NUTRITION').insertOne({
+      await nutri.collection('NUTRITION').insertOne({
         PROTEINS: this.Proteins,
         CARBS: this.Carbs,
         FATS: this.Fats,
