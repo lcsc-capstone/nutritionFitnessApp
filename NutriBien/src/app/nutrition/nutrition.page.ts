@@ -5,7 +5,7 @@ import '../database.js';
 import { NutrientsValidator } from  './../../../../NutriBien/src/app/validators/nutrients';
 //import { AppModule} from './../../../../NutriBien/src/app/app.module';
 
-declare var require: any
+//declare var require: any
 
 
 @Component({
@@ -30,6 +30,7 @@ export class NutritionPage implements OnInit {
     private formBuilder: FormBuilder
   )
     {
+
       this.nutrition = this.formBuilder.group(
       {
         //ADD PROMT TEXT FOR ALL VALIDATORS//
@@ -62,6 +63,8 @@ export class NutritionPage implements OnInit {
     public Fibers: number;
     public Calories: number;
     private nutrition : FormGroup;
+    
+  
 
 
   public submit(ngModel: any): void 
@@ -72,11 +75,11 @@ export class NutritionPage implements OnInit {
     this.database.createTables();
     this.database.executeSql(this.querry);*/
 
-    let MongoClient = require('mongodb').MongoClient;
-    let uri = "mongodb+srv://nutri:<bien>@nutrition-fitness-app-dsodq.gcp.mongodb.net/test?retryWrites=true";
-    let client = new MongoClient(uri, { useNewUrlParser: true });
+    const MongoClient = require('mongodb').MongoClient;
+    const uri = "mongodb+srv://nutri:<password>@nutrition-fitness-app-dsodq.gcp.mongodb.net/test?retryWrites=true";
+    const client = new MongoClient(uri, { useNewUrlParser: true });
     client.connect((_err: any) => {
-      const collection = client.db("test").collection("devices");
+      const collection = client.db("nutritionFitnessApp").collection("NUTRITION");
       // perform actions on the collection object
       client.close();
     });
