@@ -1,6 +1,6 @@
 import { Component} from '@angular/core';
 import { Router } from '@angular/router';
-import { DatabaseProvider } from '../database';
+//import { DatabaseProvider } from '../database';
 
 
 @Component({
@@ -9,20 +9,11 @@ import { DatabaseProvider } from '../database';
   styleUrls: ['./login.page.scss'],
 })
 export class  LoginPage {
-  constructor(private router: Router,
-    public database: DatabaseProvider){}
-
-  ionViewDidLoad() {
-    this.database.createDbFile()
-    this.database.createTables();
-  }
-
-  ionViewWillEnter() {
-    this.database.createDbFile()
-    this.database.createTables();
-  }
-
-  signUp(){
+  constructor(private router: Router)
+  {}
+  signUp()
+  {
     this.router.navigate(['register']);
   }
 }
+
