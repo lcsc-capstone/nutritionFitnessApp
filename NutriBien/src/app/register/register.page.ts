@@ -26,13 +26,13 @@ const STORAGE_KEY = 'my_images';
 
 export class  RegisterPage {
   
-  data = {lastName: "", firstName: "", phoneNumber: 0, emailAddress: "", password: "", birthday: "", height: 0}
-  images = [];
+  //data = {lastName: "", firstName: "", phoneNumber: 0, emailAddress: "", password: "", birthday: "", height: 0}
+  //images = [];
 
-  constructor(private router: Router, private sqlite: SQLite, private database: DatabaseProvider, private toast: Toast, private navCtrl: NavController, private camera: Camera, private file: File, private http: HttpClient, private webview: WebView, private actionSheetController: ActionSheetController, private toastController: ToastController, private storage: Storage, private plt: Platform, private loadingController: LoadingController, private ref: ChangeDetectorRef, private filePath: FilePath){}
+  constructor(){}
 
 
-  registerData(){
+  /*registerData(){
     this.sqlite.create({
       name: 'nutri.db',
       location: 'default'
@@ -132,6 +132,6 @@ export class  RegisterPage {
           n = d.getTime(),
           newFileName = n + ".jpg";
       return newFileName;
-  }
+  }*/
 }
 
