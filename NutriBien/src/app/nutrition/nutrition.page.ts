@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule, Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import '../database.js';
 import { NutrientsValidator } from  './../../../../NutriBien/src/app/validators/nutrients';
-import * as mongodb from './../../../../NutriBien/node_modules/@types/mongodb/index';
-//import { AppModule} from './../../../../NutriBien/src/app/app.module';
+import * as mongodb from 'mongodb';
+
 
 @Component({
   selector: 'app-nutrition',
@@ -25,7 +25,8 @@ export class NutritionPage implements OnInit {
 
   
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    
   )
     {
 
