@@ -12,14 +12,14 @@ import * as mongodb from 'mongodb';
   templateUrl: './nutrition.page.html',
   styleUrls: ['./nutrition.page.scss'],
 })
-
+/*
 @NgModule({
   imports:[
     ReactiveFormsModule,
     FormsModule,
   ],
   declarations: [NutritionPage]
-})
+})*/
 
 export class NutritionPage implements OnInit {
   
@@ -110,7 +110,6 @@ export class NutritionPage implements OnInit {
   }
     
   
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }

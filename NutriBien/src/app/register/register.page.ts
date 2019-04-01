@@ -16,6 +16,9 @@ import { FilePath } from '@ionic-native/file-path/ngx';
 import { finalize } from 'rxjs/operators';
 import { LoginPage } from '../login/login.page';
 
+import * as mongodb from 'mongodb';
+
+
 const STORAGE_KEY = 'my_images';
 
 @Component({
@@ -29,8 +32,27 @@ export class  RegisterPage {
   //data = {lastName: "", firstName: "", phoneNumber: 0, emailAddress: "", password: "", birthday: "", height: 0}
   //images = [];
 
-  constructor(){}
-
+  constructor(){
+  }
+/////MONGO CONNECTION AND PUSH/////
+  /*
+  registerData()
+  {
+    const uri = "mongodb+srv://nutri:<bien>@nutrition-fitness-app-dsodq.gcp.mongodb.net/test?retryWrites=true";
+    const client = new mongodb.MongoClient(uri, { useNewUrlParser: true });
+    client.connect(async(_err: any) => {
+      const nutri = client.db("nutritionFitnessApp");
+      console.log("connected to Mongo, whohoo!");
+      // perform actions on the collection object
+      await nutri.collection('PROFILE').insertOne({
+        LASTNAME: this.,
+        FIRSTNAME: this.,
+        PHONE: this.,
+      });
+      client.close();
+    });
+  }
+  */
 
   /*registerData(){
     this.sqlite.create({
