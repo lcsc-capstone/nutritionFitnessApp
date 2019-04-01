@@ -8,47 +8,47 @@
   <form>
     <ion-item>
       <ion-label position="floating">Last Name</ion-label>
-      <ion-input type="text" name="lastName" required=""></ion-input>
+      <ion-input type="text" [(ngModel)]="lastName" required=""></ion-input>
     </ion-item>  
     
     <ion-item>
       <ion-label position="floating">First Name</ion-label>
-      <ion-input type="text" name="firstName" required=""></ion-input>
+      <ion-input type="text" [(ngModel)]="firstName" required=""></ion-input>
     </ion-item>  
     
     <ion-item>
       <ion-label position="floating">Phone Number</ion-label>
-      <ion-input type="tel"  name="phoneNumber" ></ion-input>
+      <ion-input type="tel"  [(ngModel)]="phoneNumber" ></ion-input>
     </ion-item>  
 
     <ion-item>
       <ion-label position="floating">Email Address</ion-label>
-      <ion-input type="text" name="emailAddress" required=""></ion-input>
+      <ion-input type="text" [(ngModel)]="emailAddress" required=""></ion-input>
     </ion-item>  
 
     <ion-item>
       <ion-label position="floating">Password</ion-label>
-      <ion-input type="password" name="password" required=""></ion-input>
+      <ion-input type="password" [(ngModel)]="password" required=""></ion-input>
     </ion-item>  
 
     <ion-item>
       <ion-label position="floating">Confirm Password</ion-label>
-      <ion-input type="password"  name="conformPassword" required=""></ion-input>
+      <ion-input type="password"  [(ngModel)]="conformPassword" required=""></ion-input>
     </ion-item>  
 
     <ion-item>
       <ion-label position="floating">Date of Birth</ion-label>
-      <ion-datetime type="date"  name="birthday" required=""></ion-datetime>
+      <ion-datetime type="date"  [(ngModel)]="birthday" required=""></ion-datetime>
     </ion-item>  
 
     <ion-item>
       <ion-label position="floating">Height</ion-label>
-      <ion-input type="number" name="height" ></ion-input>
+      <ion-input type="number" [(ngModel)]="height" ></ion-input>
     </ion-item>  
 
     <ion-label position="floating">Profile Picture</ion-label>
     <ion-button  style="width: 100%; text-align: center;" (click)="selectImage()">
-        <ion-icon slot="start" name="camera"></ion-icon> Select Image
+        <ion-icon slot="start" [(ngModel)]="camera"></ion-icon> Select Image
     </ion-button>
     
     <ion-button type="submit" mode="ios">Register</ion-button>
