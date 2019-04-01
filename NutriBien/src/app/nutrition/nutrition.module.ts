@@ -4,8 +4,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
-import { NutritionPage } from './nutrition.page';
-import { FormsModule, ReactiveFormsModule, Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { NutritionPage } from './../../../../nutribien/src/app/nutrition/nutrition.page';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -19,10 +19,7 @@ import { FormsModule, ReactiveFormsModule, Validators, FormBuilder, FormGroup, F
 
 })
 
-export class NutritionPageModule {
-
-
-}
+export class NutritionPageModule {}
 
 
 

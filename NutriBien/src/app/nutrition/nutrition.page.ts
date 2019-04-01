@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule, Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import '../database.js';
-import { NutrientsValidator } from  './../../../../NutriBien/src/app/validators/nutrients';
+import { NutrientsValidator } from  './../../../../nutribien/src/app/validators/nutrients';
 import * as mongodb from 'mongodb';
+
 
 
 @Component({
@@ -21,8 +22,6 @@ import * as mongodb from 'mongodb';
 })
 
 export class NutritionPage implements OnInit {
-
-
   
   constructor(
     private formBuilder: FormBuilder,
