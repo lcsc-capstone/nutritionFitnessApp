@@ -1,11 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { RouterModule } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
-import { NutritionPage } from './../../../../nutribien/src/app/nutrition/nutrition.page';
+import { NutritionPage } from './nutrition.page';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+const routes: Routes = [
+  {
+    path: '',
+    component: NutritionPage
+  }
+];
 
 @NgModule({
   imports: [
@@ -13,7 +20,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     IonicModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forChild([{ path: '', component: NutritionPage }])
+    RouterModule.forChild(routes)
   ],
   declarations: [NutritionPage]
 
