@@ -2,10 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule, Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import '../database.js';
-import { NutrientsValidator } from  './../../../../NutriBien/src/app/validators/nutrients';
-//import { AppModule} from './../../../../NutriBien/src/app/app.module';
+import { NutrientsValidator } from  './../../../../nutribien/src/app/validators/nutrients';
+import * as mongodb from 'mongodb';
 
-//declare var require: any
 
 
 @Component({
@@ -23,11 +22,10 @@ import { NutrientsValidator } from  './../../../../NutriBien/src/app/validators/
 })
 
 export class NutritionPage implements OnInit {
-
-
   
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    
   )
     {
 
@@ -75,11 +73,13 @@ export class NutritionPage implements OnInit {
     this.database.createTables();
     this.database.executeSql(this.querry);*/
 
-    const MongoClient = require('mongodb').MongoClient;
-    const uri = "mongodb+srv://nutri:<password>@nutrition-fitness-app-dsodq.gcp.mongodb.net/test?retryWrites=true";
-    const client = new MongoClient(uri, { useNewUrlParser: true });
+    //const MongoClient = require('mongodb').MongoClient;
+    const uri = "mongodb+srv://nutri:<bien>@nutrition-fitness-app-dsodq.gcp.mongodb.net/test?retryWrites=true";
+    const client = new mongodb.MongoClient(uri, { useNewUrlParser: true });
     client.connect(async(_err: any) => {
       const nutri = client.db("nutritionFitnessApp");
+      console.log(this.Proteins);
+      console.log("connected to Mongo, whohoo!");
       // perform actions on the collection object
       await nutri.collection('NUTRITION').insertOne({
         PROTEINS: this.Proteins,
