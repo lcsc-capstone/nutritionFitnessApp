@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule, Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
-import '../database.js';
 import { NutrientsValidator } from  './../../../../nutribien/src/app/validators/nutrients';
 import * as mongodb from 'mongodb';
 
@@ -12,16 +11,8 @@ import * as mongodb from 'mongodb';
   templateUrl: './nutrition.page.html',
   styleUrls: ['./nutrition.page.scss'],
 })
-/*
-@NgModule({
-  imports:[
-    ReactiveFormsModule,
-    FormsModule,
-  ],
-  declarations: [NutritionPage]
-})*/
 
-export class NutritionPage implements OnInit {
+export class NutritionPage{
   
   constructor(
     private formBuilder: FormBuilder,
@@ -65,7 +56,7 @@ export class NutritionPage implements OnInit {
   
 
 
-  public submit(ngModel: any): void 
+  public submit(): void 
   {
     /* USING SQLITE STORAGE
     this.querry = 'INSERT INTO NUTRITION VALUES (NULL, ?, ?, ?, ?, ?)', [this.Proteins, this.Carbs, this.Fats, this.Fibers, this.Calories];
@@ -74,7 +65,7 @@ export class NutritionPage implements OnInit {
     this.database.executeSql(this.querry);*/
 
     //const MongoClient = require('mongodb').MongoClient;
-    const uri = "mongodb+srv://nutri:<bien>@nutrition-fitness-app-dsodq.gcp.mongodb.net/test?retryWrites=true";
+    const uri = "mongodb+srv://nutri:<bien>@nutrition-fitness-app-dsodq.gcp.mongodb.net/admin?retryWrites=true";
     const client = new mongodb.MongoClient(uri, { useNewUrlParser: true });
     client.connect(async(_err: any) => {
       const nutri = client.db("nutritionFitnessApp");
@@ -91,19 +82,6 @@ export class NutritionPage implements OnInit {
       client.close();
     });
     
-    // client.connect(async (_err: any) => {
-    //   const collection = client.db("test").collection("devices");
-    //   // perform actions on the collection object
-    //   await client.db.collection('NUTRITION').insertOne({
-    //     PROTEINS: this.Proteins,
-    //     CARBS: this.Carbs,
-    //     FATS: this.Fats,
-    //     FIBERS: this.Fibers,
-    //     CALORIES: this.Calories
-    //   });
-    //   client.close();
-    // })
-
     // TESTING THE VARIABLE CONTAIN CORRECT VALUES 
     // console.log(this.Proteins);
     // console.log(this.Fibers); 
