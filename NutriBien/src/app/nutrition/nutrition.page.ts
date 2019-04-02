@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule, Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { NutrientsValidator } from  './../../../../nutribien/src/app/validators/nutrients';
 import * as mongodb from 'mongodb';
 
@@ -13,7 +13,7 @@ import * as mongodb from 'mongodb';
 })
 
 export class NutritionPage{
-  
+   
   constructor(
     private formBuilder: FormBuilder,
     
@@ -52,11 +52,8 @@ export class NutritionPage{
     public Fibers: number;
     public Calories: number;
     private nutrition : FormGroup;
-    
-  
 
-
-  public submit(): void 
+    public submit(): void 
   {
     /* USING SQLITE STORAGE
     this.querry = 'INSERT INTO NUTRITION VALUES (NULL, ?, ?, ?, ?, ?)', [this.Proteins, this.Carbs, this.Fats, this.Fibers, this.Calories];
@@ -64,10 +61,10 @@ export class NutritionPage{
     this.database.createTables();
     this.database.executeSql(this.querry);*/
 
-    //const MongoClient = require('mongodb').MongoClient;
-    const uri = "mongodb+srv://nutri:<bien>@nutrition-fitness-app-dsodq.gcp.mongodb.net/admin?retryWrites=true";
-    const client = new mongodb.MongoClient(uri, { useNewUrlParser: true });
-    client.connect(async(_err: any) => {
+     //const MongoClient = require('mongodb').MongoClient;
+     const uri = "mongodb+srv://nutri:<bien>@nutrition-fitness-app-dsodq.gcp.mongodb.net/admin?retryWrites=true";
+     const client = new mongodb.MongoClient(uri, { useNewUrlParser: true });
+     client.connect(async(_err: any) => {
       const nutri = client.db("nutritionFitnessApp");
       console.log(this.Proteins);
       console.log("connected to Mongo, whohoo!");
@@ -81,13 +78,14 @@ export class NutritionPage{
       });
       client.close();
     });
+   
     
     // TESTING THE VARIABLE CONTAIN CORRECT VALUES 
     // console.log(this.Proteins);
     // console.log(this.Fibers); 
   }
-    
   
   ngOnInit() {}
-
+    
 }
+

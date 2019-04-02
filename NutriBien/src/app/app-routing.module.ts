@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
+
 const routes: Routes = [
   { path: '', loadChildren: './tabs/tabs.module#TabsPageModule' },
   { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
-  { path: 'nutrition', loadChildren: './nutrition/nutrition.module#NutritionPageModule' },
+  { path: 'nutrition', loadChildren: './nutrition/nutrition.module#NutritionPageModule'},
   { path: 'register', loadChildren: './register/register.module#RegisterPageModule' },
   { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' }
 
@@ -16,3 +17,5 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
+
+
