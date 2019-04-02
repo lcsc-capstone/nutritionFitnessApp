@@ -14,12 +14,8 @@ import * as mongodb from 'mongodb';
 
 export class NutritionPage{
    
-  constructor(
-    private formBuilder: FormBuilder,
-    
-  )
+  constructor(private formBuilder: FormBuilder)
     {
-
       this.nutrition = this.formBuilder.group(
       {
         //ADD PROMT TEXT FOR ALL VALIDATORS//
@@ -53,39 +49,31 @@ export class NutritionPage{
     public Calories: number;
     private nutrition : FormGroup;
 
-    public submit(): void 
+    /*public submit(): void 
   {
-    /* USING SQLITE STORAGE
-    this.querry = 'INSERT INTO NUTRITION VALUES (NULL, ?, ?, ?, ?, ?)', [this.Proteins, this.Carbs, this.Fats, this.Fibers, this.Calories];
-    this.database.createDbFile();
-    this.database.createTables();
-    this.database.executeSql(this.querry);*/
+  
 
-     //const MongoClient = require('mongodb').MongoClient;
-     const uri = "mongodb+srv://nutri:<bien>@nutrition-fitness-app-dsodq.gcp.mongodb.net/admin?retryWrites=true";
-     const client = new mongodb.MongoClient(uri, { useNewUrlParser: true });
-     client.connect(async(_err: any) => {
-      const nutri = client.db("nutritionFitnessApp");
-      console.log(this.Proteins);
-      console.log("connected to Mongo, whohoo!");
+    //const MongoClient = require('mongodb').MongoClient;
+    const uri = "mongodb+srv://nutri:<bien>@nutrition-fitness-app-dsodq.gcp.mongodb.net/admin?retryWrites=true";
+    const client = new mongodb.MongoClient(uri, { useNewUrlParser: true });
+    client.connect(async(_err: any) => {
+      //const nutri = client.db("nutritionFitnessApp");
+      //console.log("connected to Mongo, whohoo!");
       // perform actions on the collection object
-      await nutri.collection('NUTRITION').insertOne({
+      /*await nutri.collection('NUTRITION').insertOne({
         PROTEINS: this.Proteins,
         CARBS: this.Carbs,
-        FATS: this.Fats,
-        FIBERS: this.Fibers,
-        CALORIES: this.Calories
+        FIBERS: this.Fibers
       });
       client.close();
     });
-   
     
     // TESTING THE VARIABLE CONTAIN CORRECT VALUES 
     // console.log(this.Proteins);
     // console.log(this.Fibers); 
-  }
+  }*/
   
-  ngOnInit() {}
+  //ngOnInit() {}
     
 }
 
