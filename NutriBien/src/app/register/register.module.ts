@@ -24,3 +24,4 @@ const routes: Routes = [
   declarations: [RegisterPage]
 })
 export class RegisterPageModule {}
+

@@ -1,25 +1,26 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
-import { NutritionPage } from './../../../../nutribien/src/app/nutrition/nutrition.page';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NutritionPage } from './nutrition.page';
+
+const routes: Routes = [
+  {
+    path: '',
+    component: NutritionPage
+  }
+];
 
 @NgModule({
   imports: [
     CommonModule,
-    IonicModule,
     FormsModule,
+    IonicModule,
     ReactiveFormsModule,
-    RouterModule.forChild([{ path: '', component: NutritionPage }])
+    RouterModule.forChild(routes)
   ],
   declarations: [NutritionPage]
-
 })
-
 export class NutritionPageModule {}
-
-
-

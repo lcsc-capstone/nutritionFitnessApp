@@ -16,6 +16,9 @@ import { FilePath } from '@ionic-native/file-path/ngx';
 import { finalize } from 'rxjs/operators';
 import { LoginPage } from '../login/login.page';
 
+import * as mongodb from 'mongodb';
+
+
 const STORAGE_KEY = 'my_images';
 
 @Component({
@@ -28,9 +31,40 @@ export class  RegisterPage {
   
   //data = {lastName: "", firstName: "", phoneNumber: 0, emailAddress: "", password: "", birthday: "", height: 0}
   //images = [];
-
-  constructor(){}
-
+  data = {lastName: "", firstName: "", phoneNumber: 0, emailAddress: "", password: "", birthday: "", height: 0}
+  constructor(){
+  }
+/////MONGO CONNECTION AND PUSH/////
+/*public lastName: string;
+public firstName: string;
+public phoneNumber: number;
+public emailAddress: string;
+public password: string;
+public birthday: string;
+public height: number;*/
+  
+  submit()
+  {
+    
+    const uri = "mongodb+srv://nutri:<bien>@nutrition-fitness-app-dsodq.gcp.mongodb.net/admin?retryWrites=true";
+    const client = new mongodb.MongoClient(uri, { useNewUrlParser: true });
+    client.connect(async(_err: any) => {
+      const nutri = client.db("nutritionFitnessApp");
+      console.log("connected to Mongo, whohoo!");
+      // perform actions on the collection object
+      await nutri.collection('PROFILE').insertOne({
+        LASTNAME: this.data.lastName,
+        FIRSTNAME: this.data.firstName,
+        PHONE: this.data.phoneNumber,
+        EMAIL: this.data.emailAddress,
+        PASSWORD: this.data.password,
+        DATE_OF_BIRTH: this.data.birthday,
+        HEIGHT: this.data.height,
+      });
+      client.close();
+    });
+  }
+  
 
   /*registerData(){
     this.sqlite.create({
