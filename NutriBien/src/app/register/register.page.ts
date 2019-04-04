@@ -52,15 +52,15 @@ public height: number;*/
       const nutri = client.db("nutritionFitnessApp");
       console.log("connected to Mongo, whohoo!");
       // perform actions on the collection object
-      await nutri.collection('PROFILE').insertOne({
-        LASTNAME: this.data.lastName,
-        FIRSTNAME: this.data.firstName,
-        PHONE: this.data.phoneNumber,
-        EMAIL: this.data.emailAddress,
-        PASSWORD: this.data.password,
-        DATE_OF_BIRTH: this.data.birthday,
-        HEIGHT: this.data.height,
-      });
+      await nutri.collection('PROFILE').insertMany([
+        {LASTNAME: this.data.lastName},
+        {FIRSTNAME: this.data.firstName},
+        {PHONE: this.data.phoneNumber},
+        {EMAIL: this.data.emailAddress},
+        {PASSWORD: this.data.password},
+        {DATE_OF_BIRTH: this.data.birthday},
+        {HEIGHT: this.data.height}
+      ]);
       client.close();
     });
   }
