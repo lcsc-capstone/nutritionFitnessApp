@@ -7,6 +7,7 @@ const routes: Routes = [
   { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
   { path: 'nutrition', loadChildren: './nutrition/nutrition.module#NutritionPageModule'},
   { path: 'register', loadChildren: './register/register.module#RegisterPageModule' },
+  { path: 'workout', loadChildren: './Workout/Workout.module#WorkoutPageModule' },
   { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' }
 
 ];
