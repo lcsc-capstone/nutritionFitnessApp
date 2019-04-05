@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { NutrientsValidator } from  './../../../../nutribien/src/app/validators/nutrients';
-import * as mongoose from 'mongoose';
-
 
 
 @Component({
@@ -46,14 +44,14 @@ export class NutritionPage{
 
   public submit()
   {
-    //const MongoClient = require('mongodb').MongoClient;
-    const uri = "mongodb+srv://nutri:<bien>@nutrition-fitness-app-dsodq.gcp.mongodb.net/admin?retryWrites=true";
     
-    const client = mongoose.createConnection(uri);
-    client.on("error", function(err)
-    {
-      console.log("connection error:", err);
-    });
+
+
+
+
+    // TESTING THE VARIABLE CONTAIN CORRECT VALUES 
+    // console.log(this.Proteins);
+    // console.log(this.Fibers); 
 
   }
   ngOnInit() {}
