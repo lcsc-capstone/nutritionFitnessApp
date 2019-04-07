@@ -44,8 +44,7 @@ public height: number;*/
   
   submit()
   {
-    
-    const uri = "mongodb+srv://nutri:<bien>@nutrition-fitness-app-dsodq.gcp.mongodb.net/admin?retryWrites=true";
+    /*const uri = "mongodb+srv://nutri:<bien>@nutrition-fitness-app-dsodq.gcp.mongodb.net/admin?retryWrites=true";
     const client = new mongodb.MongoClient(uri, { useNewUrlParser: true });
     client.connect(async(_err: any) => {
       const nutri = client.db("nutritionFitnessApp");
@@ -61,7 +60,7 @@ public height: number;*/
         {HEIGHT: this.data.height}
       ]);
       client.close();
-    });
+    });*/
   }
   
 
