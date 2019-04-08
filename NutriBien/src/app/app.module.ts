@@ -21,6 +21,7 @@ import { FilePath } from '@ionic-native/file-path/ngx';
  
 import { IonicStorageModule } from '@ionic/storage';
 
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
