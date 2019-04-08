@@ -1,4 +1,5 @@
-import * as mongoose from 'mongoose'
+import * as mongoose from 'mongoose';
+import { RegisterPage } from './nutribien/src/app/register/register.page';
 
 const uri = "mongodb+srv://nutri:<bien>@nutrition-fitness-app-dsodq.gcp.mongodb.net/admin?retryWrites=true";
     
@@ -72,7 +73,7 @@ var StatisticsSchema = new Schema
 
 
 
-const PROFILE = mongoose.model('PROFILE', ProfileSchema);
+const PROFILE = mongoose.model<RegisterPage & mongoose.Document>('PROFILE', ProfileSchema);
 const EXERCISE = mongoose.model('EXERCISE', ExercixeSchema);
 const MEASUREMENTS = mongoose.model('MEASUREMENTS', MeasurementsSchema);
 const NUTRITION = mongoose.model('NUTRITION', NutritionSchema);
