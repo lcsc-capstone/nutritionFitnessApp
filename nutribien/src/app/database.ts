@@ -73,7 +73,7 @@ var MEASUREMENTS = mongoose.model('MEASUREMENTS', MeasurementsSchema);
 var NUTRITION = mongoose.model('NUTRITION', NutritionSchema);
 var STATISTICS = mongoose.model('STATISTICS', StatisticsSchema);
 
-@NgModule({
+/*@NgModule({
     
     exports: 
     [
@@ -83,5 +83,6 @@ var STATISTICS = mongoose.model('STATISTICS', StatisticsSchema);
         NUTRITION,
         STATISTICS
     ]
-  })
+  })*/
   export class db {};
+  

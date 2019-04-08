@@ -21,8 +21,6 @@ import { FilePath } from '@ionic-native/file-path/ngx';
  
 import { IonicStorageModule } from '@ionic/storage';
 
-import * as mongoose from '@nestjs/mongoose';
-
 
 @NgModule({
   declarations: [AppComponent],
