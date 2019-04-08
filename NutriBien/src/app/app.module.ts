@@ -21,6 +21,7 @@ import { FilePath } from '@ionic-native/file-path/ngx';
  
 import { IonicStorageModule } from '@ionic/storage';
 
+import { Mongoose } from 'mongoose';
 
 @NgModule({
   declarations: [AppComponent],
@@ -36,7 +37,8 @@ import { IonicStorageModule } from '@ionic/storage';
     Camera,
     File,
     WebView,
-    FilePath
+    FilePath,
+    Mongoose
   ],
   bootstrap: [AppComponent]
 })

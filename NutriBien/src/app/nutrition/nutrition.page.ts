@@ -42,14 +42,20 @@ export class NutritionPage{
   public Fats: number;
   public Fibers: number;
   public Calories: number;
+  public id = 0o0111;
   private nutrition : FormGroup;
 
   public submit()
   {
-    
-
-    
-
+    MY_NUTRITION.insertMany([{ID_NUM: this.id,
+      PROTEINS: this.Proteins,
+      CARBS: this.Carbs,
+      FATS: this.Fats,
+      FIBERS: this.Fibers,
+      CALORIES: this.Calories }], function(err)
+    {
+      console.log("connection error:", err);
+    });
 
     // TESTING THE VARIABLE CONTAIN CORRECT VALUES 
     // console.log(this.Proteins);
