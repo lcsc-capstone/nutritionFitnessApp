@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { NutrientsValidator } from  './../../../../nutribien/src/app/validators/nutrients';
+import * as db from './../../../../database';
 
+var MY_NUTRITION = db.default.NUTRITION;
 
 @Component({
   selector: 'app-nutrition',
@@ -46,7 +48,7 @@ export class NutritionPage{
   {
     
 
-
+    
 
 
     // TESTING THE VARIABLE CONTAIN CORRECT VALUES 

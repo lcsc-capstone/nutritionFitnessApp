@@ -80,3 +80,10 @@ const STATISTICS = mongoose.model('STATISTICS', StatisticsSchema);
 
 export default { PROFILE, EXERCISE, MEASUREMENTS, NUTRITION, STATISTICS}  ;
 
+
+/*
+export default { PROFILE} ;
+export default EXERCISE;
+export default MEASUREMENTS;
+export default NUTRITION;
+export default STATISTICS;*/
