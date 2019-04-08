@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import * as express from 'express';
+import { }
 import { Router } from '@angular/router';
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
 import { Toast } from '@ionic-native/toast/ngx';
@@ -44,6 +46,15 @@ public height: number;*/
   
   submit()
   {
+
+    function createPost(request: express.Request, response: express.Response) {
+      const postData: Post = request.body;
+      const createdPost = new postModel(postData);
+      createdPost.save()
+        .then(savedPost => {
+          response.send(savedPost);
+        })
+    }
     /*const uri = "mongodb+srv://nutri:<bien>@nutrition-fitness-app-dsodq.gcp.mongodb.net/admin?retryWrites=true";
     const client = new mongodb.MongoClient(uri, { useNewUrlParser: true });
     client.connect(async(_err: any) => {
