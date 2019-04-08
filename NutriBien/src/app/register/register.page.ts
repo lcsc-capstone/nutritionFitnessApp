@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as express from 'express';
-import { }
+import * as db from './../../../../database';
 import { Router } from '@angular/router';
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
 import { Toast } from '@ionic-native/toast/ngx';
@@ -18,9 +18,11 @@ import { finalize } from 'rxjs/operators';
 import { LoginPage } from '../login/login.page';
 
 import * as mongodb from 'mongodb';
+import { Profile } from 'selenium-webdriver/firefox';
 
 
 const STORAGE_KEY = 'my_images';
+var profile = db.default.PROFILE;
 
 @Component({
   selector: 'app-register',
@@ -28,33 +30,29 @@ const STORAGE_KEY = 'my_images';
   styleUrls: ['./register.page.scss'],
 })
 
-export class  RegisterPage {
+export class RegisterPage {
   
   //data = {lastName: "", firstName: "", phoneNumber: 0, emailAddress: "", password: "", birthday: "", height: 0}
   //images = [];
-  data = {lastName: "", firstName: "", phoneNumber: 0, emailAddress: "", password: "", birthday: "", height: 0}
-  constructor(){
-  }
-/////MONGO CONNECTION AND PUSH/////
-/*public lastName: string;
-public firstName: string;
-public phoneNumber: number;
-public emailAddress: string;
-public password: string;
-public birthday: string;
-public height: number;*/
+  public path = '/app/register';
+  public router = express.Router();
   
-  submit()
-  {
+  constructor(){
+    this.initializeRoutes();
+  }
+  private initializeRoutes() {
+    this.router.post(this.path, this.createProfile);
+  }
+  
 
-    function createPost(request: express.Request, response: express.Response) {
-      const postData: Post = request.body;
-      const createdPost = new postModel(postData);
-      createdPost.save()
-        .then(savedPost => {
-          response.send(savedPost);
-        })
-    }
+  private createProfile = (request: express.Request, response: express.Response) => {
+    const registerData: RegisterPage = request.body;
+    const createdProfile = new profile(registerData);
+    createdProfile.save()
+      .then(savedRegister => {
+        response.send(savedRegister);
+      })
+  }
     /*const uri = "mongodb+srv://nutri:<bien>@nutrition-fitness-app-dsodq.gcp.mongodb.net/admin?retryWrites=true";
     const client = new mongodb.MongoClient(uri, { useNewUrlParser: true });
     client.connect(async(_err: any) => {
@@ -72,7 +70,7 @@ public height: number;*/
       ]);
       client.close();
     });*/
-  }
+  
   
 
   /*registerData(){
