@@ -19,7 +19,7 @@ client.once("open", function(){
 
 const Schema = mongoose.Schema;
 
-var ProfileSchema = new Schema
+export const ProfileSchema = new Schema
 ({
     ID_NUM: {type: Number},
     LASTNAME: {type: String},
@@ -32,7 +32,7 @@ var ProfileSchema = new Schema
     INCHES: {type: Number}
 });
 
-var ExercixeSchema = new Schema
+export const ExercixeSchema = new Schema
 ({
     ID_NUM: {type: Number},
     TIME: {type: Number},
@@ -40,7 +40,7 @@ var ExercixeSchema = new Schema
     DISTANCE: {type: Number}
 });
 
-var MeasurementsSchema = new Schema
+export const MeasurementsSchema = new Schema
 ({
     ID_NUM: {type: Number},
     NECK: {type: Number},
@@ -50,7 +50,7 @@ var MeasurementsSchema = new Schema
     BICEP: {type: Number}
 });
 
-var NutritionSchema = new Schema
+export const NutritionSchema = new Schema
 ({
     ID_NUM: {type: Number},
     PROTEINS: {type: Number},
@@ -60,7 +60,7 @@ var NutritionSchema = new Schema
     CALORIES: {type: Number}
 });
 
-var StatisticsSchema = new Schema
+export const StatisticsSchema = new Schema
 ({
     ID_NUM: {type: Number},
     DATE: {type: Date},
