@@ -22,6 +22,8 @@ import { FilePath } from '@ionic-native/file-path/ngx';
 import { IonicStorageModule } from '@ionic/storage';
 
 import { Mongoose } from 'mongoose';
+import { MongooseModule } from '@nestjs/mongoose';
+import { Module } from '@nestjs/common';
 
 @NgModule({
   declarations: [AppComponent],
@@ -41,6 +43,11 @@ import { Mongoose } from 'mongoose';
     Mongoose
   ],
   bootstrap: [AppComponent]
+})
+
+@Module({
+
+  imports: [MongooseModule.forRoot('mongodb+srv://nutri:<bien>@nutrition-fitness-app-dsodq.gcp.mongodb.net/admin?retryWrites=true')],
 })
 
 export class AppModule {}
