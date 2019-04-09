@@ -1,4 +1,4 @@
-import * as mongoose from 'mongoose';
+import * as mongoose from './nutribien/node_modules/mongoose';
 import { RegisterPage } from './nutribien/src/app/register/register.page';
 
 const uri = "mongodb+srv://nutri:<bien>@nutrition-fitness-app-dsodq.gcp.mongodb.net/admin?retryWrites=true";
