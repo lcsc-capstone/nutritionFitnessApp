@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../api.service';
+import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { Profile } from '../tables'
 import * as express from 'express';
-//import * as db from './../../../../database';
 import { Router } from '@angular/router';
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
 import { Toast } from '@ionic-native/toast/ngx';
@@ -18,7 +20,8 @@ import { finalize } from 'rxjs/operators';
 import { LoginPage } from '../login/login.page';
 
 import * as mongodb from 'mongodb';
-import { Profile } from 'selenium-webdriver/firefox';
+import { RegistrationValidator } from '../validators/registration';
+//import { Profile } from 'selenium-webdriver/firefox';
 
 
 const STORAGE_KEY = 'my_images';
@@ -31,6 +34,32 @@ const STORAGE_KEY = 'my_images';
 })
 
 export class RegisterPage {
+  registerForm: FormGroup;
+  constructor(private formBuilder: FormBuilder,public api: ApiService ){
+    this.registerForm = this.formBuilder.group({
+      Proteins: new FormControl('Proteins', Validators.compose([
+        Validators.required,
+        RegistrationValidator.isValid
+      ])),
+      Carbs: new FormControl('Carbs', Validators.compose([
+        Validators.required,
+        RegistrationValidator.isValid
+      ])),
+      Fats: new FormControl('Fats', Validators.compose([
+        Validators.required,
+        RegistrationValidator.isValid
+      ])),
+      Fibers: new FormControl('Fibers', Validators.compose([
+        Validators.required,
+        RegistrationValidator.isValid
+      ])),
+      Calories: new FormControl('Calories', Validators.compose([
+        Validators.required,
+        RegistrationValidator.isValid
+      ]))
+    });
+  }
+
   
   //data = {lastName: "", firstName: "", phoneNumber: 0, emailAddress: "", password: "", birthday: "", height: 0}
   //images = [];

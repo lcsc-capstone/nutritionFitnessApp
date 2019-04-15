@@ -2,8 +2,9 @@ import { Observable, of, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { catchError, tap, map } from 'rxjs/operators';
 import { NutritionPage } from './nutrition/nutrition.page';
-
+import { Profile } from './tables'
 import { Injectable } from '@angular/core';
+import { RegisterPage } from './register/register.page';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -51,12 +52,18 @@ export class ApiService {
     );
     }
 
-    deleteEntry (id): Observable<NutritionPage> {
-      const url = `${apiUrl}/${id}`;
+  deleteEntry (id): Observable<NutritionPage> {
+    const url = `${apiUrl}/${id}`;
     
-      return this.http.delete<NutritionPage>(url, httpOptions).pipe(
-        tap(_ => console.log(`deleted entry id=${id}`)),
-        catchError(this.handleError<NutritionPage>('deleteEntry'))
-      );
+    return this.http.delete<NutritionPage>(url, httpOptions).pipe(
+       tap(_ => console.log(`deleted entry id=${id}`)),
+       catchError(this.handleError<NutritionPage>('deleteEntry'))
+    );
     }
+  addProfile (profile): Observable<Profile> {
+    return this.http.post<Profile>(apiUrl, profile, httpOptions).pipe(
+      tap((profile: Profile) => console.log(`added new entry`)),
+      catchError(this.handleError<Profile>('addEntry'))
+    );
+  }
 }
