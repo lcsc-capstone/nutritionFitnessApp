@@ -1,15 +1,15 @@
 import { Observable, of, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { catchError, tap, map } from 'rxjs/operators';
-import { NutritionPage } from './nutrition/nutrition.page';
+import { Nutrition } from './tables';
 import { Profile } from './tables'
 import { Injectable } from '@angular/core';
-import { RegisterPage } from './register/register.page';
+
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
-const apiUrl = "/api/v1/nutritionPage";
+const apiUrl = "http://localhost:27017/nutrition-fitness-app-dsodq.gcp.mongodb.net";
 
 @Injectable({
   providedIn: 'root'
@@ -29,18 +29,18 @@ export class ApiService {
     };
   }
 
-  getEntry(id): Observable<NutritionPage> {
+  getEntry(id): Observable<Nutrition> {
     const url = `${apiUrl}/${id}`;
-    return this.http.get<NutritionPage>(url).pipe(
+    return this.http.get<Nutrition>(url).pipe(
       tap(_ => console.log(`fetched product id=${id}`)),
-      catchError(this.handleError<NutritionPage>(`getEntry id=${id}`))
+      catchError(this.handleError<Nutrition>(`getEntry id=${id}`))
     );
   }
 
-  addEntry (entry): Observable<NutritionPage> {
-    return this.http.post<NutritionPage>(apiUrl, entry, httpOptions).pipe(
-      tap((entry: NutritionPage) => console.log(`added new entry`)),
-      catchError(this.handleError<NutritionPage>('addEntry'))
+  addEntry (entry): Observable<Nutrition> {
+    return this.http.post<Nutrition>(apiUrl, entry, httpOptions).pipe(
+      tap((entry: Nutrition) => console.log(`added new entry`)),
+      catchError(this.handleError<Nutrition>('addEntry'))
     );
   }
   
@@ -52,12 +52,12 @@ export class ApiService {
     );
     }
 
-  deleteEntry (id): Observable<NutritionPage> {
+  deleteEntry (id): Observable<Nutrition> {
     const url = `${apiUrl}/${id}`;
     
-    return this.http.delete<NutritionPage>(url, httpOptions).pipe(
+    return this.http.delete<Nutrition>(url, httpOptions).pipe(
        tap(_ => console.log(`deleted entry id=${id}`)),
-       catchError(this.handleError<NutritionPage>('deleteEntry'))
+       catchError(this.handleError<Nutrition>('deleteEntry'))
     );
     }
   addProfile (profile): Observable<Profile> {

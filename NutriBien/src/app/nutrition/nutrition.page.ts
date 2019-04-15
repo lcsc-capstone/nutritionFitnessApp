@@ -14,13 +14,13 @@ import { ApiService } from '../api.service';
 
 export class NutritionPage{
    
-
+  /*
   public ID_NUM: 575; 
   public Proteins: number;
   public Carbs: number;
   public Fats: number;
   public Fibers: number;
-  public Calories: number;
+  public Calories: number;*/
 
   nutrition = this.formBuilder.group({
     Proteins: new FormControl('Proteins', Validators.compose([
@@ -51,7 +51,7 @@ export class NutritionPage{
     // TESTING THE VARIABLE CONTAIN CORRECT VALUES 
     // console.log(this.Fibers); 
 
-    await this.api.addEntry(this.nutrition);
+    await this.api.addEntry(NutritionPage);
 
   }
   ngOnInit() {}
