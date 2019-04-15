@@ -23,9 +23,5 @@ const routes: Routes = [
   ],
   declarations: [NutritionPage]
 })
-export class NutritionPageModule {
-  constructor()
-  {
-    console.log("I am not empty (T.T)!");
-  }
-}
+
+export class NutritionPageModule {}

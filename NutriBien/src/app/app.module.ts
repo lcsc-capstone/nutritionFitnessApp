@@ -9,9 +9,9 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
 import { Toast } from '@ionic-native/toast/ngx';
 
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { Camera } from '@ionic-native/Camera/ngx';
@@ -21,33 +21,23 @@ import { FilePath } from '@ionic-native/file-path/ngx';
  
 import { IonicStorageModule } from '@ionic/storage';
 
-import { Mongoose } from 'mongoose';
-import { MongooseModule } from '@nestjs/mongoose';
-import { Module } from '@nestjs/common';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule,IonicStorageModule.forRoot()
+  imports: [BrowserModule, FormsModule, HttpClientModule, IonicModule.forRoot(), AppRoutingModule, IonicStorageModule.forRoot()
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    SQLite,
     Toast,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     Camera,
     File,
     WebView,
-    FilePath,
-    Mongoose
+    FilePath
   ],
   bootstrap: [AppComponent]
-})
-
-@Module({
-
-  imports: [MongooseModule.forRoot('mongodb+srv://nutri:<bien>@nutrition-fitness-app-dsodq.gcp.mongodb.net/admin?retryWrites=true')],
 })
 
 export class AppModule {}

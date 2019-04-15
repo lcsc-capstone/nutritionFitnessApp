@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as express from 'express';
-import * as db from './../../../../database';
+//import * as db from './../../../../database';
 import { Router } from '@angular/router';
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
 import { Toast } from '@ionic-native/toast/ngx';
@@ -22,7 +22,7 @@ import { Profile } from 'selenium-webdriver/firefox';
 
 
 const STORAGE_KEY = 'my_images';
-var profile = db.default.PROFILE;
+//var profile = db.default.PROFILE;
 
 @Component({
   selector: 'app-register',
@@ -34,6 +34,7 @@ export class RegisterPage {
   
   //data = {lastName: "", firstName: "", phoneNumber: 0, emailAddress: "", password: "", birthday: "", height: 0}
   //images = [];
+  /*
   public path = '/app/register';
   public router = express.Router();
   
@@ -52,7 +53,7 @@ export class RegisterPage {
       .then(savedRegister => {
         response.send(savedRegister);
       })
-  }
+  }*/
     /*const uri = "mongodb+srv://nutri:<bien>@nutrition-fitness-app-dsodq.gcp.mongodb.net/admin?retryWrites=true";
     const client = new mongodb.MongoClient(uri, { useNewUrlParser: true });
     client.connect(async(_err: any) => {
