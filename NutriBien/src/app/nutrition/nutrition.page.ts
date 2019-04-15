@@ -37,22 +37,39 @@ export class NutritionPage{
       ]))
     });
   }
+  public ID_NUM: number; 
   public Proteins: number;
   public Carbs: number;
   public Fats: number;
   public Fibers: number;
   public Calories: number;
-  //public id = 0o0111;
   private nutrition : FormGroup;
 
+  /*
+  ID_NUM: number;
+  PROTEINS: number;
+  CARBS: number;
+  FATS: number;
+  FIBERS: number;
+  CALORIES: number;
+*/
   public submit()
   {
   
     // TESTING THE VARIABLE CONTAIN CORRECT VALUES 
-    // console.log(this.Proteins);
+    // 
     // console.log(this.Fibers); 
 
   }
   ngOnInit() {}
     
 }
+/*
+export class Nutrients {
+  ID_NUM: number;
+  PROTEINS: number;
+  CARBS: number;
+  FATS: number;
+  FIBERS: number;
+  CALORIES: number;
+}*/
