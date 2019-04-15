@@ -19,7 +19,7 @@ var app = express();
 mongoose.Promise = global.Promise;
 
 
-mongoose.connect('mongodb+srv://nutri:bien@nutrition-fitness-app-dsodq.gcp.mongodb.net/nutrition-fitness-app?retryWrites=true/?ssl=true&replicaSet=Nutrition-Fitness-App-shard-0&authSource=nutrition-fitness-app&retryWrites=true',{ useNewUrlParser: true})
+mongoose.connect('mongodb+srv://nutri:bien@nutrition-fitness-app-dsodq.gcp.mongodb.net/nutritionFitnessApp?retryWrites=true/?ssl=true&retryWrites=true',{ useNewUrlParser: true})
   .then(() =>  console.log('connection to Nutribien database succesful'))
   .catch((err) => console.error(err));
 
@@ -45,22 +45,6 @@ app.use('/users', usersRouter);
 
 app.use('/nutrition', nutritions);
 
-
-
-var Profile = app.resource = restful.model('PROFILE', mongoose.Schema({
-  ID_NUM: {type: Number},
-    LASTNAME: {type: String},
-    FIRSTNAME: {type: String},
-    PHONE: {type: Number},
-    EMAIL: {type: String}, 
-    PASSWORD: {type: String},
-    DATE_OF_BIRTH: {type: Date},
-    FEET: {type: Number},
-    INCHES: {type: Number}
-}))
-.methods(['get', 'post', 'put', 'delete']);
-
-Profile.register(app, '/PROFILE');
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
