@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../api.service';
+//import { ApiService } from '../api.service';
 import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { Profile } from '../tables'
 import * as express from 'express';
@@ -35,7 +35,7 @@ const STORAGE_KEY = 'my_images';
 
 export class RegisterPage {
   registerForm: FormGroup;
-  constructor(private formBuilder: FormBuilder,public api: ApiService ){
+  constructor(private formBuilder: FormBuilder){
     this.registerForm = this.formBuilder.group({
       Proteins: new FormControl('Proteins', Validators.compose([
         Validators.required,
