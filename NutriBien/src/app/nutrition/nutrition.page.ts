@@ -50,7 +50,7 @@ export class NutritionPage{
     calories    = this.nutrition.value.Calories,
     headers     = new HttpHeaders({ 'Content-Type': 'application/json' }),
     options     = { idnum : idnum, proteins : proteins, carbs : carbs, fats : fats, fibers : fibers, calories : calories },
-    url         = this._HOST + "api/nutribien/nutriFit.NUTRITION";
+    url         = this._HOST + "api/nutriFit.nutrition";
 
     this._HTTP
          .post(url, options, {headers: headers}) //different from tutorial so error goes away

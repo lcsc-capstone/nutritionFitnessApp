@@ -4,9 +4,6 @@ var config 			= require('./config'),
     /* Import the ExpressJS framework for Middleware/routing */
     express 		= require('express'),
 
-    /* Import the File System module for enabling File I/O operations */
-	fs      		= require("fs"),
-
     /* Import Mongoose for enabling communication with MongoDB and
        management of data handling tasks */
 	mongoose 		= require('mongoose'),
@@ -15,19 +12,15 @@ var config 			= require('./config'),
        to be extracted and parsed */
 	bodyParser      = require("body-parser"),
 
-    /* Import PDFKit module to dynamically generate and publish PDF
-       documents for the application */
-	pdfKit      	= require("pdfkit"),
-
     /* Handle for storing the ExpressJS object */
-	app 			= express(),
+	app 			   = express(),
 
     /* Use ExpressJS Router class to create modular route handlers */
 	apiRouter     	= express.Router(),
 
     /* Import path module to provide utilities for working with file
        and directory paths */
-	path 			= require('path'),
+	path 			   = require('path'),
 
     /* Define Mongoose connection to project's MongoDB database */
 	connection 		= mongoose.connect(config.database, { useNewUrlParser: true })
@@ -65,7 +58,7 @@ app.use(function(req, res, next)
 
 
 /* Manage ALL Http GET requests to the specified route */
-apiRouter.get('/nutribien/nutriFit.NUTRITION', function(req, res)
+apiRouter.get('/nutrition', function(req, res)
 {
     /* Use the gallery model and access Mongoose's API to
       retrieve ALL MongoDB documents whose displayed field
@@ -85,29 +78,29 @@ apiRouter.get('/nutribien/nutriFit.NUTRITION', function(req, res)
 });
 
 /* Manage ALL Http POST requests to the specified route */
-apiRouter.post('/nutribien/nutriFit.NUTRITION', function(req, res)
+apiRouter.post('/nutriFit.nutrition', function(req, res)
 {
     /* Retrieve the posted data from the Request object and assign
       this to variables */
    var idnum        =   req.body.idnum,
-       proteins 	=	req.body.proteins,
+       proteins 	  =	req.body.proteins,
        carbs        =	req.body.carbs,
        fats         =	req.body.fats,
        fibers       =	req.body.fibers,
-       calories 	=	req.body.calories;
+       calories 	  =	req.body.calories;
                        
 
 
    /* Use the NUTRITION model to access the Mongoose API method to
       add the supplied data as a new document to the MongoDB
       database */
-   NUTRITION.create(
-       { ID_NUM 	: idnum,
+      NUTRITION.create(  //insertMany makes no difference
+       { ID_NUM 	   : idnum,
          PROTEINS 	: proteins,
          CARBS 		: carbs,
-         FATS 		: fats,
-         FIBERS 	: fibers,
-         CALORIES   : calories
+         FATS 		   : fats,
+         FIBERS 	   : fibers,
+         CALORIES    : calories
         },
         function (err, small)
         {
@@ -126,7 +119,7 @@ apiRouter.post('/nutribien/nutriFit.NUTRITION', function(req, res)
 });
 
 /* Handle PUT requests with expected recordID parameter */
-apiRouter.put('/nutribien/nutriFit.NUTRITION:recordID', function(req, res)
+apiRouter.put('/nutrition:recordID', function(req, res)
 {
 
     /* Use the NUTRITION model to access the Mongoose API method and
@@ -144,12 +137,12 @@ apiRouter.put('/nutribien/nutriFit.NUTRITION:recordID', function(req, res)
       {
          /* Assign the posted values to the respective fields for the retrieved
             document */
-      	 recs.ID_NUM 				= req.body.idnum 		|| recs.ID_NUM;
-         recs.PROTEINS 		        = req.body.proteins 	|| recs.PROTEINS;
-         recs.CARBS  		        = req.body.carbs	    || recs.CARBS;
-         recs.FATS 		            = req.body.fats 	    || recs.FATS;
-         recs.FIBERS 		        = req.body.fibers 	    || recs.FIBERS;
-         recs.CALORIES 		        = req.body.calories 	|| recs.CALORIES;
+      	recs.ID_NUM 				= req.body.idnum 		|| recs.ID_NUM;
+         recs.PROTEINS 		      = req.body.proteins 	|| recs.PROTEINS;
+         recs.CARBS  		      = req.body.carbs	   || recs.CARBS;
+         recs.FATS 		         = req.body.fats 	   || recs.FATS;
+         recs.FIBERS 		      = req.body.fibers 	|| recs.FIBERS;
+         recs.CALORIES 		      = req.body.calories 	|| recs.CALORIES;
 
          /* Save the updated document back to the database */
          recs.save((err, recs) =>
@@ -171,9 +164,8 @@ apiRouter.put('/nutribien/nutriFit.NUTRITION:recordID', function(req, res)
 });
 
 
-
 /* Handle DELETE requests with expected recordID parameter */
-apiRouter.delete('/nutribien/nutriFit.NUTRITION:recordID', function(req, res)
+apiRouter.delete('/nutrition:recordID', function(req, res)
 {
     /* Use the NUTRITION model to access the Mongoose API method and
       find & remove a specific document within the MongoDB database
