@@ -30,10 +30,10 @@ var config 			= require('./config'),
     /* Import Schema for managing MongoDB database communication
        with Mongoose */
 	NUTRITION         = require('./models/nutrition');
-   PROFILE         = require('./models/profile');
-   EXERCISE         = require('./models/exercise');
-   MEASUREMENTS        = require('./models/measurements');
-   STATISTICS         = require('./models/statistics');
+   PROFILE           = require('./models/profile');
+   EXERCISE          = require('./models/exercise');
+   MEASUREMENTS      = require('./models/measurements');
+   STATISTICS        = require('./models/statistics');
 
 
 /* Manage size limits for POST/PUT requests */
@@ -58,7 +58,7 @@ app.use(function(req, res, next)
 });
 
 
-
+////////////////////////////////                FOR NUTRITION PAGE                      //////////////////////////   
 
 /* Manage ALL Http GET requests to the specified route */
 apiRouter.get('/nutrition', function(req, res)

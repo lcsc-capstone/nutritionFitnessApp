@@ -58,6 +58,7 @@ export class NutritionPage{
          {
             // If the request was successful clear the form of data
             // and notify the user
+            //implement clear form
             console.log('New entry was successfully created');
          },
          (error : any) =>
