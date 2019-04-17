@@ -72,12 +72,17 @@
 <ion-content>
 -->
 
-<ion-content padding>
-  <ion-img src="https://www.urban-balance.com/wp-content/uploads/2018/01/Nutrition-vs1.jpg"></ion-img>
+<ion-content>
+  <ion-card>
+  <!--<ion-img src="https://www.urban-balance.com/wp-content/uploads/2018/01/Nutrition-vs1.jpg"></ion-img>-->
   <!-- <ion-img src="NutriBien/src/app/nutrition/nutri_header.png"></ion-img>-->
+  <ion-img src="https://kwib.co.uk/wp-content/uploads/2019/03/Healthy-eating-on-the-go-Article-images_3.jpg"></ion-img>
+  <ion-card-header>
+    <ion-card-subtitle>Submit your daily diet here!</ion-card-subtitle>
+  </ion-card-header>
+  </ion-card>
 
-
-  <form name="nutri_form" [formGroup]="nutrition">
+  <form name="nutri_form" [formGroup]="nutrition" padding>
     
     <ion-item>
       <ion-label position="stacked"></ion-label>
@@ -100,7 +105,7 @@
       <ion-input type="number" min="0" placeholder="Total Calories" id="Calories" name="Carbs" formControlName="Calories"></ion-input>
     </ion-item>
     
-    <ion-button (click)="submit()" mode="ios" type="submit" >Submit</ion-button>
+    <ion-button (click)="submit()" mode="ios" type="submit" color="light">Submit</ion-button>
   </form>
 
 
