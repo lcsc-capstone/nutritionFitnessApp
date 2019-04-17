@@ -97,7 +97,7 @@ apiRouter.post('/nutriFit.nutrition', function(req, res)
    /* Use the NUTRITION model to access the Mongoose API method to
       add the supplied data as a new document to the MongoDB
       database */
-      NUTRITION.create( 
+      NUTRITION.create(  //insertMany makes no difference
        { ID_NUM 	   : idnum,
          PROTEINS 	: proteins,
          CARBS 		: carbs,
@@ -166,6 +166,140 @@ apiRouter.put('/nutrition:recordID', function(req, res)
 
 });
 
+/* Handle DELETE requests with expected recordID parameter */
+apiRouter.delete('/nutrition:recordID', function(req, res)
+{
+    /* Use the NUTRITION model to access the Mongoose API method and
+      find & remove a specific document within the MongoDB database
+      based on the document ID value supplied as a route parameter */
+   NUTRITION.findByIdAndRemove({ _id: req.params.recordID }, (err, recs) =>
+   {
+
+      /* If we encounter an error we log this to the console */
+      if (err)
+      {
+         console.dir(err);
+      }
+
+
+      /* If all is good then send a JSON encoded map of the removed data
+         as a HTTP response */
+      res.json({ records: recs });
+
+   });
+});
+
+/* Manage ALL Http GET requests to the specified route */
+apiRouter.get('/profile', function(req, res)
+{
+    /* Use the gallery model and access Mongoose's API to
+      retrieve ALL MongoDB documents whose displayed field
+      has a value of true */
+   PROFILE.find((err, recs) =>
+   {
+      /* If we encounter an error log this to the console */
+      if (err)
+      {
+         console.dir(err);
+      }
+      /* Send the retrieve documents based as JSON encoded
+         data with the Router Response object */
+      res.json({ records: recs });
+
+   });
+});
+
+/* Manage ALL Http POST requests to the specified route */
+apiRouter.post('/nutriFit.profile', function(req, res)
+{
+    /* Retrieve the posted data from the Request object and assign
+      this to variables */
+   var id_num        =  req.body.id_num,
+       firstName 	   =	req.body.firstName,
+       lastName         =	req.body.lastName,
+       phoneNumber         =	req.body.phoneNumber,
+       emailAddress         =	req.body.emailAddress,
+       password 	   =	req.body.password;
+       birthday 	      =	req.body.birthday;
+       height        = req.body.height;
+
+                       
+
+
+   /* Use the NUTRITION model to access the Mongoose API method to
+      add the supplied data as a new document to the MongoDB
+      database */
+      NUTRITION.create(  //insertMany makes no difference
+       { 
+         ID_NUM: id_num,
+         LASTNAME: lastName,
+         FIRSTNAME: firstName,
+         PHONE: phoneNumber,
+         EMAIL: emailAddress,
+         PASSWORD: password,
+         DATE_OF_BIRTH: birthday,
+         HEIGHT: height
+        },
+        function (err, small)
+        {
+            /* If we encounter an error log this to the console*/
+            if (err)
+            {
+                console.dir(err);
+            }
+            
+            /* Document was successfully created so send a JSON encoded
+            success message back with the Router Response object */
+            
+            res.json({ message: 'success' });
+        });
+
+});
+
+/* Handle PUT requests with expected recordID parameter */
+apiRouter.put('/nutrition:recordID', function(req, res)
+{
+
+    /* Use the NUTRITION model to access the Mongoose API method and
+      find a specific document within the MongoDB database based
+      on the document ID value supplied as a route parameter */
+   NUTRITION.findById({ _id: req.params.recordID }, (err, recs) =>
+   {
+
+      /* If we encounter an error we log this to the console */
+      if (err)
+      {
+         console.dir(err);
+      }
+      else
+      {
+         /* Assign the posted values to the respective fields for the retrieved
+            document */
+      	recs.ID_NUM 				= req.body.idnum 		|| recs.ID_NUM;
+         recs.PROTEINS 		      = req.body.proteins 	|| recs.PROTEINS;
+         recs.CARBS  		      = req.body.carbs	   || recs.CARBS;
+         recs.FATS 		         = req.body.fats 	   || recs.FATS;
+         recs.FIBERS 		      = req.body.fibers 	|| recs.FIBERS;
+         recs.CALORIES 		      = req.body.calories 	|| recs.CALORIES;
+
+         /* Save the updated document back to the database */
+         recs.save((err, recs) =>
+         {
+            /* If we encounter an error send the details as a HTTP response */
+            if (err)
+            {
+               res.status(500).send(err)
+            }
+
+            /* If all is good then send a JSON encoded map of the retrieved data
+               as a HTTP response */
+            res.json({ records: recs });
+         });
+      }
+
+   });
+
+});
 
 
 /* Handle DELETE requests with expected recordID parameter */
@@ -190,8 +324,6 @@ apiRouter.delete('/nutrition:recordID', function(req, res)
 
    });
 });
-
-
 /* Mount the specified Middleware function based on matching path
    ALL Http requests will be sent to /api followed by whatever the
    requested endpoint is
