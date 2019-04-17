@@ -54,26 +54,39 @@
 
 
 
-<ion-header>
+<!--<ion-header>
   <ion-toolbar>
     <ion-title>login</ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header>-->
 
 <ion-content>
   <!-- Inputs with labels -->
-  <ion-item>
-    <ion-label position="floating">Email Address</ion-label>
-    <ion-input></ion-input>
-  </ion-item>
+  <form >
+    <ion-grid>
+        <ion-row color="primary" justify-content-center>
+           <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+             <div text-center>
+               <h3>Login</h3>
+              </div>
+              <div padding>
+                <ion-item>
+                  <ion-label position="floating">Email Address</ion-label>
+                  <ion-input></ion-input>
+                </ion-item>
 
-  <ion-item>
-    <ion-label position="floating">Password</ion-label>
-    <ion-input></ion-input>
-  </ion-item>
-
-  <!-- Round -->
-  <ion-button shape="round">Log In</ion-button>
-  <ion-button (click)="signUp()" shape="round" fill="outline">Sign Up</ion-button>
-
+                <ion-item>
+                  <ion-label position="floating">Password</ion-label>
+                  <ion-input></ion-input>
+                </ion-item>
+              </div>
+              <div padding>
+                  <!-- Round -->
+                  <ion-button size="medium" expand="block" shape="round">Log In</ion-button>
+                  <ion-button size="medium" expand="block" (click)="signUp()" shape="round" fill="outline">Sign Up</ion-button>
+              </div>
+          </ion-col>
+        </ion-row>
+    </ion-grid>
+  </form>
 </ion-content>
