@@ -257,13 +257,13 @@ apiRouter.post('/nutriFit.profile', function(req, res)
 });
 
 /* Handle PUT requests with expected recordID parameter */
-apiRouter.put('/nutrition:recordID', function(req, res)
+apiRouter.put('/profile:recordID', function(req, res)
 {
 
     /* Use the NUTRITION model to access the Mongoose API method and
       find a specific document within the MongoDB database based
       on the document ID value supplied as a route parameter */
-   NUTRITION.findById({ _id: req.params.recordID }, (err, recs) =>
+   PROFILE.findById({ _id: req.params.recordID }, (err, recs) =>
    {
 
       /* If we encounter an error we log this to the console */
@@ -275,12 +275,14 @@ apiRouter.put('/nutrition:recordID', function(req, res)
       {
          /* Assign the posted values to the respective fields for the retrieved
             document */
-      	recs.ID_NUM 				= req.body.idnum 		|| recs.ID_NUM;
-         recs.PROTEINS 		      = req.body.proteins 	|| recs.PROTEINS;
-         recs.CARBS  		      = req.body.carbs	   || recs.CARBS;
-         recs.FATS 		         = req.body.fats 	   || recs.FATS;
-         recs.FIBERS 		      = req.body.fibers 	|| recs.FIBERS;
-         recs.CALORIES 		      = req.body.calories 	|| recs.CALORIES;
+      	recs.ID_NUM 				= req.body.id_num 		|| recs.ID_NUM;
+         recs.FIRSTNAME 		   = req.body.firstName 	|| recs.FIRSTNAME;
+         recs.LASTNAME 		      = req.body.lastName 	   || recs.LASTNAME;
+         recs.PHONE  		      = req.body.phoneNumber	|| recs.PHONE;
+         recs.EMAIL 		         = req.body.emailAddress || recs.EMAIL;
+         recs.PASSWORD 		      = req.body.password 	   || recs.PASSWORD;
+         recs.DATE_OF_BIRTH 		= req.body.birthday 	   || recs.DATE_OF_BIRTH;
+         recs.HEIGHT 		      = req.body.height 	   || recs.HEIGHT;
 
          /* Save the updated document back to the database */
          recs.save((err, recs) =>
@@ -303,12 +305,12 @@ apiRouter.put('/nutrition:recordID', function(req, res)
 
 
 /* Handle DELETE requests with expected recordID parameter */
-apiRouter.delete('/nutrition:recordID', function(req, res)
+apiRouter.delete('/profile:recordID', function(req, res)
 {
     /* Use the NUTRITION model to access the Mongoose API method and
       find & remove a specific document within the MongoDB database
       based on the document ID value supplied as a route parameter */
-   NUTRITION.findByIdAndRemove({ _id: req.params.recordID }, (err, recs) =>
+   PROFILE.findByIdAndRemove({ _id: req.params.recordID }, (err, recs) =>
    {
 
       /* If we encounter an error we log this to the console */

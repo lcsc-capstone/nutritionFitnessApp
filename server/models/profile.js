@@ -6,8 +6,8 @@ var Schema              =   mongoose.Schema;
 ProfileSchema = new Schema
 ({
     ID_NUM          : {type: Number, required : true},
-    LASTNAME        : {type: String, required : true},
     FIRSTNAME       : {type: String, required : true},
+    LASTNAME        : {type: String, required : true},
     PHONE           : {type: Number, required : true},
     EMAIL           : {type: String, required : true}, 
     PASSWORD        : {type: String, required : true},
