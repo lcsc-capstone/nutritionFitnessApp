@@ -14,4 +14,4 @@ MeasurementsSchema = new Schema
 });
 
 /* Export model for application usage */
-module.exports = mongoose.model('MEASUREMENTS', MeasurementsSchema);
+module.exports = mongoose.model('Measurements', MeasurementsSchema, 'measurements');
