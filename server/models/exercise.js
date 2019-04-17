@@ -12,4 +12,4 @@ ExercixeSchema = new Schema
 });
 
 /* Export model for application usage */
-module.exports = mongoose.model('EXERCISE', ExercixeSchema);
+module.exports = mongoose.model('Exercise', ExercixeSchema, 'exercise');

@@ -94,7 +94,7 @@ apiRouter.post('/nutriFit.nutrition', function(req, res)
    /* Use the NUTRITION model to access the Mongoose API method to
       add the supplied data as a new document to the MongoDB
       database */
-      NUTRITION.create(  //insertMany makes no difference
+      NUTRITION.create( 
        { ID_NUM 	   : idnum,
          PROTEINS 	: proteins,
          CARBS 		: carbs,
@@ -162,6 +162,7 @@ apiRouter.put('/nutrition:recordID', function(req, res)
    });
 
 });
+
 
 
 /* Handle DELETE requests with expected recordID parameter */

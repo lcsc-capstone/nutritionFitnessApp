@@ -17,4 +17,4 @@ ProfileSchema = new Schema
 });
 
 /* Export model for application usage */
-module.exports = mongoose.model('PROFILE', ProfileSchema);
+module.exports = mongoose.model('Profile', ProfileSchema, 'profile');
