@@ -30,7 +30,10 @@ var config 			= require('./config'),
     /* Import Schema for managing MongoDB database communication
        with Mongoose */
 	NUTRITION         = require('./models/nutrition');
-
+   PROFILE         = require('./models/profile');
+   EXERCISE         = require('./models/exercise');
+   MEASUREMENTS        = require('./models/measurements');
+   STATISTICS         = require('./models/statistics');
 
 
 /* Manage size limits for POST/PUT requests */

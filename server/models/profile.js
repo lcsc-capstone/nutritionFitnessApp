@@ -12,8 +12,7 @@ ProfileSchema = new Schema
     EMAIL           : {type: String, required : true}, 
     PASSWORD        : {type: String, required : true},
     DATE_OF_BIRTH   : {type: Date, required : true},
-    FEET            : {type: Number, required : true},
-    INCHES          : {type: Number, required : true}
+    CM              : {type: Number, required : true}
 });
 
 /* Export model for application usage */
