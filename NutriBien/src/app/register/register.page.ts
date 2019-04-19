@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-//import { ApiService } from '../api.service';
+import { ApiService } from '../api.service';
 import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 
 
@@ -36,6 +36,7 @@ const STORAGE_KEY = 'my_images';
 })
 
 export class RegisterPage {
+<<<<<<< HEAD
   constructor(private formBuilder: FormBuilder){}
   registerForm = this.formBuilder.group({
     firstName: new FormControl('', Validators.required),
@@ -66,6 +67,33 @@ export class RegisterPage {
       return PasswordValidator.areEqual(formGroup);
   });
   
+=======
+  registerForm: FormGroup;
+  constructor(private formBuilder: FormBuilder,public api: ApiService ){
+    this.registerForm = this.formBuilder.group({
+      Proteins: new FormControl('Proteins', Validators.compose([
+        Validators.required,
+        RegistrationValidator.isValid
+      ])),
+      Carbs: new FormControl('Carbs', Validators.compose([
+        Validators.required,
+        RegistrationValidator.isValid
+      ])),
+      Fats: new FormControl('Fats', Validators.compose([
+        Validators.required,
+        RegistrationValidator.isValid
+      ])),
+      Fibers: new FormControl('Fibers', Validators.compose([
+        Validators.required,
+        RegistrationValidator.isValid
+      ])),
+      Calories: new FormControl('Calories', Validators.compose([
+        Validators.required,
+        RegistrationValidator.isValid
+      ]))
+    });
+  }
+>>>>>>> parent of 083995b... connect and push to mongo
 
   
   //data = {lastName: "", firstName: "", phoneNumber: 0, emailAddress: "", password: "", birthday: "", height: 0}
