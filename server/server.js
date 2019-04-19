@@ -30,10 +30,10 @@ var config 			= require('./config'),
     /* Import Schema for managing MongoDB database communication
        with Mongoose */
 	NUTRITION         = require('./models/nutrition');
-   PROFILE           = require('./models/profile');
-   EXERCISE          = require('./models/exercise');
-   MEASUREMENTS      = require('./models/measurements');
-   STATISTICS        = require('./models/statistics');
+   PROFILE         = require('./models/profile');
+   EXERCISE         = require('./models/exercise');
+   MEASUREMENTS        = require('./models/measurements');
+   STATISTICS         = require('./models/statistics');
 
 
 /* Manage size limits for POST/PUT requests */
@@ -58,10 +58,10 @@ app.use(function(req, res, next)
 });
 
 
-////////////////////////////////                FOR NUTRITION PAGE                      //////////////////////////   
+
 
 /* Manage ALL Http GET requests to the specified route */
-apiRouter.get('/nutriFit.nutrition', function(req, res)
+apiRouter.get('/nutrition', function(req, res)
 {
     /* Use the gallery model and access Mongoose's API to
       retrieve ALL MongoDB documents whose displayed field
@@ -122,7 +122,7 @@ apiRouter.post('/nutriFit.nutrition', function(req, res)
 });
 
 /* Handle PUT requests with expected recordID parameter */
-apiRouter.put('/nutriFit.nutrition:recordID', function(req, res)
+apiRouter.put('/nutrition:recordID', function(req, res)
 {
 
     /* Use the NUTRITION model to access the Mongoose API method and
@@ -166,8 +166,9 @@ apiRouter.put('/nutriFit.nutrition:recordID', function(req, res)
 
 });
 
+
 /* Handle DELETE requests with expected recordID parameter */
-apiRouter.delete('/nutriFit.nutrition:recordID', function(req, res)
+apiRouter.delete('/nutrition:recordID', function(req, res)
 {
     /* Use the NUTRITION model to access the Mongoose API method and
       find & remove a specific document within the MongoDB database
@@ -189,143 +190,7 @@ apiRouter.delete('/nutriFit.nutrition:recordID', function(req, res)
    });
 });
 
-/* Manage ALL Http GET requests to the specified route */
-apiRouter.get('/profile', function(req, res)
-{
-    /* Use the gallery model and access Mongoose's API to
-      retrieve ALL MongoDB documents whose displayed field
-      has a value of true */
-   PROFILE.find((err, recs) =>
-   {
-      /* If we encounter an error log this to the console */
-      if (err)
-      {
-         console.dir(err);
-      }
-      /* Send the retrieve documents based as JSON encoded
-         data with the Router Response object */
-      res.json({ records: recs });
 
-   });
-});
-
-/* Manage ALL Http POST requests to the specified route */
-apiRouter.post('/nutriFit.profile', function(req, res)
-{
-    /* Retrieve the posted data from the Request object and assign
-      this to variables */
-   var id_num        =  req.body.id_num,
-       firstName 	   =	req.body.firstName,
-       lastName         =	req.body.lastName,
-       phoneNumber         =	req.body.phoneNumber,
-       emailAddress         =	req.body.emailAddress,
-       password 	   =	req.body.password;
-       birthday 	      =	req.body.birthday;
-       height        = req.body.height;
-
-                       
-
-
-   /* Use the NUTRITION model to access the Mongoose API method to
-      add the supplied data as a new document to the MongoDB
-      database */
-      NUTRITION.create(  //insertMany makes no difference
-       { 
-         ID_NUM: id_num,
-         LASTNAME: lastName,
-         FIRSTNAME: firstName,
-         PHONE: phoneNumber,
-         EMAIL: emailAddress,
-         PASSWORD: password,
-         DATE_OF_BIRTH: birthday,
-         HEIGHT: height
-        },
-        function (err, small)
-        {
-            /* If we encounter an error log this to the console*/
-            if (err)
-            {
-                console.dir(err);
-            }
-            
-            /* Document was successfully created so send a JSON encoded
-            success message back with the Router Response object */
-            
-            res.json({ message: 'success' });
-        });
-
-});
-
-/* Handle PUT requests with expected recordID parameter */
-apiRouter.put('/profile:recordID', function(req, res)
-{
-
-    /* Use the NUTRITION model to access the Mongoose API method and
-      find a specific document within the MongoDB database based
-      on the document ID value supplied as a route parameter */
-   PROFILE.findById({ _id: req.params.recordID }, (err, recs) =>
-   {
-
-      /* If we encounter an error we log this to the console */
-      if (err)
-      {
-         console.dir(err);
-      }
-      else
-      {
-         /* Assign the posted values to the respective fields for the retrieved
-            document */
-      	recs.ID_NUM 				= req.body.id_num 		|| recs.ID_NUM;
-         recs.FIRSTNAME 		   = req.body.firstName 	|| recs.FIRSTNAME;
-         recs.LASTNAME 		      = req.body.lastName 	   || recs.LASTNAME;
-         recs.PHONE  		      = req.body.phoneNumber	|| recs.PHONE;
-         recs.EMAIL 		         = req.body.emailAddress || recs.EMAIL;
-         recs.PASSWORD 		      = req.body.password 	   || recs.PASSWORD;
-         recs.DATE_OF_BIRTH 		= req.body.birthday 	   || recs.DATE_OF_BIRTH;
-         recs.HEIGHT 		      = req.body.height 	   || recs.HEIGHT;
-
-         /* Save the updated document back to the database */
-         recs.save((err, recs) =>
-         {
-            /* If we encounter an error send the details as a HTTP response */
-            if (err)
-            {
-               res.status(500).send(err)
-            }
-
-            /* If all is good then send a JSON encoded map of the retrieved data
-               as a HTTP response */
-            res.json({ records: recs });
-         });
-      }
-
-   });
-
-});
-
-
-/* Handle DELETE requests with expected recordID parameter */
-apiRouter.delete('/profile:recordID', function(req, res)
-{
-    /* Use the NUTRITION model to access the Mongoose API method and
-      find & remove a specific document within the MongoDB database
-      based on the document ID value supplied as a route parameter */
-   PROFILE.findByIdAndRemove({ _id: req.params.recordID }, (err, recs) =>
-   {
-
-      /* If we encounter an error we log this to the console */
-      if (err)
-      {
-         console.dir(err);
-      }
-
-
-      /* If all is good then send a JSON encoded map of the removed data
-         as a HTTP response */
-      res.json({ records: recs });
-
-   });
-});
 /* Mount the specified Middleware function based on matching path
    ALL Http requests will be sent to /api followed by whatever the
    requested endpoint is

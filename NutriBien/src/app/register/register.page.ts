@@ -48,6 +48,10 @@ export class RegisterPage {
       Validators.required,
       Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
     ])),
+    birthday: new FormControl('birthday', Validators.compose([
+      Validators.required,
+      RegistrationValidator.isValid
+    ])),
     height: new FormControl('height', Validators.compose([
       Validators.required,
       RegistrationValidator.isValid
