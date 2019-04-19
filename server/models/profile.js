@@ -13,7 +13,11 @@ ProfileSchema = new Schema
     PASSWORD        : {type: String, required : true},
     DATE_OF_BIRTH   : {type: Date, required : true},
 <<<<<<< HEAD
+<<<<<<< HEAD
     CM              : {type: Number, required : true}
+=======
+    HEIGHT              : {type: Number, required : true}
+>>>>>>> parent of 4996192... Update profile.js
 =======
     HEIGHT              : {type: Number, required : true}
 >>>>>>> parent of 4996192... Update profile.js
