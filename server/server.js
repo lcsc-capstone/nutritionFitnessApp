@@ -61,7 +61,7 @@ app.use(function(req, res, next)
 ////////////////////////////////                FOR NUTRITION PAGE                      //////////////////////////   
 
 /* Manage ALL Http GET requests to the specified route */
-apiRouter.get('/nutrition', function(req, res)
+apiRouter.get('/nutriFit.nutrition', function(req, res)
 {
     /* Use the gallery model and access Mongoose's API to
       retrieve ALL MongoDB documents whose displayed field
@@ -122,7 +122,7 @@ apiRouter.post('/nutriFit.nutrition', function(req, res)
 });
 
 /* Handle PUT requests with expected recordID parameter */
-apiRouter.put('/nutrition:recordID', function(req, res)
+apiRouter.put('/nutriFit.nutrition:recordID', function(req, res)
 {
 
     /* Use the NUTRITION model to access the Mongoose API method and
@@ -167,7 +167,7 @@ apiRouter.put('/nutrition:recordID', function(req, res)
 });
 
 /* Handle DELETE requests with expected recordID parameter */
-apiRouter.delete('/nutrition:recordID', function(req, res)
+apiRouter.delete('/nutriFit.nutrition:recordID', function(req, res)
 {
     /* Use the NUTRITION model to access the Mongoose API method and
       find & remove a specific document within the MongoDB database
