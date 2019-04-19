@@ -37,6 +37,7 @@ export class RegisterPage {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   constructor(private formBuilder: FormBuilder){}
   registerForm = this.formBuilder.group({
     firstName: new FormControl('', Validators.required),
@@ -74,6 +75,10 @@ export class RegisterPage {
   registerForm: FormGroup;
   constructor(private formBuilder: FormBuilder){
 >>>>>>> parent of 40ecbe3... validators
+=======
+  registerForm: FormGroup;
+  constructor(private formBuilder: FormBuilder){
+>>>>>>> parent of 40ecbe3... validators
     this.registerForm = this.formBuilder.group({
       Proteins: new FormControl('Proteins', Validators.compose([
         Validators.required,
@@ -99,7 +104,10 @@ export class RegisterPage {
   }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> parent of 083995b... connect and push to mongo
+=======
+>>>>>>> parent of 40ecbe3... validators
 =======
 >>>>>>> parent of 40ecbe3... validators
 =======
