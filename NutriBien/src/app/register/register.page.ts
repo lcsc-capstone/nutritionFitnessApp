@@ -36,38 +36,6 @@ const STORAGE_KEY = 'my_images';
 })
 
 export class RegisterPage {
-<<<<<<< HEAD
-  constructor(private formBuilder: FormBuilder){}
-  registerForm = this.formBuilder.group({
-    firstName: new FormControl('', Validators.required),
-    lastName: new FormControl('', Validators.required),
-    phoneNumber: new FormControl('', Validators.compose([
-      Validators.required,
-     // PhoneValidator.validCountryPhone(country)
-    ])),
-    emailAddress: new FormControl('', Validators.compose([
-      Validators.required,
-      Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
-    ])),
-    birthday: new FormControl('birthday', Validators.compose([
-      Validators.required,
-      RegistrationValidator.isValid
-    ])),
-    height: new FormControl('height', Validators.compose([
-      Validators.required,
-      RegistrationValidator.isValid
-    ])),
-    password: new FormControl('', Validators.compose([
-      Validators.minLength(5),
-      Validators.required,
-      Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$') //this is for the letters (both uppercase and lowercase) and numbers validation
-   ])),
-    conformPassword: new FormControl('', Validators.required)
-    }, (formGroup: FormGroup) => {
-      return PasswordValidator.areEqual(formGroup);
-  });
-  
-=======
   registerForm: FormGroup;
   constructor(private formBuilder: FormBuilder,public api: ApiService ){
     this.registerForm = this.formBuilder.group({
@@ -93,7 +61,6 @@ export class RegisterPage {
       ]))
     });
   }
->>>>>>> parent of 083995b... connect and push to mongo
 
   
   //data = {lastName: "", firstName: "", phoneNumber: 0, emailAddress: "", password: "", birthday: "", height: 0}
