@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
-
-
 import { Profile } from '../tables'
 import * as express from 'express';
 import { Router } from '@angular/router';
@@ -22,7 +20,7 @@ import { finalize } from 'rxjs/operators';
 import { LoginPage } from '../login/login.page';
 
 import * as mongodb from 'mongodb';
-import { RegistrationValidator, PhoneValidator, PasswordValidator } from '../validators/registration';
+import { RegistrationValidator, PasswordValidator } from '../validators/registration';
 //import { Profile } from 'selenium-webdriver/firefox';
 
 
@@ -36,31 +34,38 @@ const STORAGE_KEY = 'my_images';
 })
 
 export class RegisterPage {
-  registerForm: FormGroup;
-  constructor(private formBuilder: FormBuilder,public api: ApiService ){
-    this.registerForm = this.formBuilder.group({
-      Proteins: new FormControl('Proteins', Validators.compose([
-        Validators.required,
-        RegistrationValidator.isValid
-      ])),
-      Carbs: new FormControl('Carbs', Validators.compose([
-        Validators.required,
-        RegistrationValidator.isValid
-      ])),
-      Fats: new FormControl('Fats', Validators.compose([
-        Validators.required,
-        RegistrationValidator.isValid
-      ])),
-      Fibers: new FormControl('Fibers', Validators.compose([
-        Validators.required,
-        RegistrationValidator.isValid
-      ])),
-      Calories: new FormControl('Calories', Validators.compose([
-        Validators.required,
-        RegistrationValidator.isValid
-      ]))
-    });
+
+  constructor(private formBuilder: FormBuilder){}
+  registerForm = this.formBuilder.group({
+    firstName: new FormControl('', Validators.required),
+    lastName: new FormControl('', Validators.required),
+    phoneNumber: new FormControl('', Validators.compose([
+      Validators.required,
+      //PhoneValidator.validCountryPhone()
+    ])),
+    emailAddress: new FormControl('', Validators.compose([
+      Validators.required,
+      Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
+    ])),
+    birthday: new FormControl('birthday', Validators.compose([
+      Validators.required,
+      RegistrationValidator.isValid
+    ])),
+    height: new FormControl('height', Validators.compose([
+      Validators.required,
+      RegistrationValidator.isValid
+    ])),
+    password: new FormControl('', Validators.compose([
+      Validators.minLength(5),
+      Validators.required,
+      Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$') //this is for the letters (both uppercase and lowercase) and numbers validation
+   ])),
+    conformPassword: new FormControl('', Validators.required)
+    }, (formGroup: FormGroup) => {
+      return PasswordValidator.areEqual(formGroup);
+  });
   }
+
 
   
   //data = {lastName: "", firstName: "", phoneNumber: 0, emailAddress: "", password: "", birthday: "", height: 0}
@@ -206,5 +211,5 @@ export class RegisterPage {
           newFileName = n + ".jpg";
       return newFileName;
   }*/
-}
+
 
