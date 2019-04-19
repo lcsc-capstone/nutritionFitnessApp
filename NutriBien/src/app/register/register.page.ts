@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
-
-
 import { Profile } from '../tables'
 import * as express from 'express';
 import { Router } from '@angular/router';
@@ -22,7 +20,7 @@ import { finalize } from 'rxjs/operators';
 import { LoginPage } from '../login/login.page';
 
 import * as mongodb from 'mongodb';
-import { RegistrationValidator, PhoneValidator, PasswordValidator } from '../validators/registration';
+import { RegistrationValidator } from '../validators/registration';
 //import { Profile } from 'selenium-webdriver/firefox';
 
 
@@ -36,6 +34,7 @@ const STORAGE_KEY = 'my_images';
 })
 
 export class RegisterPage {
+<<<<<<< HEAD
 <<<<<<< HEAD
   constructor(private formBuilder: FormBuilder){}
   registerForm = this.formBuilder.group({
@@ -70,6 +69,10 @@ export class RegisterPage {
 =======
   registerForm: FormGroup;
   constructor(private formBuilder: FormBuilder,public api: ApiService ){
+=======
+  registerForm: FormGroup;
+  constructor(private formBuilder: FormBuilder){
+>>>>>>> parent of 40ecbe3... validators
     this.registerForm = this.formBuilder.group({
       Proteins: new FormControl('Proteins', Validators.compose([
         Validators.required,
@@ -93,7 +96,10 @@ export class RegisterPage {
       ]))
     });
   }
+<<<<<<< HEAD
 >>>>>>> parent of 083995b... connect and push to mongo
+=======
+>>>>>>> parent of 40ecbe3... validators
 
   
   //data = {lastName: "", firstName: "", phoneNumber: 0, emailAddress: "", password: "", birthday: "", height: 0}
