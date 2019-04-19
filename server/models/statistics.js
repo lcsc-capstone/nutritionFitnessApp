@@ -14,4 +14,4 @@ StatisticsSchema = new Schema
 });
 
 /* Export model for application usage */
-module.exports = mongoose.model('Statistics', StatisticsSchema), 'statistics';
+module.exports = mongoose.model('STATISTICS', StatisticsSchema);

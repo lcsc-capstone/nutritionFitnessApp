@@ -14,4 +14,4 @@ NutritionSchema = new Schema
 });
 
 /* Export model for application usage */
-module.exports = mongoose.model('Nutrition', NutritionSchema, 'nutrition');
+module.exports = mongoose.model('nutrition', NutritionSchema);
