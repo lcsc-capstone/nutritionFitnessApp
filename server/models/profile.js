@@ -12,7 +12,11 @@ ProfileSchema = new Schema
     EMAIL           : {type: String, required : true}, 
     PASSWORD        : {type: String, required : true},
     DATE_OF_BIRTH   : {type: Date, required : true},
+<<<<<<< HEAD
     CM              : {type: Number, required : true}
+=======
+    HEIGHT              : {type: Number, required : true}
+>>>>>>> parent of 4996192... Update profile.js
 });
 
 /* Export model for application usage */
