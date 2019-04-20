@@ -11,6 +11,28 @@
 
 </ion-header>
 
+
+<ion-menu contentId="measurements" side="start" menuId="custom" class="my-custom-menu">
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-title>NutriBien</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+  
+        <ion-item [routerLink]="['/profile']">Home</ion-item>
+        <ion-item [routerLink]="['/measurements']">Measurements</ion-item>
+        <ion-item [routerLink]="['/workout']">Work Out</ion-item>
+        <ion-item [routerLink]="['/nutrition']">Nutrition</ion-item>
+        <ion-item [routerLink]="['/login']">Log Out</ion-item>
+  
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  
+  <ion-router-outlet id="measurements" main></ion-router-outlet>
+
 <!--
 
 <ion-menu side="start" menuId="custom" class="my-custom-menu">
@@ -130,7 +152,7 @@
 </ion-card>
   <ion-button shape="round">Commit Changes</ion-button>
   <ion-button shape="round" fill="outline">Share Them!</ion-button>
-
+<!--
 <ion-card>
   <ion-item href="#" class="activated">
     <ion-icon name="walk" slot="start"></ion-icon>
@@ -142,5 +164,6 @@
     <ion-label >First Day Graph</ion-label>
   </ion-item>
 </ion-card>
+-->
 
 </ion-content>
