@@ -1,0 +1,8 @@
+{
+  "name": "NutriBien",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

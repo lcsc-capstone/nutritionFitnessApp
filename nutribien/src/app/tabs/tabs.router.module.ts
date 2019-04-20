@@ -1,0 +1,84 @@
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { TabsPage } from './tabs.page';
+
+const routes: Routes = [
+  {
+    path: 'tabs',
+    component: TabsPage,
+    children: [
+      {
+        path: 'tab1',
+        children: [
+          {
+            path: '',
+            loadChildren: '../tab1/tab1.module#Tab1PageModule'
+          }
+        ]
+      },
+      {
+        path: 'Workout',
+        children: [
+          {
+            path: '',
+            loadChildren: '../Workout/Workout.module#WorkoutPageModule'
+          }
+        ]
+      },
+      {
+        path: 'Measurements',
+        children: [
+          {
+            path: '',
+            loadChildren: '../Measurements/Measurements.module#MeasurementsPageModule'
+          }
+        ]
+      },
+      {
+        path: 'login',
+        children: [
+          {
+            path: '',
+            loadChildren: '../login/login.module#LoginPageModule'
+          }
+        ]
+      },
+      {
+        path: 'profile',
+        children: [
+          {
+            path: '',
+            loadChildren: '../profile/profile.module#ProfilePageModule'
+          }
+        ]
+      },
+      {
+        path: 'nutrition',
+        children: [
+          {
+            path: '',
+            loadChildren: '../nutrition/nutrition.module#NutritionPageModule'
+          }
+        ]
+      },
+      {
+        path: '',
+        redirectTo: '/tabs/login',
+        pathMatch: 'full'
+      }
+    ]
+  },
+  {
+    path: '',
+    redirectTo: '/tabs/login',
+    pathMatch: 'full'
+  }
+];
+
+@NgModule({
+  imports: [
+    RouterModule.forChild(routes)
+  ],
+  exports: [RouterModule]
+})
+export class TabsPageRoutingModule {}
