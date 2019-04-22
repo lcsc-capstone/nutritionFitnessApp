@@ -1,0 +1,90 @@
+<ion-header>
+<ion-toolbar>
+<ion-buttons slot="start">
+  <ion-menu-button>
+  </ion-menu-button>
+</ion-buttons>
+<ion-title>
+ WorkOut
+</ion-title>
+</ion-toolbar>
+
+</ion-header>
+
+
+
+<ion-menu side="start" menuId="custom" class="my-custom-menu">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>NutriBien</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+
+      <ion-item [routerLink]="['/profile']">Home</ion-item>
+      <ion-item [routerLink]="['/measurements']">Measurements</ion-item>
+      <ion-item [routerLink]="['/workout']">Work Out</ion-item>
+      <ion-item [routerLink]="['/nutrition']">Nutrition</ion-item>
+      <ion-item [routerLink]="['/login']">Log Out</ion-item>
+
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-router-outlet main></ion-router-outlet>
+
+<ion-content>
+    <ion-menu side="start" menu-id="first">
+        <ion-header>
+          <ion-toolbar color="primary">
+            <ion-title>Start Menu</ion-title>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content>
+          <ion-list>
+            <ion-item>Menu Item</ion-item>
+            <ion-item>Menu Item</ion-item>
+            <ion-item>Menu Item</ion-item>
+            <ion-item>Menu Item</ion-item>
+            <ion-item>Menu Item</ion-item>
+          </ion-list>
+        </ion-content>
+      </ion-menu>
+
+<ion-content>
+  <!--<ion-img src="https://officeteam.co.uk/wp-content/uploads/2017/12/iStock-636342222-1.jpg" ></ion-img> -->
+  <ion-img src="NutriBien/src/app/Workout/runningedited.png" ></ion-img>
+  <ion-label padding>What was your workout today?</ion-label>
+
+  <form name="sport_form" padding>
+    <ion-item>
+      <ion-label position="stacked">Workout</ion-label>
+      <ion-select [(ngModel)]="sport" (ionChange)="changeSport()" type="text"  placeholder="Select one" name="Sport">
+        <ion-select-option value="Basketball">Basketball</ion-select-option>
+        <ion-select-option value="Soccer">Soccer</ion-select-option>
+        <ion-select-option value="Baseball">Baseball</ion-select-option>
+        <ion-select-option value="Volleyball">Volleyball</ion-select-option>
+        <ion-select-option value="Hiking">Hiking</ion-select-option>
+        <ion-select-option value="Tennis">Tennis</ion-select-option>
+        <ion-select-option value="Running">Running</ion-select-option>
+        <ion-select-option value="Biking">Biking</ion-select-option>
+        <ion-select-option value="Swimming">Swimming</ion-select-option>
+        <ion-select-option value="Weight lifting">Weight lifting</ion-select-option>
+        <ion-select-option value="Walking">Walking</ion-select-option>
+        <ion-select-option value="Yoga">Yoga</ion-select-option>
+        <ion-select-option value="Other">Other</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item *ngIf="showDistance">
+      <ion-label position="stacked">Distance</ion-label>
+      <ion-input type="number" placeholder="Enter miles" name="distance"></ion-input>
+    </ion-item>
+    <ion-item color>
+      <ion-label position="stacked">Time</ion-label>
+      <ion-input type="number" placeholder="Enter minutes" name="minutes"></ion-input>
+    </ion-item>
+    <ion-button mode="ios" color= "success" type="submit" block>Submit Workout</ion-button>
+  </form>
+</ion-content>
+

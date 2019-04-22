@@ -1,0 +1,92 @@
+<ion-header>
+<ion-toolbar>
+<ion-buttons slot="start">
+  <ion-menu-button>
+  </ion-menu-button>
+</ion-buttons>
+<ion-title>
+ Temporary
+</ion-title>
+</ion-toolbar>
+
+</ion-header>
+
+
+
+<ion-menu side="start" menuId="custom" class="my-custom-menu">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>NutriBien</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+
+      <ion-item [routerLink]="['/profile']">Home</ion-item>
+      <ion-item [routerLink]="['/measurements']">Measurements</ion-item>
+      <ion-item [routerLink]="['/workout']">Work Out</ion-item>
+      <ion-item [routerLink]="['/nutrition']">Nutrition</ion-item>
+      <ion-item [routerLink]="['/login']">Log Out</ion-item>
+
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-router-outlet main></ion-router-outlet>
+
+<ion-content>
+    <ion-menu side="start" menu-id="first">
+        <ion-header>
+          <ion-toolbar color="primary">
+            <ion-title>Start Menu</ion-title>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content>
+          <ion-list>
+            <ion-item>Menu Item</ion-item>
+            <ion-item>Menu Item</ion-item>
+            <ion-item>Menu Item</ion-item>
+            <ion-item>Menu Item</ion-item>
+            <ion-item>Menu Item</ion-item>
+          </ion-list>
+        </ion-content>
+      </ion-menu>
+
+
+
+<!--<ion-header>
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>-->
+
+<ion-content>
+  <!-- Inputs with labels -->
+  <form >
+    <ion-grid>
+        <ion-row color="primary" justify-content-center>
+           <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+             <div text-center>
+               <h3>Login</h3>
+              </div>
+              <div padding>
+                <ion-item>
+                  <ion-label position="floating">Email Address</ion-label>
+                  <ion-input></ion-input>
+                </ion-item>
+
+                <ion-item>
+                  <ion-label position="floating">Password</ion-label>
+                  <ion-input></ion-input>
+                </ion-item>
+              </div>
+              <div padding>
+                  <!-- Round -->
+                  <ion-button size="medium" expand="block" shape="round">Log In</ion-button>
+                  <ion-button size="medium" expand="block" (click)="signUp()" shape="round" fill="outline">Sign Up</ion-button>
+              </div>
+          </ion-col>
+        </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

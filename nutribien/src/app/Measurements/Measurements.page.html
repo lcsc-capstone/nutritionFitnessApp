@@ -1,0 +1,375 @@
+<ion-header>
+<ion-toolbar>
+<ion-buttons slot="start">
+  <ion-menu-button>
+  </ion-menu-button>
+</ion-buttons>
+<ion-title>
+ Meassurements
+</ion-title>
+</ion-toolbar>
+
+</ion-header>
+
+
+
+<ion-menu side="start" menuId="custom" class="my-custom-menu">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>NutriBien</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+
+      <ion-item [routerLink]="['/profile']">Home</ion-item>
+      <ion-item [routerLink]="['/measurements']">Measurements</ion-item>
+      <ion-item [routerLink]="['/workout']">Work Out</ion-item>
+      <ion-item [routerLink]="['/nutrition']">Nutrition</ion-item>
+      <ion-item [routerLink]="['/login']">Log Out</ion-item>
+
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-router-outlet main></ion-router-outlet>
+
+<ion-content>
+    <ion-menu side="start" menu-id="first">
+        <ion-header>
+          <ion-toolbar color="primary">
+            <ion-title>Start Menu</ion-title>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content>
+          <ion-list>
+            <ion-item>Menu Item</ion-item>
+            <ion-item>Menu Item</ion-item>
+            <ion-item>Menu Item</ion-item>
+            <ion-item>Menu Item</ion-item>
+            <ion-item>Menu Item</ion-item>
+          </ion-list>
+        </ion-content>
+      </ion-menu>
+
+
+
+
+
+<!--
+
+
+
+
+
+<ion-content overflow-scroll="true">
+  <video controls="controls" preload="metadata" autoplay="autoplay" webkit-playsinline="webkit-playsinline" class="videoPlayer">
+   <source src="https://www.youtube.com/watch?v=u3MY3vIw4Aw" type="video/mp4" />
+  </video>
+</ion-content>
+
+
+<ion-avatar>
+  <img src="http://thailawonline.com/images/Measurements-in-Thailand.jpg">
+</ion-avatar>
+
+<ion-chip>
+  <ion-avatar>
+    <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+  </ion-avatar>
+  <ion-label>Chip Avatar</ion-label>
+</ion-chip>
+
+<ion-item>
+  <ion-avatar slot="start">
+    <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+  </ion-avatar>
+  <ion-label>Item Avatar</ion-label>
+</ion-item>
+-->
+
+    <ion-card class="welcome-card">
+      <ion-img src="https://conceptodefinicion.de/wp-content/uploads/2014/09/cinta_metrica.jpg"></ion-img>
+      <ion-card-header>
+        <ion-card-subtitle>Update daily to get track of your body!</ion-card-subtitle>
+      </ion-card-header>
+    </ion-card>
+
+  <ion-card>
+  <ion-item>
+    <ion-label position="floating">ID</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Neck</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Hips</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Thighs</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Belly</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Bicep</ion-label>
+    <ion-input ></ion-input>
+  </ion-item>
+</ion-card>
+  <ion-button shape="round">Commit Changes</ion-button>
+  <ion-button shape="round" fill="outline">Share Them!</ion-button>
+
+<ion-card>
+  <ion-item href="#" class="activated">
+    <ion-icon name="walk" slot="start"></ion-icon>
+    <ion-label>Current Graph</ion-label>
+  </ion-item>
+
+  <ion-item href="#">
+    <ion-icon name="walk" slot="start"></ion-icon>
+    <ion-label >First Day Graph</ion-label>
+  </ion-item>
+</ion-card>
+
+<!--
+<ion-toolbar>
+  <ion-title>Title Only</ion-title>
+</ion-toolbar>
+
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-back-button></ion-back-button>
+  </ion-buttons>
+  <ion-title>Back Button</ion-title>
+</ion-toolbar>
+
+<ion-toolbar>
+  <ion-buttons slot="secondary">
+    <ion-button>
+      <ion-icon slot="icon-only" name="contact"></ion-icon>
+    </ion-button>
+    <ion-button>
+      <ion-icon slot="icon-only" name="search"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+  <ion-buttons slot="primary">
+    <ion-button color="secondary">
+      <ion-icon slot="icon-only" name="more"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+  <ion-title>Default Buttons</ion-title>
+</ion-toolbar>
+
+<ion-toolbar>
+  <ion-buttons slot="secondary">
+    <ion-button fill="solid">
+      <ion-icon slot="start" name="contact"></ion-icon>
+      Contact
+    </ion-button>
+  </ion-buttons>
+  <ion-title>Solid Buttons</ion-title>
+  <ion-buttons slot="primary">
+    <ion-button fill="solid" color="secondary">
+      Help
+      <ion-icon slot="end" name="help-circle"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</ion-toolbar>
+
+<ion-toolbar>
+  <ion-buttons slot="secondary">
+    <ion-button fill="outline">
+      <ion-icon slot="start" name="star"></ion-icon>
+      Star
+    </ion-button>
+  </ion-buttons>
+  <ion-title>Outline Buttons</ion-title>
+  <ion-buttons slot="primary">
+    <ion-button color="danger" fill="outline">
+      Edit
+      <ion-icon slot="end" name="create"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</ion-toolbar>
+
+<ion-toolbar>
+  <ion-buttons slot="secondary">
+    <ion-button>
+      Account
+    </ion-button>
+  </ion-buttons>
+  <ion-buttons slot="primary">
+    <ion-button color="danger">
+      Edit
+    </ion-button>
+  </ion-buttons>
+  <ion-title>Text Only Buttons</ion-title>
+</ion-toolbar>
+
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-menu-button autoHide="false"></ion-menu-button>
+
+  </ion-buttons>
+  <ion-buttons slot="secondary">
+    <ion-button>
+      <ion-icon slot="icon-only" name="star"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+  <ion-title>Left side menu toggle</ion-title>
+</ion-toolbar>
+
+<ion-toolbar>
+  <ion-buttons slot="primary">
+    <ion-button (click)="clickedStar()">
+      <ion-icon slot="icon-only" name="star"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+  <ion-title>Right side menu toggle</ion-title>
+  <ion-buttons slot="end">
+    <ion-menu-button autoHide="false"></ion-menu-button>
+
+  </ion-buttons>
+</ion-toolbar>
+
+<ion-card>
+  <ion-item>
+    <ion-icon name="pin" slot="start"></ion-icon>
+    <ion-label>ion-item in a card, icon left, button right</ion-label>
+    <ion-button fill="outline" slot="end">View</ion-button>
+  </ion-item>
+
+  <ion-card-content>
+    This is content, without any paragraph or header tags,
+    within an ion-card-content element.
+  </ion-card-content>
+</ion-card>
+
+<ion-toolbar>
+  <ion-buttons slot="primary">
+    <ion-button (click)="clickedSearch()">
+      <ion-icon slot="icon-only" name="search"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+  <ion-searchbar placeholder="Search Favorites"></ion-searchbar>
+</ion-toolbar>
+
+<ion-toolbar>
+  <ion-segment>
+    <ion-segment-button value="all" checked>
+      All
+    </ion-segment-button>
+    <ion-segment-button value="favorites">
+      Favorites
+    </ion-segment-button>
+  </ion-segment>
+</ion-toolbar>
+
+<ion-toolbar color="secondary">
+  <ion-buttons slot="secondary">
+    <ion-button>
+      <ion-icon slot="icon-only" name="contact"></ion-icon>
+    </ion-button>
+    <ion-button>
+      <ion-icon slot="icon-only" name="search"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+  <ion-buttons slot="primary">
+    <ion-button color="primary">
+      <ion-icon slot="icon-only" name="more"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+  <ion-title>Secondary Toolbar</ion-title>
+</ion-toolbar>
+
+<ion-toolbar color="dark">
+  <ion-buttons slot="secondary">
+    <ion-button>
+      <ion-icon slot="icon-only" name="contact"></ion-icon>
+    </ion-button>
+    <ion-button>
+      <ion-icon slot="icon-only" name="search"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+  <ion-buttons slot="primary">
+    <ion-button color="danger">
+      <ion-icon slot="icon-only" name="more"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+  <ion-title>Dark Toolbar</ion-title>
+</ion-toolbar>
+
+  <div class="container">  
+  <ion-list>
+  <ion-item>
+    <ion-label>Pokémon Yellow</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label>Mega Man X</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label>The Legend of Zelda</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label>Pac-Man</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label>Super Mario World</ion-label>
+  </ion-item>
+</ion-list>
+
+
+<ion-list>
+  <ion-item>
+    <ion-label>Input</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Toggle</ion-label>
+    <ion-toggle slot="end"></ion-toggle>
+  </ion-item>
+  <ion-item>
+    <ion-label>Radio</ion-label>
+    <ion-radio slot="end"></ion-radio>
+  </ion-item>
+  <ion-item>
+    <ion-label>Checkbox</ion-label>
+    <ion-checkbox slot="start"></ion-checkbox>
+  </ion-item>
+</ion-list>
+
+
+<ion-list>
+  <ion-item-sliding>
+    <ion-item>
+      <ion-label>Item</ion-label>
+    </ion-item>
+    <ion-item-options side="end">
+      <ion-item-option (click)="unread(item)">Unread</ion-item-option>
+    </ion-item-options>
+  </ion-item-sliding>
+
+  <ion-item-sliding>
+    <ion-item>
+      <ion-label>Item</ion-label>
+    </ion-item>
+    <ion-item-options side="end">
+      <ion-item-option (click)="unread(item)">Unread</ion-item-option>
+    </ion-item-options>
+  </ion-item-sliding>
+</ion-list>
+
+</div>
+
+-->
+</ion-content>
