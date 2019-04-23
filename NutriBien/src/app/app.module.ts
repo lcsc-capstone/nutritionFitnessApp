@@ -20,6 +20,7 @@ import { WebView } from '@ionic-native/ionic-webview/ngx';
 import { FilePath } from '@ionic-native/file-path/ngx';
  
 import { IonicStorageModule } from '@ionic/storage';
+import { LoginPageModule } from './login/login.module';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { IonicStorageModule } from '@ionic/storage';
     Camera,
     File,
     WebView,
-    FilePath
+    FilePath,
+    LoginPageModule
   ],
   bootstrap: [AppComponent]
 })
