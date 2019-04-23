@@ -39,6 +39,10 @@ export class RegisterPage {
   registerForm = this.formBuilder.group({
     firstName: new FormControl('', Validators.required),
     lastName: new FormControl('', Validators.required),
+    phoneNumber: new FormControl('', Validators.compose([
+      Validators.required,
+     // PhoneValidator.validCountryPhone(country)
+    ])),
     emailAddress: new FormControl('', Validators.compose([
       Validators.required,
       Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
