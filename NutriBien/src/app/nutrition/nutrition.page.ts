@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Validators,FormBuilder, FormControl } from '@angular/forms';
 import { NutrientsValidator } from  './../../../../nutribien/src/app/validators/nutrients';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 /////        API STUFF       /////
 import { ApiService } from '../api.service';
@@ -11,7 +12,7 @@ import { ApiService } from '../api.service';
   styleUrls: ['./nutrition.page.scss'],
 })
 
-
+ 
 export class NutritionPage{
    
   /*
@@ -21,6 +22,10 @@ export class NutritionPage{
   public Fats: number;
   public Fibers: number;
   public Calories: number;*/
+
+  private _HOST : string 			=	"http://127.0.0.1:8080/";
+
+  constructor(private formBuilder: FormBuilder, private _HTTP: HttpClient){}
 
   nutrition = this.formBuilder.group({
     Proteins: new FormControl('Proteins', Validators.compose([
@@ -44,11 +49,8 @@ export class NutritionPage{
       NutrientsValidator.isValid
     ]))
   });
-
-  constructor(private formBuilder: FormBuilder, public api: ApiService){}
-  async submit()
-  {
-<<<<<<< HEAD
+  submit(){
+  
     let  idnum  = 567,
     proteins    = this.nutrition.value.Proteins,
     carbs       = this.nutrition.value.Carbs,
@@ -58,13 +60,19 @@ export class NutritionPage{
     headers     = new HttpHeaders({ 'Content-Type': 'application/json' }),
     options     = { idnum : idnum, proteins : proteins, carbs : carbs, fats : fats, fibers : fibers, calories : calories },
     url         = this._HOST + "api/nutriFit.nutrition";
-=======
-    // TESTING THE VARIABLE CONTAIN CORRECT VALUES 
-    // console.log(this.Fibers); 
->>>>>>> parent of 083995b... connect and push to mongo
 
-    await this.api.addEntry(NutritionPage);
-
+    this._HTTP
+    .post(url, options, {headers: headers}) //different from tutorial so error goes away
+    .subscribe((data : any) =>
+    {
+       // If the request was successful clear the form of data
+       // and notify the user
+       console.log('New entry was successfully created');
+    },
+    (error : any) =>
+    {
+       console.dir(error);
+    });
   }
   ngOnInit() {}
     

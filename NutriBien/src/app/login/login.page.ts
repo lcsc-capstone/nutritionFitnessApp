@@ -1,6 +1,12 @@
 import { Component} from '@angular/core';
 import { Router } from '@angular/router';
 //import { DatabaseProvider } from '../database';
+import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+import {AppModule} from './../app.module';
+import {enableProdMode} from "@angular/core";
+
+enableProdMode();
+platformBrowserDynamic().bootstrapModule(AppModule);
 
 
 @Component({
