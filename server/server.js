@@ -97,7 +97,7 @@ apiRouter.post('/nutriFit.nutrition', function(req, res)
    /* Use the NUTRITION model to access the Mongoose API method to
       add the supplied data as a new document to the MongoDB
       database */
-      NUTRITION.create(  //insertMany makes no difference
+      NUTRITION.create( 
        { ID_NUM 	   : idnum,
          PROTEINS 	: proteins,
          CARBS 		: carbs,
@@ -166,6 +166,11 @@ apiRouter.put('/nutriFit.nutrition:recordID', function(req, res)
 
 });
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> parent of 4b6caf1... Revert "fixing collection names"
 /* Handle DELETE requests with expected recordID parameter */
 apiRouter.delete('/nutriFit.nutrition:recordID', function(req, res)
 {
