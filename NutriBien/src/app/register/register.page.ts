@@ -34,15 +34,33 @@ const STORAGE_KEY = 'my_images';
 })
 
 export class RegisterPage {
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+>>>>>>> parent of b3e5d26... removed everything
   constructor(private formBuilder: FormBuilder){}
   registerForm = this.formBuilder.group({
     firstName: new FormControl('', Validators.required),
     lastName: new FormControl('', Validators.required),
+<<<<<<< HEAD
+=======
+    phoneNumber: new FormControl('', Validators.compose([
+      Validators.required,
+     // PhoneValidator.validCountryPhone(country)
+    ])),
+>>>>>>> parent of b3e5d26... removed everything
     emailAddress: new FormControl('', Validators.compose([
       Validators.required,
       Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
     ])),
+<<<<<<< HEAD
+=======
+    birthday: new FormControl('birthday', Validators.compose([
+      Validators.required,
+      RegistrationValidator.isValid
+    ])),
+>>>>>>> parent of b3e5d26... removed everything
     height: new FormControl('height', Validators.compose([
       Validators.required,
       RegistrationValidator.isValid
@@ -56,7 +74,37 @@ export class RegisterPage {
     }, (formGroup: FormGroup) => {
       return PasswordValidator.areEqual(formGroup);
   });
+<<<<<<< HEAD
+=======
+  
+=======
+  registerForm: FormGroup;
+  constructor(private formBuilder: FormBuilder,public api: ApiService ){
+    this.registerForm = this.formBuilder.group({
+      Proteins: new FormControl('Proteins', Validators.compose([
+        Validators.required,
+        RegistrationValidator.isValid
+      ])),
+      Carbs: new FormControl('Carbs', Validators.compose([
+        Validators.required,
+        RegistrationValidator.isValid
+      ])),
+      Fats: new FormControl('Fats', Validators.compose([
+        Validators.required,
+        RegistrationValidator.isValid
+      ])),
+      Fibers: new FormControl('Fibers', Validators.compose([
+        Validators.required,
+        RegistrationValidator.isValid
+      ])),
+      Calories: new FormControl('Calories', Validators.compose([
+        Validators.required,
+        RegistrationValidator.isValid
+      ]))
+    });
+>>>>>>> parent of b3e5d26... removed everything
   }
+>>>>>>> parent of 083995b... connect and push to mongo
 
 
   

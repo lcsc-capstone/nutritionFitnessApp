@@ -14,4 +14,8 @@ NutritionSchema = new Schema
 });
 
 /* Export model for application usage */
+<<<<<<< HEAD
 module.exports = mongoose.model('Nutrition', NutritionSchema, 'nutrition');
+=======
+module.exports = mongoose.model('nutrition', NutritionSchema);
+>>>>>>> parent of b3e5d26... removed everything

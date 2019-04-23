@@ -30,10 +30,17 @@ var config 			= require('./config'),
     /* Import Schema for managing MongoDB database communication
        with Mongoose */
 	NUTRITION         = require('./models/nutrition');
+<<<<<<< HEAD
    PROFILE           = require('./models/profile');
    EXERCISE          = require('./models/exercise');
    MEASUREMENTS      = require('./models/measurements');
    STATISTICS        = require('./models/statistics');
+=======
+   PROFILE         = require('./models/profile');
+   EXERCISE         = require('./models/exercise');
+   MEASUREMENTS        = require('./models/measurements');
+   STATISTICS         = require('./models/statistics');
+>>>>>>> parent of b3e5d26... removed everything
 
 
 /* Manage size limits for POST/PUT requests */
@@ -58,10 +65,17 @@ app.use(function(req, res, next)
 });
 
 
+<<<<<<< HEAD
 ////////////////////////////////                FOR NUTRITION PAGE                      //////////////////////////   
 
 /* Manage ALL Http GET requests to the specified route */
 apiRouter.get('/nutriFit.nutrition', function(req, res)
+=======
+
+
+/* Manage ALL Http GET requests to the specified route */
+apiRouter.get('/nutrition', function(req, res)
+>>>>>>> parent of b3e5d26... removed everything
 {
     /* Use the gallery model and access Mongoose's API to
       retrieve ALL MongoDB documents whose displayed field
@@ -97,7 +111,11 @@ apiRouter.post('/nutriFit.nutrition', function(req, res)
    /* Use the NUTRITION model to access the Mongoose API method to
       add the supplied data as a new document to the MongoDB
       database */
+<<<<<<< HEAD
       NUTRITION.create( 
+=======
+      NUTRITION.create(  //insertMany makes no difference
+>>>>>>> parent of b3e5d26... removed everything
        { ID_NUM 	   : idnum,
          PROTEINS 	: proteins,
          CARBS 		: carbs,
@@ -122,7 +140,11 @@ apiRouter.post('/nutriFit.nutrition', function(req, res)
 });
 
 /* Handle PUT requests with expected recordID parameter */
+<<<<<<< HEAD
 apiRouter.put('/nutriFit.nutrition:recordID', function(req, res)
+=======
+apiRouter.put('/nutrition:recordID', function(req, res)
+>>>>>>> parent of b3e5d26... removed everything
 {
 
     /* Use the NUTRITION model to access the Mongoose API method and
@@ -167,12 +189,18 @@ apiRouter.put('/nutriFit.nutrition:recordID', function(req, res)
 });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 
 >>>>>>> parent of 4b6caf1... Revert "fixing collection names"
 /* Handle DELETE requests with expected recordID parameter */
 apiRouter.delete('/nutriFit.nutrition:recordID', function(req, res)
+=======
+
+/* Handle DELETE requests with expected recordID parameter */
+apiRouter.delete('/nutrition:recordID', function(req, res)
+>>>>>>> parent of b3e5d26... removed everything
 {
     /* Use the NUTRITION model to access the Mongoose API method and
       find & remove a specific document within the MongoDB database
@@ -194,6 +222,7 @@ apiRouter.delete('/nutriFit.nutrition:recordID', function(req, res)
    });
 });
 
+<<<<<<< HEAD
 /* Manage ALL Http GET requests to the specified route */
 apiRouter.get('/profile', function(req, res)
 {
@@ -331,6 +360,9 @@ apiRouter.delete('/profile:recordID', function(req, res)
 
    });
 });
+=======
+
+>>>>>>> parent of b3e5d26... removed everything
 /* Mount the specified Middleware function based on matching path
    ALL Http requests will be sent to /api followed by whatever the
    requested endpoint is

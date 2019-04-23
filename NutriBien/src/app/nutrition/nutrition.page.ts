@@ -45,7 +45,25 @@ export class NutritionPage{
     ]))
   });
 
-  constructor(private formBuilder: FormBuilder){
+  constructor(private formBuilder: FormBuilder, public api: ApiService){}
+  async submit()
+  {
+<<<<<<< HEAD
+    let  idnum  = 567,
+    proteins    = this.nutrition.value.Proteins,
+    carbs       = this.nutrition.value.Carbs,
+    fats        = this.nutrition.value.Fats,
+    fibers      = this.nutrition.value.Fibers,
+    calories    = this.nutrition.value.Calories,
+    headers     = new HttpHeaders({ 'Content-Type': 'application/json' }),
+    options     = { idnum : idnum, proteins : proteins, carbs : carbs, fats : fats, fibers : fibers, calories : calories },
+    url         = this._HOST + "api/nutriFit.nutrition";
+=======
+    // TESTING THE VARIABLE CONTAIN CORRECT VALUES 
+    // console.log(this.Fibers); 
+>>>>>>> parent of 083995b... connect and push to mongo
+
+    await this.api.addEntry(NutritionPage);
 
   }
   ngOnInit() {}
