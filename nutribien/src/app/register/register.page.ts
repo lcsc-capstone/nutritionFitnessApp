@@ -17,7 +17,7 @@ import { ActionSheetController, ToastController, Platform, LoadingController } f
 import { finalize } from 'rxjs/operators';
 import { LoginPage } from '../login/login.page';
 
-import * as mongodb from 'mongodb';
+
 import { RegistrationValidator } from '../validators/registration';
 //import { Profile } from 'selenium-webdriver/firefox';
 
