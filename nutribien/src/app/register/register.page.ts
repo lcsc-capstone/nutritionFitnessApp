@@ -1,20 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 //import { ApiService } from '../api.service';
 import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
-import { Profile } from '../tables'
 import * as express from 'express';
 import { Router } from '@angular/router';
-import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
-import { Toast } from '@ionic-native/toast/ngx';
+//import { Toast } from '@ionic-native/toast/ngx';
 import { NavController } from '@ionic/angular'; 
 import { ChangeDetectorRef } from '@angular/core';
-import { Camera, CameraOptions, PictureSourceType } from '@ionic-native/Camera/ngx';
+//import { Camera, CameraOptions, PictureSourceType } from '@ionic-native/Camera/ngx';
 import { ActionSheetController, ToastController, Platform, LoadingController } from '@ionic/angular';
-import { File, FileEntry } from '@ionic-native/File/ngx';
-import { HttpClient } from '@angular/common/http';
-import { WebView } from '@ionic-native/ionic-webview/ngx';
-import { Storage } from '@ionic/storage';
-import { FilePath } from '@ionic-native/file-path/ngx';
+//import { File, FileEntry } from '@ionic-native/File/ngx';
+//import { HttpClient } from '@angular/common/http';
+//import { WebView } from '@ionic-native/ionic-webview/ngx';
+//import { Storage } from '@ionic/storage';
+//import { FilePath } from '@ionic-native/file-path/ngx';
  
 import { finalize } from 'rxjs/operators';
 import { LoginPage } from '../login/login.page';
