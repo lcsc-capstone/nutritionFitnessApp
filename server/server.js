@@ -29,7 +29,8 @@ var config 			= require('./config'),
 
     /* Import Schema for managing MongoDB database communication
        with Mongoose */
-	NUTRITION         = require('./models/nutrition');
+   NUTRITION         = require('./models/nutrition');
+   PROFILE         = require('./models/profile');
 
 
 
@@ -172,6 +173,144 @@ apiRouter.delete('/nutrition:recordID', function(req, res)
       find & remove a specific document within the MongoDB database
       based on the document ID value supplied as a route parameter */
    NUTRITION.findByIdAndRemove({ _id: req.params.recordID }, (err, recs) =>
+   {
+
+      /* If we encounter an error we log this to the console */
+      if (err)
+      {
+         console.dir(err);
+      }
+
+
+      /* If all is good then send a JSON encoded map of the removed data
+         as a HTTP response */
+      res.json({ records: recs });
+
+   });
+});
+
+apiRouter.get('/nutriFit.profile', function(req, res)
+{
+    /* Use the gallery model and access Mongoose's API to
+      retrieve ALL MongoDB documents whose displayed field
+      has a value of true */
+   PROFILE.find((err, recs) =>
+   {
+      /* If we encounter an error log this to the console */
+      if (err)
+      {
+         console.dir(err);
+      }
+      /* Send the retrieve documents based as JSON encoded
+         data with the Router Response object */
+      res.json({ records: recs });
+
+   });
+});
+
+/* Manage ALL Http POST requests to the specified route */
+apiRouter.post('/nutriFit.profile', function(req, res)
+{
+    /* Retrieve the posted data from the Request object and assign
+      this to variables */
+   var idnum        =   req.body.idnum,
+       fName 	  =	req.body.fName,
+       lName        =	req.body.lName,
+       phone         =	req.body.phone,
+       email       =	req.body.email,
+       password 	  =	req.body.password;
+       height 	  =	req.body.height;
+       birthday 	  =	req.body.birthday;
+
+                       
+
+
+   /* Use the NUTRITION model to access the Mongoose API method to
+      add the supplied data as a new document to the MongoDB
+      database */
+      PROFILE.create( 
+       { 
+         ID_NUM          : idnum,
+         FIRSTNAME       : fName,
+         LASTNAME        : lName,
+         PHONE           : phone,
+         EMAIL           : email, 
+         PASSWORD        : password,
+         DATE_OF_BIRTH   : birthday,
+         HEIGHT          : height   
+        },
+        function (err, small)
+        {
+            /* If we encounter an error log this to the console*/
+            if (err)
+            {
+                console.dir(err);
+            }
+            
+            /* Document was successfully created so send a JSON encoded
+            success message back with the Router Response object */
+            
+            res.json({ message: 'success' });
+        });
+
+});
+
+/* Handle PUT requests with expected recordID parameter */
+apiRouter.put('/nutrition:recordID', function(req, res)
+{
+
+    /* Use the NUTRITION model to access the Mongoose API method and
+      find a specific document within the MongoDB database based
+      on the document ID value supplied as a route parameter */
+   PROFILE.findById({ _id: req.params.recordID }, (err, recs) =>
+   {
+
+      /* If we encounter an error we log this to the console */
+      if (err)
+      {
+         console.dir(err);
+      }
+      else
+      {
+         /* Assign the posted values to the respective fields for the retrieved
+            document */
+      	recs.ID_NUM 				= req.body.idnum 		|| recs.ID_NUM;
+         recs.LASTNAME 		      = req.body.lName 	|| recs.LASTNAME;
+         recs.FIRSTNAME  		      = req.body.fName	   || recs.FIRSTNAME;
+         recs.PHONE 		         = req.body.phone 	   || recs.PHONE;
+         recs.EMAIL 		      = req.body.email 	|| recs.EMAIL;
+         recs.PASSWORD 		      = req.body.password 	|| recs.password;
+         recs.DATE_OF_BIRTH 		      = req.body.birthday 	|| recs.DATE_OF_BIRTH;
+         recs.HEIGHT 		      = req.body.height 	|| recs.HEIGHT;
+
+         /* Save the updated document back to the database */
+         recs.save((err, recs) =>
+         {
+            /* If we encounter an error send the details as a HTTP response */
+            if (err)
+            {
+               res.status(500).send(err)
+            }
+
+            /* If all is good then send a JSON encoded map of the retrieved data
+               as a HTTP response */
+            res.json({ records: recs });
+         });
+      }
+
+   });
+
+});
+
+
+
+/* Handle DELETE requests with expected recordID parameter */
+apiRouter.delete('/nutrition:recordID', function(req, res)
+{
+    /* Use the NUTRITION model to access the Mongoose API method and
+      find & remove a specific document within the MongoDB database
+      based on the document ID value supplied as a route parameter */
+   PROFILE.findByIdAndRemove({ _id: req.params.recordID }, (err, recs) =>
    {
 
       /* If we encounter an error we log this to the console */
