@@ -1,8 +1,7 @@
 {
-  "name": "myApp",
+  "name": "nutritionFitnessApp2",
   "integrations": {
-      "cordova": {}
+    "cordova": {}
   },
-  "type": "angular",
-  "id": "a2c070b7"
+  "type": "ionic-angular"
 }
