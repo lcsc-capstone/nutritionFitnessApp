@@ -1,5 +1,7 @@
 {
   "name": "nutribien",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

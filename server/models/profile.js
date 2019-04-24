@@ -13,6 +13,8 @@ ProfileSchema = new Schema
     PASSWORD        : {type: String, required : true},
     DATE_OF_BIRTH   : {type: Date, required : true},
     HEIGHT          : {type: Number, required : true},
+    PICTURE         : {type: String, required : true},
+    THUMBNAIL      : {type: String, required : true}
 });
 
 /* Export model for application usage */

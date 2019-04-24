@@ -2,6 +2,7 @@ import { AbstractControl, ValidatorFn, FormControl, FormGroup } from '@angular/f
 
 
 export class PhoneValidator {
+
     static isValidMobile(control: FormControl): any {
 
         let regExp = /^[0-9]{10}$/;

@@ -1,4 +1,8 @@
 // Import the server configuration file
+
+let UPLOAD_PATH = 'uploads'
+let PORT = 3000;
+
 var config 			= require('./config'),
 
     /* Import the ExpressJS framework for Middleware/routing */
@@ -17,15 +21,16 @@ var config 			= require('./config'),
 
     /* Use ExpressJS Router class to create modular route handlers */
 	apiRouter     	= express.Router(),
-
-    /* Import path module to provide utilities for working with file
+   /* Import path module to provide utilities for working with file
        and directory paths */
-	path 			   = require('path'),
-
+   path 			   = require('path'),
+   
     /* Define Mongoose connection to project's MongoDB database */
 	connection 		= mongoose.connect(config.database, { useNewUrlParser: true })
     .then(() =>  console.log('connection to nutribien database succesful'))
-    .catch((err) => console.error(err));
+    .catch((err) => console.error(err)),
+
+
 
     /* Import Schema for managing MongoDB database communication
        with Mongoose */
@@ -209,7 +214,7 @@ apiRouter.get('/nutriFit.profile', function(req, res)
 });
 
 /* Manage ALL Http POST requests to the specified route */
-apiRouter.post('/nutriFit.profile', function(req, res)
+apiRouter.post('/nutriFit.profile',function(req, res)
 {
     /* Retrieve the posted data from the Request object and assign
       this to variables */
@@ -221,6 +226,9 @@ apiRouter.post('/nutriFit.profile', function(req, res)
        password 	  =	req.body.password;
        height 	  =	req.body.height;
        birthday 	  =	req.body.birthday;
+       image 	  =	req.body.image;
+       thumbnail 	  =	req.body.thumbnail;
+       
 
                        
 
@@ -237,7 +245,9 @@ apiRouter.post('/nutriFit.profile', function(req, res)
          EMAIL           : email, 
          PASSWORD        : password,
          DATE_OF_BIRTH   : birthday,
-         HEIGHT          : height   
+         HEIGHT          : height,   
+         PICTURE         : image, 
+         THUMBNAIL       : thumbnail 
         },
         function (err, small)
         {
@@ -282,6 +292,8 @@ apiRouter.put('/nutrition:recordID', function(req, res)
          recs.PASSWORD 		      = req.body.password 	|| recs.password;
          recs.DATE_OF_BIRTH 		      = req.body.birthday 	|| recs.DATE_OF_BIRTH;
          recs.HEIGHT 		      = req.body.height 	|| recs.HEIGHT;
+         recs.PICTURE 		      = req.body.image 	|| recs.PICTURE;
+         recs.THUMBNAIL 		      = req.body.thumbnail 	|| recs.THUMBNAIL;
 
          /* Save the updated document back to the database */
          recs.save((err, recs) =>
