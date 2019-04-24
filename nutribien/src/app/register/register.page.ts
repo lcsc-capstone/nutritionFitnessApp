@@ -31,12 +31,12 @@ export class RegisterPage {
       Validators.required,
       RegistrationValidator.isValid
     ])),
+    Birthday: new FormControl ('', Validators.required),
     Password: new FormControl('', Validators.compose([
-      Validators.minLength(5),
+      Validators.minLength(8),
       Validators.required,
       Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$') //this is for the letters (both uppercase and lowercase) and numbers validation
    ])),
-    Birthday: new FormControl ('', Validators.required),
     ConformPassword: new FormControl('', Validators.required)
     }, (formGroup: FormGroup) => {
       return PasswordValidator.areEqual(formGroup);   
