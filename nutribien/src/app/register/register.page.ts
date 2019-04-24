@@ -3,9 +3,6 @@ import { ActionSheetController, NavParams, ToastController, Platform, LoadingCon
 import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { RegistrationValidator, PhoneValidator, PasswordValidator } from '../validators/registration';
-import { File, FileEntry } from '@ionic-native/File/ngx';
-import { Camera, CameraOptions, PictureSourceType } from '@ionic-native/Camera/ngx';
-import { FilePath } from '@ionic-native/file-path/ngx';
 import { ImageProvider } from './image';
 
 
@@ -32,13 +29,9 @@ export class RegisterPage {
   private _HOST : string 			=	"http://127.0.0.1:8080/";
 
   constructor(
-    private camera: Camera, 
-    private file: File,
     private formBuilder: FormBuilder,
     private _HTTP: HttpClient,
     private actionSheetController: ActionSheetController,
-    private platform: Platform,
-    private filePath: FilePath,
     private imageProvider: ImageProvider){}
 
     registerForm = this.formBuilder.group({

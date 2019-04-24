@@ -31,8 +31,6 @@ import { ImageProvider } from './register/image';
     StatusBar,
     SplashScreen,
     Camera,
-    File,
-    FilePath,
     ImageProvider,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
