@@ -11,8 +11,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 //For images
 import { Camera } from '@ionic-native/Camera/ngx';
-import { File } from '@ionic-native/File/ngx';
-import { FilePath } from '@ionic-native/file-path/ngx';
 import { ImageProvider } from './register/image';
 
 
