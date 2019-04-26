@@ -55,13 +55,12 @@
                   <ion-input type="number" name="Height" formControlName="Height"required="" ></ion-input>
                 </ion-item>  
 
-                <ion-item>
-                    <ion-label fixed>Profile Picture</ion-label>
-                    <ion-avatar item-end>
-                      <img src="{{image}}" (click)="getPhoto()">
-                      <input type="hidden" name="thumbnail" formControlName="Thumbnail">
-                    </ion-avatar>
-                  </ion-item>
+                <img [src]="image">
+                <input type="hidden" name="thumbnail" formControlName="Thumbnail">
+                <ion-button size="medium" expand="block" (click)="getPhoto()" fill="outline" shape="round" color="success">
+                <ion-icon slot="start" name="add-circle"></ion-icon>Add Image</ion-button>
+        
+
     
             </div>
             <div padding> 
