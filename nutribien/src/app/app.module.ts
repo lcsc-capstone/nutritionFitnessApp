@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+
 //For images
 import { Camera } from '@ionic-native/Camera/ngx';
 import { ImageProvider } from './register/image';

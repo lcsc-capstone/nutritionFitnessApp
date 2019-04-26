@@ -9,60 +9,28 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-header>
-  <ion-nav>
-    <img class="profile-image" src="https://scontent.fboi1-1.fna.fbcdn.net/v/t1.0-9/58372653_105427550668252_2995033046580723712_n.jpg?_nc_cat=100&_nc_oc=AQmK7tn8qjDPFO7jR4e1L5sbm3FwgKGaislwrsCKeN5S1HoLemfLVwYBNRpecyQYGB4&_nc_ht=scontent.fboi1-1.fna&oh=a69119c4c3f2e3531b257e297db15802&oe=5D3DBC29">
-    <ion-title>
-    </ion-title>
-    
-       
-  </ion-nav>
-</ion-header>
+<ion-content padding>
+  <div align="center">
+    <ion-header>
+        <img class="profile-image" src="https://scontent.fboi1-1.fna.fbcdn.net/v/t1.0-9/58372653_105427550668252_2995033046580723712_n.jpg?_nc_cat=100&_nc_oc=AQmK7tn8qjDPFO7jR4e1L5sbm3FwgKGaislwrsCKeN5S1HoLemfLVwYBNRpecyQYGB4&_nc_ht=scontent.fboi1-1.fna&oh=a69119c4c3f2e3531b257e297db15802&oe=5D3DBC29">
+    </ion-header>
+  </div>
 
-<ion-content>
+    <form >
+        <ion-grid>
+            <ion-row color="primary" justify-content-center>
+               <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+                 <div text-center>
+                   <h1> Welcome, {{fName}}</h1>
+                  </div>
+                </ion-col>
+              </ion-row>
+          </ion-grid>
+        </form>
 
-<h1>Welcome to your profile!</h1>
 
 
-<ion-card>
-<ion-card-subtitle>Personal Information</ion-card-subtitle>
 
-  <ion-item>
-    <ion-label position="floating">First Name</ion-label>
-    <ion-input></ion-input>
-  </ion-item>
-  
-  <ion-item>
-    <ion-label position= "floating">Last Name</ion-label>
-    <ion-input></ion-input>
-  </ion-item>
 
-  <ion-item>
-    <ion-label position= "floating">Phone Number</ion-label>
-    <ion-input></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label position= "floating">Email</ion-label>
-    <ion-input></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label position= "floating">Date of Birth</ion-label>
-    <ion-input></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label position= "floating">Height</ion-label>
-    <ion-input></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label position= "floating">Password</ion-label>
-    <ion-input></ion-input>
-  </ion-item>
-
-  <ion-button mode="ios" color="success" type ="save" block>Save Changes</ion-button>
-</ion-card>
 </ion-content>
 

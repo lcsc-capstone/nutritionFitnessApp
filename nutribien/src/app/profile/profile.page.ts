@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-profile',
@@ -6,8 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile.page.scss'],
 })
 export class ProfilePage implements OnInit {
+   public fName: string;
 
-  constructor() { }
+   public constructor(private route: ActivatedRoute) {
+      this.route.queryParams.subscribe(params => {
+          this.fName = params["fname"] ;
+      });
+  }
+ 
 
   ngOnInit() {
   }

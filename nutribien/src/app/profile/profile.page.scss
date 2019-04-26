@@ -1,7 +1,12 @@
-page-profile {
-    .profile-image{
-        width: 200px;
-        height: 200px;
-        border-radius: 50%;
-    }
+.profile-image{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    align-items: center;
+}
+.name {
+	font-size: 30px;
+}
+h1 {
+    font-size: 30px;
 }
