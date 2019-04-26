@@ -363,7 +363,7 @@ apiRouter.post('/nutriFit.measurements', function(req, res)
        { ID_NUM      : idnum,
          NECK   : neck,
          HIP     : hip,
-         THIGHS        : thigh,
+         THIGHS        : thighs,
          BELLY      : belly,
          BICEP    : bicep
 
@@ -409,7 +409,7 @@ apiRouter.put('/nutriFit.measurements:recordID', function(req, res)
         recs.ID_NUM         = req.body.idnum     || recs.ID_NUM;
          recs.NECK           = req.body.neck   || recs.NECK;
          recs.HIP            = req.body.hip     || recs.HIP;
-         recs.THIGHS              = req.body.thighs      || recs.THIGHS;
+         recs.THIGHS         = req.body.thighs    || recs.THIGHS;
          recs.BELLY           = req.body.belly   || recs.BELLY;
          recs.BICEP           = req.body.bicep   || recs.BICEP;
 

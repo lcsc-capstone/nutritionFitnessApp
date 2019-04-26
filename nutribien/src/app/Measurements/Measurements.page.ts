@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Validators,FormBuilder, FormControl } from '@angular/forms';
-import { NutrientsValidator } from  './../../../../nutribien/src/app/validators/nutrients';
+import { MeasurementsValidator } from  './../../../../nutribien/src/app/validators/measurements';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 //import { Router } from '@angular/router';
 //import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
@@ -23,23 +23,23 @@ export class  MeasurementsPage {
   Measurements = this.formBuilder.group({
     Neck: new FormControl('Neck', Validators.compose([
       Validators.required,
-      NutrientsValidator.isValid
+      MeasurementsValidator.isValid
     ])),
     Hip: new FormControl('Hip', Validators.compose([
       Validators.required,
-      NutrientsValidator.isValid
+      MeasurementsValidator.isValid
     ])),
     Thighs: new FormControl('Thighs', Validators.compose([
       Validators.required,
-      NutrientsValidator.isValid
+      MeasurementsValidator.isValid
     ])),
     Belly: new FormControl('Belly', Validators.compose([
       Validators.required,
-      NutrientsValidator.isValid
+      MeasurementsValidator.isValid
     ])),
     Bicep: new FormControl('Bicep', Validators.compose([
       Validators.required,
-      NutrientsValidator.isValid
+      MeasurementsValidator.isValid
     ]))
   });
 
@@ -47,11 +47,11 @@ export class  MeasurementsPage {
   submit()
   {
     let  idnum  = 567,
-    neck    = this.nutrition.value.Neck,
-    hip       = this.nutrition.value.Hip,
-    thighs        = this.nutrition.value.Thighs,
-    belly      = this.nutrition.value.Belly,
-    bicep    = this.nutrition.value.Bicep,
+    neck    = this.Measurements.value.Neck,
+    hip       = this.Measurements.value.Hip,
+    thighs        = this.Measurements.value.Thighs,
+    belly      = this.Measurements.value.Belly,
+    bicep    = this.Measurements.value.Bicep,
     headers     = new HttpHeaders({ 'Content-Type': 'application/json' }),
     options     = { idnum : idnum, neck : neck, hip : hip, thighs : thighs, belly : belly, bicep : bicep },
     url         = this._HOST + "api/nutriFit.Measurements";
