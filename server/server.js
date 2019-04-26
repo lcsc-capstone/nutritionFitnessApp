@@ -1,8 +1,5 @@
 // Import the server configuration file
 
-let UPLOAD_PATH = 'uploads'
-let PORT = 3000;
-
 var config 			= require('./config'),
 
     /* Import the ExpressJS framework for Middleware/routing */
