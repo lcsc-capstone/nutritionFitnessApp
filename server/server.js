@@ -36,6 +36,8 @@ var config 			= require('./config'),
        with Mongoose */
    NUTRITION         = require('./models/nutrition');
    PROFILE         = require('./models/profile');
+   EXERCISE         = require('./models/exercise');
+   MEASUREMENTS         = require('./models/measurements');
 
 
 
@@ -60,11 +62,11 @@ app.use(function(req, res, next)
     next();
 });
 
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 /* Manage ALL Http GET requests to the specified route */
-apiRouter.get('/nutrition', function(req, res)
+apiRouter.get('/nutriFit.nutrition', function(req, res)
 {
     /* Use the gallery model and access Mongoose's API to
       retrieve ALL MongoDB documents whose displayed field
@@ -125,7 +127,7 @@ apiRouter.post('/nutriFit.nutrition', function(req, res)
 });
 
 /* Handle PUT requests with expected recordID parameter */
-apiRouter.put('/nutrition:recordID', function(req, res)
+apiRouter.put('/nutriFit.nutrition:recordID', function(req, res)
 {
 
     /* Use the NUTRITION model to access the Mongoose API method and
@@ -172,7 +174,7 @@ apiRouter.put('/nutrition:recordID', function(req, res)
 
 
 /* Handle DELETE requests with expected recordID parameter */
-apiRouter.delete('/nutrition:recordID', function(req, res)
+apiRouter.delete('/nutriFit.nutrition:recordID', function(req, res)
 {
     /* Use the NUTRITION model to access the Mongoose API method and
       find & remove a specific document within the MongoDB database
@@ -193,6 +195,8 @@ apiRouter.delete('/nutrition:recordID', function(req, res)
 
    });
 });
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 apiRouter.get('/nutriFit.profile', function(req, res)
 {
@@ -267,7 +271,7 @@ apiRouter.post('/nutriFit.profile',function(req, res)
 });
 
 /* Handle PUT requests with expected recordID parameter */
-apiRouter.put('/profile:recordID', function(req, res)
+apiRouter.put('/nutriFit.profile:recordID', function(req, res)
 {
 
     /* Use the NUTRITION model to access the Mongoose API method and
@@ -318,7 +322,7 @@ apiRouter.put('/profile:recordID', function(req, res)
 
 
 /* Handle DELETE requests with expected recordID parameter */
-apiRouter.delete('/profile:recordID', function(req, res)
+apiRouter.delete('/nutriFit.profile:recordID', function(req, res)
 {
     /* Use the NUTRITION model to access the Mongoose API method and
       find & remove a specific document within the MongoDB database
@@ -339,7 +343,16 @@ apiRouter.delete('/profile:recordID', function(req, res)
 
    });
 });
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
+
+
+
+
+
+
+////////////////////////// HAS TO STAY AT BOTTOM //////////////////////
 
 /* Mount the specified Middleware function based on matching path
    ALL Http requests will be sent to /api followed by whatever the
