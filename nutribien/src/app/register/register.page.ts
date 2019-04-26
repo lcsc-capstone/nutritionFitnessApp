@@ -4,6 +4,7 @@ import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms'
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { RegistrationValidator, PhoneValidator, PasswordValidator } from '../validators/registration';
 import { ImageProvider } from './image';
+import { Router } from '@angular/router';
 
 
 
@@ -25,6 +26,7 @@ export class RegisterPage {
   public birthday		     : any;
   public image        :any;
   public thumbnail		     : any;
+  public items : Array<any>;
 
   private _HOST : string 			=	"http://127.0.0.1:8080/";
 
@@ -32,7 +34,8 @@ export class RegisterPage {
     private formBuilder: FormBuilder,
     private _HTTP: HttpClient,
     private actionSheetController: ActionSheetController,
-    private imageProvider: ImageProvider){}
+    private imageProvider: ImageProvider,
+    private router: Router){}
 
     registerForm = this.formBuilder.group({
       FirstName: new FormControl('', Validators.required),
@@ -60,6 +63,11 @@ export class RegisterPage {
       }, (formGroup: FormGroup) => {
         return PasswordValidator.areEqual(formGroup);   
       });
+
+    ionViewDidEnter() : void
+    {
+        this.retrieve();
+    }
 
     async getPhoto() {
     const actionSheet = await this.actionSheetController.create({
@@ -114,14 +122,21 @@ export class RegisterPage {
          console.log(err);
       });
    }
-
+   
   
 
 
   submit()
   {
-    let  idnum  = 567,
-    fName    = this.registerForm.value.FirstName,
+    let idnum = 0,
+        prevID = 0;   
+    if (this.items == undefined||this.items.length == 0){
+      idnum = 10000;
+    }else{
+      prevID = this.items[this.items.length-1].ID_NUM;
+      idnum  = prevID + 1;
+    }
+    let fName    = this.registerForm.value.FirstName,
     lName       = this.registerForm.value.LastName,
     phone        = this.registerForm.value.PhoneNumber,
     email      = this.registerForm.value.EmailAddress,
@@ -147,6 +162,7 @@ export class RegisterPage {
          {
             console.dir(error);
          });
+         this.router.navigate(['/login']);
   }
 
   clearForm() : void
@@ -161,6 +177,22 @@ export class RegisterPage {
     this.birthday    = "";
     this.image    = "";
     this.thumbnail    = "";
+   }
+
+   retrieve() : void
+   {
+      this._HTTP
+      .get(this._HOST + "api/nutriFit.profile")
+      .subscribe((data : any) =>
+      {
+         // If the request was successful notify the user
+         this.items = data.records;
+         
+      },
+      (error : any) =>
+      {
+         console.dir(error);
+      });
    }
   ngOnInit() {}
 }
