@@ -192,6 +192,132 @@ apiRouter.delete('/nutriFit.nutrition:recordID', function(req, res)
 
    });
 });
+
+
+
+/////////////////////////////////////////////////WORK OUT/////////////////////////////////////////////////////////
+
+
+
+
+/* Manage ALL Http GET requests to the specified route */
+apiRouter.get('/nutriFit.nutrition', function(req, res)
+{
+    /* Use the gallery model and access Mongoose's API to
+      retrieve ALL MongoDB documents whose displayed field
+      has a value of true */
+   NUTRITION.find((err, recs) =>
+   {
+      /* If we encounter an error log this to the console */
+      if (err)
+      {
+         console.dir(err);
+      }
+      /* Send the retrieve documents based as JSON encoded
+         data with the Router Response object */
+      res.json({ records: recs });
+
+   });
+});
+
+/* Manage ALL Http POST requests to the specified route */
+apiRouter.post('/nutriFit.nutrition', function(req, res)
+{
+    /* Retrieve the posted data from the Request object and assign
+      this to variables */
+   var sport        =   req.body.sport,
+       time     =  req.body.time;
+                       
+
+
+   /* Use the NUTRITION model to access the Mongoose API method to
+      add the supplied data as a new document to the MongoDB
+      database */
+      NUTRITION.create( 
+       { SPORT  : sport,
+         TIME   : time
+        },
+        function (err, small)
+        {
+            /* If we encounter an error log this to the console*/
+            if (err)
+            {
+                console.dir(err);
+            }
+            
+            /* Document was successfully created so send a JSON encoded
+            success message back with the Router Response object */
+            
+            res.json({ message: 'success' });
+        });
+
+});
+
+/* Handle PUT requests with expected recordID parameter */
+apiRouter.put('/nutriFit.nutrition:recordID', function(req, res)
+{
+
+    /* Use the NUTRITION model to access the Mongoose API method and
+      find a specific document within the MongoDB database based
+      on the document ID value supplied as a route parameter */
+   NUTRITION.findById({ _id: req.params.recordID }, (err, recs) =>
+   {
+
+      /* If we encounter an error we log this to the console */
+      if (err)
+      {
+         console.dir(err);
+      }
+      else
+      {
+         /* Assign the posted values to the respective fields for the retrieved
+            document */
+        recs.SPORT         = req.body.sport     || recs.SPORT;
+         recs.TIME           = req.body.time   || recs.TIME;
+
+         /* Save the updated document back to the database */
+         recs.save((err, recs) =>
+         {
+            /* If we encounter an error send the details as a HTTP response */
+            if (err)
+            {
+               res.status(500).send(err)
+            }
+
+            /* If all is good then send a JSON encoded map of the retrieved data
+               as a HTTP response */
+            res.json({ records: recs });
+         });
+      }
+
+   });
+
+});
+
+
+
+/* Handle DELETE requests with expected recordID parameter */
+apiRouter.delete('/nutriFit.nutrition:recordID', function(req, res)
+{
+    /* Use the NUTRITION model to access the Mongoose API method and
+      find & remove a specific document within the MongoDB database
+      based on the document ID value supplied as a route parameter */
+   NUTRITION.findByIdAndRemove({ _id: req.params.recordID }, (err, recs) =>
+   {
+
+      /* If we encounter an error we log this to the console */
+      if (err)
+      {
+         console.dir(err);
+      }
+
+
+      /* If all is good then send a JSON encoded map of the removed data
+         as a HTTP response */
+      res.json({ records: recs });
+
+   });
+});
 ///////////////////////////////////////////MEASSUREMENTS///////////////////////////////////////////////////////////////
 
 /* Manage ALL Http GET requests to the specified route */
@@ -330,7 +456,7 @@ apiRouter.delete('/nutriFit.nutrition:recordID', function(req, res)
 
 
 
-////////////////////////////////////////////////FITNS//////////////////////////////////////////////////////////
+////////////////////////////////////////////////PROFILE//////////////////////////////////////////////////////////
 
 apiRouter.get('/nutriFit.profile', function(req, res)
 {
