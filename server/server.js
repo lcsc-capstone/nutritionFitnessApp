@@ -226,6 +226,7 @@ apiRouter.post('/nutriFit.workout', function(req, res)
     /* Retrieve the posted data from the Request object and assign
       this to variables */
    var sport        =   req.body.sport,
+       distance        =   req.body.distance,
        time     =  req.body.time;
                        
 
@@ -235,7 +236,9 @@ apiRouter.post('/nutriFit.workout', function(req, res)
       database */
       NUTRITION.create( 
        { SPORT  : sport,
+         DISTANCE : distance,
          TIME   : time
+
         },
         function (err, small)
         {
@@ -273,7 +276,8 @@ apiRouter.put('/nutriFit.workout:recordID', function(req, res)
          /* Assign the posted values to the respective fields for the retrieved
             document */
         recs.SPORT         = req.body.sport     || recs.SPORT;
-         recs.TIME           = req.body.time   || recs.TIME;
+        recs.DISTANCE         = req.body.distance     || recs.DISTANCE;
+        recs.TIME           = req.body.time   || recs.TIME;
 
          /* Save the updated document back to the database */
          recs.save((err, recs) =>
