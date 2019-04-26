@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Validators,FormBuilder, FormControl } from '@angular/forms';
-import { MeasurementsValidator } from  './../../../../nutribien/src/app/validators/measurements';
+import { NutrientsValidator } from  './../../../../nutribien/src/app/validators/nutrients';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 //import { Router } from '@angular/router';
 //import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
@@ -23,23 +23,23 @@ export class  MeasurementsPage {
   Measurements = this.formBuilder.group({
     Neck: new FormControl('Neck', Validators.compose([
       Validators.required,
-      MeasurementsValidator.isValid
+      NutrientsValidator.isValid
     ])),
     Hip: new FormControl('Hip', Validators.compose([
       Validators.required,
-      MeasurementsValidator.isValid
+      NutrientsValidator.isValid
     ])),
     Thighs: new FormControl('Thighs', Validators.compose([
       Validators.required,
-      MeasurementsValidator.isValid
+      NutrientsValidator.isValid
     ])),
     Belly: new FormControl('Belly', Validators.compose([
       Validators.required,
-      MeasurementsValidator.isValid
+      NutrientsValidator.isValid
     ])),
     Bicep: new FormControl('Bicep', Validators.compose([
       Validators.required,
-      MeasurementsValidator.isValid
+      NutrientsValidator.isValid
     ]))
   });
 
