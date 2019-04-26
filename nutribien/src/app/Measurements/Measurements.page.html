@@ -22,7 +22,7 @@
       </ion-card-header>
     </ion-card>
   
-    <form padding>
+    <form [formGroup]= "Measurements" padding>
     <ion-item>
       <ion-label position="floating">ID</ion-label>
       <ion-input></ion-input>
@@ -34,12 +34,12 @@
     </ion-item>
   
     <ion-item>
-      <ion-label position="floating">Hip</ion-label>
+      <ion-label position="floating" >Hip</ion-label>
       <ion-input></ion-input>
     </ion-item>
   
     <ion-item>
-      <ion-label position="floating">Thigh</ion-label>
+      <ion-label position="floating">Thighs</ion-label>
       <ion-input></ion-input>
     </ion-item>
   
