@@ -1,61 +1,17 @@
 <ion-header>
   <ion-toolbar>
   <ion-buttons slot="start">
-    <ion-menu-button>
+    <ion-menu-button color="success">
     </ion-menu-button>
   </ion-buttons>
   <ion-title>
-   Meassurements
+   Measurements
   </ion-title>
   </ion-toolbar>
   
-  </ion-header>
-  
-  
-  
-  <ion-menu side="start" menuId="custom" class="my-custom-menu">
-    <ion-header>
-      <ion-toolbar color="primary">
-        <ion-title>NutriBien</ion-title>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content>
-      <ion-list>
-  
-        <ion-item [routerLink]="['/profile']">Home</ion-item>
-        <ion-item [routerLink]="['/measurements']">Measurements</ion-item>
-        <ion-item [routerLink]="['/workout']">Work Out</ion-item>
-        <ion-item [routerLink]="['/nutrition']">Nutrition</ion-item>
-        <ion-item [routerLink]="['/login']">Log Out</ion-item>
-  
-      </ion-list>
-    </ion-content>
-  </ion-menu>
-  
-  <ion-router-outlet main></ion-router-outlet>
-  
+</ion-header>
+    
   <ion-content>
-      <ion-menu side="start" menu-id="first">
-          <ion-header>
-            <ion-toolbar color="primary">
-              <ion-title>Start Menu</ion-title>
-            </ion-toolbar>
-          </ion-header>
-          <ion-content>
-            <ion-list>
-              <ion-item>Menu Item</ion-item>
-              <ion-item>Menu Item</ion-item>
-              <ion-item>Menu Item</ion-item>
-              <ion-item>Menu Item</ion-item>
-              <ion-item>Menu Item</ion-item>
-            </ion-list>
-          </ion-content>
-        </ion-menu>
-  
-  
-  
-  
-  
     <ion-card class="welcome-card">
       <!--
       <ion-img src="https://conceptodefinicion.de/wp-content/uploads/2014/09/cinta_metrica.jpg"></ion-img>
@@ -97,10 +53,10 @@
       <ion-input ></ion-input>
     </ion-item>
   
-    <ion-button mode="ios" color= "light" type="submit" block>Submit</ion-button>
-    <ion-button shape="round" mode="ios" color= "light" type="submit">Share Them!</ion-button>
+
+    <!---<ion-button shape="round" mode="ios" color= "success" type="submit">Share Them!</ion-button>-->
   
-  
+  <!--
     <ion-item href="#" class="activated">
       <ion-icon name="walk" slot="start"></ion-icon>
       <ion-label>Current Graph</ion-label>
@@ -110,7 +66,12 @@
       <ion-icon name="walk" slot="start"></ion-icon>
       <ion-label >First Day Graph</ion-label>
     </ion-item>
+  -->
   </form>
+  <div padding>
+      <ion-button (click)="submit()" mode="ios" type="submit" color="success">Submit</ion-button>
+  </div>
+  
   
   
   </ion-content>

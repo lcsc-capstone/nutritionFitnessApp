@@ -1,20 +1,26 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+      <ion-menu-button color="success"></ion-menu-button>
     </ion-buttons>
     <ion-title>
       Nutrition
     </ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-content padding>
-  <ion-img src="https://www.urban-balance.com/wp-content/uploads/2018/01/Nutrition-vs1.jpg"></ion-img>
-  <!-- <ion-img src="NutriBien/src/app/nutrition/nutri_header.png"></ion-img>-->
+<ion-content>
 
+  <ion-card class="welcome-card">
+      <!--
+      <ion-img src="https://conceptodefinicion.de/wp-content/uploads/2014/09/cinta_metrica.jpg"></ion-img>
+      -->
+      <ion-img src="https://kwib.co.uk/wp-content/uploads/2019/03/Healthy-eating-on-the-go-Article-images_3.jpg"></ion-img>
+      <ion-card-header>
+        <ion-card-subtitle>Update your daily nutritional intake!</ion-card-subtitle>
+      </ion-card-header>
+    </ion-card>
 
-  <form name="nutri_form" [formGroup]="nutrition">
-    
+  <form name="nutri_form" [formGroup]="nutrition" padding>
     <ion-item>
       <ion-label position="stacked"></ion-label>
       <ion-input type="number" placeholder="Proteins" name="Proteins" id="Proteins" formControlName="Proteins"></ion-input>
@@ -36,8 +42,10 @@
       <ion-input type="number" min="0" placeholder="Total Calories" id="Calories" name="Carbs" formControlName="Calories"></ion-input>
     </ion-item>
     
-    <ion-button (click)="submit()" mode="ios" type="submit" >Submit</ion-button>
+    
   </form>
-
+<div padding>
+    <ion-button (click)="submit()" mode="ios" type="submit" color="success">Submit</ion-button>
+</div>
 
 </ion-content>
