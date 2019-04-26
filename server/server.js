@@ -201,7 +201,7 @@ apiRouter.delete('/nutriFit.nutrition:recordID', function(req, res)
 
 
 /* Manage ALL Http GET requests to the specified route */
-apiRouter.get('/nutriFit.nutrition', function(req, res)
+apiRouter.get('/nutriFit.workout', function(req, res)
 {
     /* Use the gallery model and access Mongoose's API to
       retrieve ALL MongoDB documents whose displayed field
@@ -221,7 +221,7 @@ apiRouter.get('/nutriFit.nutrition', function(req, res)
 });
 
 /* Manage ALL Http POST requests to the specified route */
-apiRouter.post('/nutriFit.nutrition', function(req, res)
+apiRouter.post('/nutriFit.workout', function(req, res)
 {
     /* Retrieve the posted data from the Request object and assign
       this to variables */
@@ -254,7 +254,7 @@ apiRouter.post('/nutriFit.nutrition', function(req, res)
 });
 
 /* Handle PUT requests with expected recordID parameter */
-apiRouter.put('/nutriFit.nutrition:recordID', function(req, res)
+apiRouter.put('/nutriFit.workout:recordID', function(req, res)
 {
 
     /* Use the NUTRITION model to access the Mongoose API method and
@@ -297,7 +297,7 @@ apiRouter.put('/nutriFit.nutrition:recordID', function(req, res)
 
 
 /* Handle DELETE requests with expected recordID parameter */
-apiRouter.delete('/nutriFit.nutrition:recordID', function(req, res)
+apiRouter.delete('/nutriFit.workout:recordID', function(req, res)
 {
     /* Use the NUTRITION model to access the Mongoose API method and
       find & remove a specific document within the MongoDB database
@@ -321,7 +321,7 @@ apiRouter.delete('/nutriFit.nutrition:recordID', function(req, res)
 ///////////////////////////////////////////MEASSUREMENTS///////////////////////////////////////////////////////////////
 
 /* Manage ALL Http GET requests to the specified route */
-apiRouter.get('/nutriFit.nutrition', function(req, res)
+apiRouter.get('/nutriFit.measurements', function(req, res)
 {
     /* Use the gallery model and access Mongoose's API to
       retrieve ALL MongoDB documents whose displayed field
@@ -341,14 +341,14 @@ apiRouter.get('/nutriFit.nutrition', function(req, res)
 });
 
 /* Manage ALL Http POST requests to the specified route */
-apiRouter.post('/nutriFit.nutrition', function(req, res)
+apiRouter.post('/nutriFit.measurements', function(req, res)
 {
     /* Retrieve the posted data from the Request object and assign
       this to variables */
    var idnum        =   req.body.idnum,
        neck     =  req.body.neck,
        hip        =  req.body.hip,
-       thigh         =  req.body.thigh,
+       thighs         =  req.body.thighs,
        belly       =  req.body.belly,
        bicep     =  req.body.bicep;
                        
@@ -360,7 +360,7 @@ apiRouter.post('/nutriFit.nutrition', function(req, res)
        { ID_NUM      : idnum,
          NECK   : neck,
          HIP     : hip,
-         THIGH        : thigh,
+         THIGHS        : thighs,
          BELLY      : belly,
          BICEP    : bicep
 
@@ -385,7 +385,7 @@ apiRouter.post('/nutriFit.nutrition', function(req, res)
 /*here*/
 
 /* Handle PUT requests with expected recordID parameter */
-apiRouter.put('/nutriFit.nutrition:recordID', function(req, res)
+apiRouter.put('/nutriFit.measurements:recordID', function(req, res)
 {
 
     /* Use the NUTRITION model to access the Mongoose API method and
@@ -406,7 +406,7 @@ apiRouter.put('/nutriFit.nutrition:recordID', function(req, res)
         recs.ID_NUM         = req.body.idnum     || recs.ID_NUM;
          recs.NECK           = req.body.neck   || recs.NECK;
          recs.HIP            = req.body.hip     || recs.HIP;
-         recs.THIGH              = req.body.thigh      || recs.THIGH;
+         recs.THIGHS              = req.body.thighs      || recs.THIGHS;
          recs.BELLY           = req.body.belly   || recs.BELLY;
          recs.BICEP           = req.body.bicep   || recs.BICEP;
 
@@ -432,7 +432,7 @@ apiRouter.put('/nutriFit.nutrition:recordID', function(req, res)
 
 
 /* Handle DELETE requests with expected recordID parameter */
-apiRouter.delete('/nutriFit.nutrition:recordID', function(req, res)
+apiRouter.delete('/nutriFit.measurements:recordID', function(req, res)
 {
     /* Use the NUTRITION model to access the Mongoose API method and
       find & remove a specific document within the MongoDB database
