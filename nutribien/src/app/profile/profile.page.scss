@@ -1,7 +1,15 @@
-page-profile {
-    .profile-image{
-        width: 200px;
-        height: 200px;
-        border-radius: 50%;
-    }
+.profile-image{
+    height: 35vh;
+    width: 35vh;
+    margin: auto;
+    border-radius: 50%;
+}
+.name {
+	font-size: 30px;
+}
+h1 {
+    font-size: 30px;
+}
+.button{
+    margin-top: 20px;
 }

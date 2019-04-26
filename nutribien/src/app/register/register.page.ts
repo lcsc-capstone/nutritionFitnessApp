@@ -23,8 +23,8 @@ export class RegisterPage {
   public height		     : any;
   public password		     : any;
   public birthday		     : any;
-  //public image        :any;
-  //public thumbnail		     : any;
+  public image        :any;
+  public thumbnail		     : any;
 
   private _HOST : string 			=	"http://127.0.0.1:8080/";
 
@@ -50,7 +50,7 @@ export class RegisterPage {
         RegistrationValidator.isValid
       ])),
       Birthday: new FormControl ('', Validators.required),
-      //Thumbnail: new FormControl ('', Validators.required),
+      Thumbnail: new FormControl ('', Validators.required),
       Password: new FormControl('', Validators.compose([
         Validators.minLength(8),
         Validators.required,
@@ -61,7 +61,7 @@ export class RegisterPage {
         return PasswordValidator.areEqual(formGroup);   
       });
 
-    /*async getPhoto() {
+    async getPhoto() {
     const actionSheet = await this.actionSheetController.create({
       header: "Select Image source",
         buttons: [{
@@ -113,9 +113,10 @@ export class RegisterPage {
       {
          console.log(err);
       });
-   }*/
+   }
 
-  //, image: image, thumbnail : thumbnail 
+  
+
 
   submit()
   {
@@ -127,10 +128,10 @@ export class RegisterPage {
     password    = this.registerForm.value.Password,
     height    = this.registerForm.value.Height,
     birthday    = this.registerForm.value.Birthday,
-    //image    = this.registerForm.value.Thumbnail,
-    //thumbnail    = this.registerForm.value.Thumbnail,
+    image    = this.registerForm.value.Thumbnail,
+    thumbnail    = this.registerForm.value.Thumbnail,
     headers     = new HttpHeaders({ 'Content-Type': 'application/json' }),
-    options     = { idnum : idnum, fName : fName, lName : lName, phone : phone, email : email, password : password, height : height, birthday : birthday},
+    options     = { idnum : idnum, fName : fName, lName : lName, phone : phone, email : email, password : password, height : height, birthday : birthday, image: image, thumbnail : thumbnail },
     url         = this._HOST + "api/nutriFit.profile";
 
     this._HTTP
@@ -158,8 +159,8 @@ export class RegisterPage {
     this.password    = "";
     this.height    = "";
     this.birthday    = "";
-    //this.image    = "";
-    //this.thumbnail    = "";
+    this.image    = "";
+    this.thumbnail    = "";
    }
   ngOnInit() {}
 }
