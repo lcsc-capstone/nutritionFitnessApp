@@ -13,7 +13,7 @@
   <!-- Inputs with labels -->
   <ion-img src="https://scontent.fboi1-1.fna.fbcdn.net/v/t1.0-9/58441933_100745157803158_5247564108512886784_n.jpg?_nc_cat=106&_nc_oc=AQkfWhgoeZ7r8WKlEHODQv-GoJAiXTS_P2Mg1m4DuLci0DiFl24EK-LyVgYIKRGkFfk&_nc_ht=scontent.fboi1-1.fna&oh=c98ec87efc8ea55d4f30b48095191be0&oe=5D6F8021">
   </ion-img>
-  <form >
+  <form [formGroup]="loginForm">
     <ion-grid>
         <ion-row color="primary" justify-content-center>
            <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
@@ -33,7 +33,7 @@
               </div>
               <div padding>
                   <!-- Round -->
-                  <ion-button size="medium" expand="block" shape="round" color="success">Log In</ion-button>
+                  <ion-button size="medium" expand="block" (click)="login()" shape="round" color="success">Log In</ion-button>
                   <ion-button size="medium" expand="block" (click)="signUp()" shape="round" fill="outline" color="success">Sign Up</ion-button>
               </div>
           </ion-col>
