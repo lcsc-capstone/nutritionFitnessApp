@@ -28,7 +28,7 @@ export class RegisterPage {
   public thumbnail		     : any;
   public items : Array<any>;
 
-  private _HOST : string 			=	"http://127.0.0.1:8080/";
+  private _HOST : string 			=	"http://18.191.160.170:5000/";
 
   constructor(
     private formBuilder: FormBuilder,
