@@ -330,7 +330,7 @@ apiRouter.get('/nutriFit.measurements', function(req, res)
     /* Use the gallery model and access Mongoose's API to
       retrieve ALL MongoDB documents whose displayed field
       has a value of true */
-   NUTRITION.find((err, recs) =>
+   MEASUREMENTS.find((err, recs) =>
    {
       /* If we encounter an error log this to the console */
       if (err)
@@ -349,10 +349,9 @@ apiRouter.post('/nutriFit.measurements', function(req, res)
 {
     /* Retrieve the posted data from the Request object and assign
       this to variables */
-   var idnum        =   req.body.idnum,
-       neck     =  req.body.neck,
+   var neck     =  req.body.neck,
        hip        =  req.body.hip,
-       thighs         =  req.body.thighs,
+       thigh         =  req.body.thigh,
        belly       =  req.body.belly,
        bicep     =  req.body.bicep;
                        
@@ -360,7 +359,7 @@ apiRouter.post('/nutriFit.measurements', function(req, res)
    /* Use the NUTRITION model to access the Mongoose API method to
       add the supplied data as a new document to the MongoDB
       database */
-      NUTRITION.create( 
+      MEASUREMENTS.create( 
        { ID_NUM      : idnum,
          NECK   : neck,
          HIP     : hip,
@@ -410,7 +409,7 @@ apiRouter.put('/nutriFit.measurements:recordID', function(req, res)
         recs.ID_NUM         = req.body.idnum     || recs.ID_NUM;
          recs.NECK           = req.body.neck   || recs.NECK;
          recs.HIP            = req.body.hip     || recs.HIP;
-         recs.THIGHS              = req.body.thighs      || recs.THIGHS;
+         recs.THIGHS         = req.body.thighs    || recs.THIGHS;
          recs.BELLY           = req.body.belly   || recs.BELLY;
          recs.BICEP           = req.body.bicep   || recs.BICEP;
 

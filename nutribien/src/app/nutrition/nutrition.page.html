@@ -22,24 +22,24 @@
 
   <form name="nutri_form" [formGroup]="nutrition" padding>
     <ion-item>
-      <ion-label position="stacked"></ion-label>
-      <ion-input type="number" placeholder="Proteins" name="Proteins" id="Proteins" formControlName="Proteins"></ion-input>
+      <ion-label position="floating">Proteins</ion-label>
+      <ion-input type="number" min="0" id="Proteins" formControlName="Proteins"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label position="stacked"></ion-label>
-      <ion-input type="number" min="0" placeholder="Carbs" id="Carbs" name="Carbs" formControlName="Carbs"></ion-input>
+      <ion-label position="floating">Carbs</ion-label>
+      <ion-input type="number" min="0" id="Carbs" formControlName="Carbs"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label position="stacked"></ion-label>
-      <ion-input type="number" min="0" placeholder="Fats" id="Fats" name="Carbs" formControlName="Fats"></ion-input>
+      <ion-label position="floating">Fats</ion-label>
+      <ion-input type="number" min="0" id="Fats" formControlName="Fats"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label position="stacked"></ion-label>
-      <ion-input type="number" min="0" placeholder="Fibers" id="Fibers" name="Carbs" formControlName="Fibers"></ion-input>
+      <ion-label position="floating">Fibers</ion-label>
+      <ion-input type="number" min="0" id="Fibers" formControlName="Fibers"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label position="stacked"></ion-label>
-      <ion-input type="number" min="0" placeholder="Total Calories" id="Calories" name="Carbs" formControlName="Calories"></ion-input>
+      <ion-label position="floating">Total calories</ion-label>
+      <ion-input type="number" min="0" id="Calories" formControlName="Calories"></ion-input>
     </ion-item>
     
     
