@@ -8,7 +8,8 @@ ExercixeSchema = new Schema
     ID_NUM      : {type: Number, required : true},
     TIME        : {type: Number, required : true},
     TYPE        : {type: String, required : true},
-    DISTANCE    : {type: Number, required : true}
+    DISTANCE    : {type: Number, required : true},
+    DATE        : {type: String, required : true}
 });
 
 /* Export model for application usage */

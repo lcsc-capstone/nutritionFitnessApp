@@ -349,7 +349,8 @@ apiRouter.post('/nutriFit.measurements', function(req, res)
 {
     /* Retrieve the posted data from the Request object and assign
       this to variables */
-   var neck     =  req.body.neck,
+   var idnum        =   req.body.idnum,
+      neck     =  req.body.neck,
        hip        =  req.body.hip,
        thigh         =  req.body.thigh,
        belly       =  req.body.belly,
@@ -363,7 +364,7 @@ apiRouter.post('/nutriFit.measurements', function(req, res)
        { ID_NUM      : idnum,
          NECK   : neck,
          HIP     : hip,
-         THIGHS        : thighs,
+         THIGH        : thigh,
          BELLY      : belly,
          BICEP    : bicep
 
@@ -394,7 +395,7 @@ apiRouter.put('/nutriFit.measurements:recordID', function(req, res)
     /* Use the NUTRITION model to access the Mongoose API method and
       find a specific document within the MongoDB database based
       on the document ID value supplied as a route parameter */
-   NUTRITION.findById({ _id: req.params.recordID }, (err, recs) =>
+      MEASUREMENTS.findById({ _id: req.params.recordID }, (err, recs) =>
    {
 
       /* If we encounter an error we log this to the console */
@@ -406,10 +407,10 @@ apiRouter.put('/nutriFit.measurements:recordID', function(req, res)
       {
          /* Assign the posted values to the respective fields for the retrieved
             document */
-        recs.ID_NUM         = req.body.idnum     || recs.ID_NUM;
+         recs.ID_NUM         = req.body.idnum     || recs.ID_NUM;
          recs.NECK           = req.body.neck   || recs.NECK;
          recs.HIP            = req.body.hip     || recs.HIP;
-         recs.THIGHS         = req.body.thighs    || recs.THIGHS;
+         recs.THIGH          = req.body.thigh    || recs.THIGH;
          recs.BELLY           = req.body.belly   || recs.BELLY;
          recs.BICEP           = req.body.bicep   || recs.BICEP;
 
@@ -440,7 +441,7 @@ apiRouter.delete('/nutriFit.measurements:recordID', function(req, res)
     /* Use the NUTRITION model to access the Mongoose API method and
       find & remove a specific document within the MongoDB database
       based on the document ID value supplied as a route parameter */
-   NUTRITION.findByIdAndRemove({ _id: req.params.recordID }, (err, recs) =>
+      MEASUREMENTS.findByIdAndRemove({ _id: req.params.recordID }, (err, recs) =>
    {
 
       /* If we encounter an error we log this to the console */

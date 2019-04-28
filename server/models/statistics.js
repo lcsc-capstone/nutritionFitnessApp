@@ -10,7 +10,8 @@ StatisticsSchema = new Schema
     WEIGHT                      : {type: Number, required : true},
     WEEKLY_AVERAGE              : {type: Number, required : true},
     DIFFERENCE_TO_PRIOR_WEEK    : {type: Number, required : true},
-    QUESTIONS                   : {type: String, required : true}
+    QUESTIONS                   : {type: String, required : true},
+    DATE                        : {type: String, required : true}
 });
 
 /* Export model for application usage */

@@ -10,7 +10,8 @@ NutritionSchema = new Schema
     CARBS       : {type: Number, required : true},
     FATS        : {type: Number, required : true},
     FIBERS      : {type: Number, required : true},
-    CALORIES    : {type: Number, required : true}
+    CALORIES    : {type: Number, required : true},
+    DATE        : {type: String, required : true}
 });
 
 /* Export model for application usage */
