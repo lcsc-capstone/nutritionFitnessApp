@@ -8,12 +8,14 @@ import { Router } from '@angular/router';
 })
 export class ProfilePage implements OnInit {
    public fName: string;
+   public pic: string;
 
    public constructor(
      private route: ActivatedRoute,
     private router: Router) {
       this.route.queryParams.subscribe(params => {
-          this.fName = params["fname"] ;
+          this.fName = params["fname"];
+          this.pic = params["image"];
       });
   }
   workout(){

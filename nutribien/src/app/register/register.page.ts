@@ -143,8 +143,8 @@ export class RegisterPage {
     password    = this.registerForm.value.Password,
     height    = this.registerForm.value.Height,
     birthday    = this.registerForm.value.Birthday,
-    image    = this.registerForm.value.Thumbnail,
-    thumbnail    = this.registerForm.value.Thumbnail,
+    image    = this.thumbnail,
+    thumbnail    = this.thumbnail,
     headers     = new HttpHeaders({ 'Content-Type': 'application/json' }),
     options     = { idnum : idnum, fName : fName, lName : lName, phone : phone, email : email, password : password, height : height, birthday : birthday, image: image, thumbnail : thumbnail },
     url         = this._HOST + "api/nutriFit.profile";
