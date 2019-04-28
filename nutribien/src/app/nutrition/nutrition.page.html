@@ -20,11 +20,12 @@
       </ion-card-header>
     </ion-card>
 
-  <form name="nutri_form" [formGroup]="nutrition" padding>
+  <form name="nutri_form" [formGroup]="nutritionForm" padding>
     <ion-item>
       <ion-label position="stacked">Proteins</ion-label>
       <ion-input type="number" min="0" id="Proteins" formControlName="Proteins"></ion-input>
     </ion-item>
+ 
     <ion-item>
       <ion-label position="stacked">Carbs</ion-label>
       <ion-input type="number" min="0" id="Carbs" formControlName="Carbs"></ion-input>
@@ -37,6 +38,10 @@
       <ion-label position="stacked">Fibers</ion-label>
       <ion-input type="number" min="0" id="Fibers" formControlName="Fibers"></ion-input>
     </ion-item>
+    <ion-item>
+        <ion-label position="stacked">Sugars</ion-label>
+        <ion-input type="number" min="0" id="Sugars" formControlName="Sugars"></ion-input>
+      </ion-item>
     <ion-item>
       <ion-label position="stacked">Total calories</ion-label>
       <ion-input type="number" min="0" id="Calories" formControlName="Calories"></ion-input>
