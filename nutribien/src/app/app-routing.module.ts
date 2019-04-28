@@ -9,6 +9,7 @@ const routes: Routes = [
   {path: 'workout', loadChildren: './Workout/Workout.module#WorkoutPageModule' },
   {path: 'measurements', loadChildren: './Measurements/Measurements.module#MeasurementsPageModule' },
   {path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' },
+  { path: 'setting', loadChildren: './setting/setting.module#SettingPageModule' },
   { path: 'muser', loadChildren: './muser/muser.module#MuserPageModule' },
   { path: 'nutrition-history', loadChildren: './nutrition-history/nutrition-history.module#NutritionHistoryPageModule' }
 ];

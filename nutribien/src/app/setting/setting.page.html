@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>setting</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <form [formGroup]="registerForm" >
+        <ion-grid>
+            <ion-row color="primary" justify-content-center>
+              <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+                <div text-center>
+                    <h3>Edit My account</h3>
+                </div>
+                <div padding>                                  
+                  <ion-item>
+                    <ion-label position="stacked">Phone Number</ion-label>
+                    <ion-input type="tel" placeholder={{number}} name="phoneNumber" formControlName="PhoneNumber" ></ion-input>
+                  </ion-item>  
+  
+                  <ion-item>
+                    <ion-label position="stacked">Email Address</ion-label>
+                    <ion-input type="text" placeholder={{email}} name="emailAddress" formControlName="EmailAddress" required=""></ion-input>
+                  </ion-item>  
+  
+                  <ion-item>
+                    <ion-label position="stacked">Password</ion-label>
+                    <ion-input type="password" placeholder={{ç}} name="password" formControlName="Password" required=""></ion-input>
+                  </ion-item>  
+  
+                  <ion-item>
+                    <ion-label position="stacked">Confirm Password</ion-label>
+                    <ion-input type="password" name="conformPassword" formControlName="ConformPassword" required=""></ion-input>
+                  </ion-item> 
+  
+                  <ion-item>
+                    <ion-label position="stacked">Height</ion-label>
+                    <ion-input type="number" placeholder={{height}} name="Height" formControlName="Height"required="" ></ion-input>
+                  </ion-item>  
+  
+                  <img [src]="image" [hidden]="!image">
+                  <input type="hidden" name="thumbnail" formControlName="Thumbnail">
+                  <ion-button size="medium" expand="block" (click)="getPhoto()" fill="outline" shape="round" color="success">
+                  <ion-icon slot="start" name="add-circle"></ion-icon>Change Image</ion-button>
+          
+  
+      
+              </div>
+              <div padding> 
+                <ion-button size="medium" expand="block" shape="round" (click)="submit()" type="submit" color="success" >Register</ion-button>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+    </form>
+</ion-content>

@@ -56,6 +56,12 @@ export class WorkoutPage {
     options     = { idnum : idnum, sport : sport, distance : distance, time : time, calories : calories, date: date },
     url         = this._HOST + "api/nutriFit.workout";
 
+
+    console.log(sport);
+    console.log(distance);
+    console.log(time);
+    console.log(calories);
+
     this._HTTP
          .post(url, options, {headers: headers}) //different from tutorial so error goes away
          .subscribe((data : any) =>
@@ -69,7 +75,7 @@ export class WorkoutPage {
             console.dir(error);
          });
 
-    
+
   }
   ngOnInit() {}
 
