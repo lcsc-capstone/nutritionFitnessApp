@@ -228,7 +228,8 @@ apiRouter.post('/nutriFit.workout', function(req, res)
 {
     /* Retrieve the posted data from the Request object and assign
       this to variables */
-   var sport         =   req.body.sport,
+   var idnum         =   req.body.idnum,
+       sport         =   req.body.sport,
        distance      =   req.body.distance,
        time          =   req.body.time;
        calories      =   req.body.calories;
@@ -239,8 +240,9 @@ apiRouter.post('/nutriFit.workout', function(req, res)
    /* Use the NUTRITION model to access the Mongoose API method to
       add the supplied data as a new document to the MongoDB
       database */
-      NUTRITION.create( 
-       { SPORT    : sport,
+      WORKOUT.create( 
+       { ID_NUM   : idnum,
+         SPORT    : sport,
          DISTANCE : distance,
          TIME     : time,
          CALORIES : calories,
@@ -270,7 +272,7 @@ apiRouter.put('/nutriFit.workout:recordID', function(req, res)
     /* Use the NUTRITION model to access the Mongoose API method and
       find a specific document within the MongoDB database based
       on the document ID value supplied as a route parameter */
-   NUTRITION.findById({ _id: req.params.recordID }, (err, recs) =>
+      WORKOUT.findById({ _id: req.params.recordID }, (err, recs) =>
    {
 
       /* If we encounter an error we log this to the console */
@@ -282,6 +284,7 @@ apiRouter.put('/nutriFit.workout:recordID', function(req, res)
       {
          /* Assign the posted values to the respective fields for the retrieved
             document */
+        recs.ID_NUM 				= req.body.idnum 		   || recs.ID_NUM;
         recs.SPORT            = req.body.sport        || recs.SPORT;
         recs.DISTANCE         = req.body.distance     || recs.DISTANCE;
         recs.TIME             = req.body.time         || recs.TIME;
@@ -315,7 +318,7 @@ apiRouter.delete('/nutriFit.workout:recordID', function(req, res)
     /* Use the NUTRITION model to access the Mongoose API method and
       find & remove a specific document within the MongoDB database
       based on the document ID value supplied as a route parameter */
-   NUTRITION.findByIdAndRemove({ _id: req.params.recordID }, (err, recs) =>
+      WORKOUT.findByIdAndRemove({ _id: req.params.recordID }, (err, recs) =>
    {
 
       /* If we encounter an error we log this to the console */

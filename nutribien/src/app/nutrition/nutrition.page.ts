@@ -14,7 +14,9 @@ import { Router } from '@angular/router';
 
 export class NutritionPage{
 
-  private _HOST : string 			=	"http://18.191.160.1701:5000/";
+  private _HOST : string       =  "http://18.191.160.1701:5000/"; //for actual server
+  //private _HOST : string       =  "http://127.0.0.1:5000/";  //for testing in simulator 
+  
   private idnum : Number;
 
   //constructor(private formBuilder: FormBuilder, private _HTTP: HttpClient){}
@@ -69,6 +71,7 @@ export class NutritionPage{
          {
             // If the request was successful clear the form of data
             // and notify the user
+            console.log(this.idnum);
             console.log('New entry was successfully created');
          },
          (error : any) =>
@@ -79,6 +82,11 @@ export class NutritionPage{
     
   }
   ngOnInit() {}
+
+  viewHistory()
+  {
+    this.router.navigate(['nutrition-history']);
+  }
     
 }
 

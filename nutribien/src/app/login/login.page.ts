@@ -14,7 +14,9 @@ export class  LoginPage {
 
   public Email: any;
   public Password: any;
-  private _HOST : string 			=	"http://18.191.160.170:5000/";
+  private _HOST : string 			=	"http://18.191.160.170:5000/"; //for actual server
+  //private _HOST : string       =  "http://127.0.0.1:5000/";  //for testing in simulator 
+  
   public items : Array<any>;
   constructor(
     private router: Router,

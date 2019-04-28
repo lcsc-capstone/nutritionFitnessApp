@@ -10,7 +10,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class WorkoutPage {
 
-  private _HOST : string 			=	"http://18.191.160.170:5000/";
+  private _HOST : string       =  "http://18.191.160.1701:5000/"; //for actual server
+  //private _HOST : string       =  "http://127.0.0.1:5000/";  //for testing in simulator 
+  
   constructor(private formBuilder: FormBuilder, private _HTTP: HttpClient){}
 
   public sport:string 
@@ -52,7 +54,7 @@ export class WorkoutPage {
     date        = new Date(),
     headers     = new HttpHeaders({ 'Content-Type': 'application/json' }),
     options     = { idnum : idnum, sport : sport, distance : distance, time : time, calories : calories, date: date },
-    url         = this._HOST + "api/nutriFit.nutrition";
+    url         = this._HOST + "api/nutriFit.workout";
 
     this._HTTP
          .post(url, options, {headers: headers}) //different from tutorial so error goes away

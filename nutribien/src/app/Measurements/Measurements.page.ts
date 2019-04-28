@@ -17,7 +17,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 export class  MeasurementsPage {
 
-  private _HOST : string       =  "http://18.191.160.1701:5000/";
+  private _HOST : string       =  "http://18.191.160.1701:5000/"; //for actual server
+  //private _HOST : string       =  "http://127.0.0.1:5000/";  //for testing in simulator 
 
 
   constructor(private formBuilder: FormBuilder, private _HTTP: HttpClient){}
