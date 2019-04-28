@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Validators,FormBuilder, FormControl } from '@angular/forms';
+import { Validators, FormBuilder, FormControl } from '@angular/forms';
 import { NutrientsValidator } from  './../../../../nutribien/src/app/validators/nutrients';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
@@ -22,36 +22,36 @@ export class WorkoutPage {
       this.showDistance=true
     }
   }
-
+  
   Workout = this.formBuilder.group({
-    Sport: new FormControl('Proteins', Validators.compose([
+    Sport: new FormControl('Sport', Validators.compose([
       Validators.required,
       NutrientsValidator.isValid
     ])),
-    Distance: new FormControl('Carbs', Validators.compose([
+    Distance: new FormControl('Distance', Validators.compose([
       Validators.required,
       NutrientsValidator.isValid
     ])),
-    Time: new FormControl('Fats', Validators.compose([
+    Time: new FormControl('Time', Validators.compose([
       Validators.required,
       NutrientsValidator.isValid
     ])),
-    Calories: new FormControl('Fibers', Validators.compose([
+    Calories: new FormControl('Calories', Validators.compose([
       Validators.required,
       NutrientsValidator.isValid
     ]))
   });
 
-  
   submit()
   {
     let  idnum  = 567,
-    sport    = this.Workout.value.Sport,
-    distance       = this.Workout.value.Distance,
+    sport       = this.Workout.value.Sport,
+    distance    = this.Workout.value.Distance,
     time        = this.Workout.value.Time,
-    calories      = this.Workout.value.Calories,
+    calories    = this.Workout.value.Calories,
+    date        = new Date(),
     headers     = new HttpHeaders({ 'Content-Type': 'application/json' }),
-    options     = { idnum : idnum, sport : sport, distance : distance, time : time, calories : calories },
+    options     = { idnum : idnum, sport : sport, distance : distance, time : time, calories : calories, date: date },
     url         = this._HOST + "api/nutriFit.nutrition";
 
     this._HTTP

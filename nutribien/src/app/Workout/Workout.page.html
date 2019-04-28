@@ -21,10 +21,10 @@
       </ion-card-header>
   </ion-card>
 
-  <form name="sport_form" padding>
+  <form name="sport_form" [formGroup]="workout" padding>
     <ion-item>
       <ion-label position="stacked">Workout</ion-label>
-      <ion-select [(ngModel)]="sport" (ionChange)="changeSport()" type="text"  placeholder="Select one" name="Sport">
+      <ion-select (ionChange)="changeSport()" type="text"  placeholder="Select one" formControlName="Sport">
         <ion-select-option value="Basketball">Basketball</ion-select-option>
         <ion-select-option value="Soccer">Soccer</ion-select-option>
         <ion-select-option value="Baseball">Baseball</ion-select-option>
@@ -42,15 +42,15 @@
     </ion-item>
     <ion-item *ngIf="showDistance">
       <ion-label position="stacked">Distance</ion-label>
-      <ion-input type="number" min="0" placeholder="Enter miles" name="distance"></ion-input>
+      <ion-input type="number" min="0" placeholder="Enter miles" formControlName="Distance" ></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="stacked">Time</ion-label>
-      <ion-input type="number" min="0" placeholder="Enter minutes" name="minutes"></ion-input>
+      <ion-input type="number" min="0" placeholder="Enter minutes" formControlName="Time" ></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="stacked">Calories</ion-label>
-      <ion-input type="number" min="0" name="calories"></ion-input>
+      <ion-input type="number" min="0" formControlName="Calories" ></ion-input>
     </ion-item>
   </form>
   <div class="row">

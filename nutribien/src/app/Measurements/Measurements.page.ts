@@ -16,7 +16,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 
 export class  MeasurementsPage {
-  private _HOST : string       =  "http://0.0.0.0:8080/";
+
+  private _HOST : string       =  "http://18.191.160.1701:5000/";
+
 
   constructor(private formBuilder: FormBuilder, private _HTTP: HttpClient){}
 
@@ -94,14 +96,25 @@ if(USER_ID == this.items[i].USER_ID){
   submit()
   {
     let  idnum  = 567,
-    neck      = this.Measurements.value.Neck,
-    hip       = this.Measurements.value.Hip,
-    thigh    = this.Measurements.value.Thighs,
-    belly     = this.Measurements.value.Belly,
-    bicep     = this.Measurements.value.Bicep,
-    headers   = new HttpHeaders({ 'Content-Type': 'application/json' }),
-    options   = { idnum : idnum, neck : neck, hip : hip, thigh : thigh, belly : belly, bicep : bicep },
-    url       = this._HOST + "api/nutriFit.Measurements";
+
+    neck        = this.Measurements.value.Neck,
+    hip         = this.Measurements.value.Hip,
+    thigh       = this.Measurements.value.Thigh,
+    belly       = this.Measurements.value.Belly,
+    bicep       = this.Measurements.value.Bicep,
+    date        = new Date(),
+    headers     = new HttpHeaders({ 'Content-Type': 'application/json' }),
+    options     = { idnum : idnum, neck : neck, hip : hip, thigh : thigh, belly : belly, bicep : bicep, date : date },
+    url         = this._HOST + "api/nutriFit.measurements";
+
+    console.log(idnum);
+    console.log(neck);
+    console.log(hip);
+    console.log(thigh);
+    console.log(belly);
+    console.log(bicep);
+
+
 
     this._HTTP
          .post(url, options, {headers: headers}) //different from tutorial so error goes away
