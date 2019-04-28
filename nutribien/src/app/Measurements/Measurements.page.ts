@@ -16,7 +16,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 
 export class  MeasurementsPage {
-  private _HOST : string       =  "http://127.0.0.1:5000/";
+  private _HOST : string       =  "http://0.0.0.0:8080/";
 
   constructor(private formBuilder: FormBuilder, private _HTTP: HttpClient){}
 
@@ -29,7 +29,7 @@ export class  MeasurementsPage {
       Validators.required,
       NutrientsValidator.isValid
     ])),
-    Thigh: new FormControl('Thigh', Validators.compose([
+    Thighs: new FormControl('Thighs', Validators.compose([
       Validators.required,
       NutrientsValidator.isValid
     ])),
@@ -43,27 +43,65 @@ export class  MeasurementsPage {
     ]))
   });
 
+
+
+/*
+
+ionViewDidEnter() : void
+{
+  this.retrieve();
+}
+
+if(USER_ID == this.items[i].USER_ID){
+  let navigationExtras: NavigationExtras = {
+    queryParams: {
+      "idnum": this.items[i].ID_NUM,
+      "neck": this.items[i].NECK,
+      "hip": this.items[i].HIP,
+      "thigh": this.items[i].THIGH,
+      "belly": this.items[i].BELLY,
+      "bicep": this.items[i].BICEP,
+    }
+  };
+        this.router.navigate(['/measurements'], navigationExtras);
+      }
+    }
+    
+    
+  }
+
+  retrieve() : void
+   {
+      this._HTTP
+      .get(this._HOST + "api/nutriFit.measurements")
+      .subscribe((data : any) =>
+      {
+         this.items = data.records;
+         
+      },
+      (error : any) =>
+      {
+         console.dir(error);
+      });
+   }
+
+*/
+
+
+
+
   
   submit()
   {
-
     let  idnum  = 567,
-    neck    = this.Measurements.value.Neck,
+    neck      = this.Measurements.value.Neck,
     hip       = this.Measurements.value.Hip,
-    thigh        = this.Measurements.value.Thigh,
-    belly      = this.Measurements.value.Belly,
-    bicep    = this.Measurements.value.Bicep,
-    headers     = new HttpHeaders({ 'Content-Type': 'application/json' }),
-    options     = { idnum : idnum, neck : neck, hip : hip, thigh : thigh, belly : belly, bicep : bicep },
-    url         = this._HOST + "api/nutriFit.measurements";
-
-    console.log(idnum);
-    console.log(neck);
-    console.log(hip);
-    console.log(thigh);
-    console.log(belly);
-    console.log(bicep);
-
+    thigh    = this.Measurements.value.Thighs,
+    belly     = this.Measurements.value.Belly,
+    bicep     = this.Measurements.value.Bicep,
+    headers   = new HttpHeaders({ 'Content-Type': 'application/json' }),
+    options   = { idnum : idnum, neck : neck, hip : hip, thigh : thigh, belly : belly, bicep : bicep },
+    url       = this._HOST + "api/nutriFit.Measurements";
 
     this._HTTP
          .post(url, options, {headers: headers}) //different from tutorial so error goes away
