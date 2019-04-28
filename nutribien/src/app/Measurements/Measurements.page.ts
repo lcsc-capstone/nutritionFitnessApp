@@ -16,7 +16,10 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 
 export class  MeasurementsPage {
-  private _HOST : string       =  "http://0.0.0.0:8080/";
+
+  private _HOST : string       =  "http://18.191.160.1701:5000/"; //for actual server
+  //private _HOST : string       =  "http://127.0.0.1:5000/";  //for testing in simulator 
+
 
   constructor(private formBuilder: FormBuilder, private _HTTP: HttpClient){}
 
@@ -43,18 +46,79 @@ export class  MeasurementsPage {
     ]))
   });
 
+
+
+/*
+
+ionViewDidEnter() : void
+{
+  this.retrieve();
+}
+
+if(USER_ID == this.items[i].USER_ID){
+  let navigationExtras: NavigationExtras = {
+    queryParams: {
+      "idnum": this.items[i].ID_NUM,
+      "neck": this.items[i].NECK,
+      "hip": this.items[i].HIP,
+      "thigh": this.items[i].THIGH,
+      "belly": this.items[i].BELLY,
+      "bicep": this.items[i].BICEP,
+    }
+  };
+        //this.router.navigate(['/muser']);
+        this.router.navigate(['/measurements'], navigationExtras);
+      }
+    }
+    //navExtras for muser?
+    //['/measurements'] for ['/muser']?
+    //Can I just retrieve info on the html muser page?
+    
+  }
+
+  retrieve() : void
+   {
+      this._HTTP
+      .get(this._HOST + "api/nutriFit.measurements")
+      .subscribe((data : any) =>
+      {
+         this.items = data.records;
+         
+      },
+      (error : any) =>
+      {
+         console.dir(error);
+      });
+   }
+
+*/
+
+
+
+
   
   submit()
   {
     let  idnum  = 567,
-    neck    = this.Measurements.value.Neck,
-    hip       = this.Measurements.value.Hip,
-    thighs        = this.Measurements.value.Thighs,
-    belly      = this.Measurements.value.Belly,
-    bicep    = this.Measurements.value.Bicep,
+
+    neck        = this.Measurements.value.Neck,
+    hip         = this.Measurements.value.Hip,
+    thigh       = this.Measurements.value.Thigh,
+    belly       = this.Measurements.value.Belly,
+    bicep       = this.Measurements.value.Bicep,
+    date        = new Date(),
     headers     = new HttpHeaders({ 'Content-Type': 'application/json' }),
-    options     = { idnum : idnum, neck : neck, hip : hip, thighs : thighs, belly : belly, bicep : bicep },
-    url         = this._HOST + "api/nutriFit.Measurements";
+    options     = { idnum : idnum, neck : neck, hip : hip, thigh : thigh, belly : belly, bicep : bicep, date : date },
+    url         = this._HOST + "api/nutriFit.measurements";
+
+    console.log(idnum);
+    console.log(neck);
+    console.log(hip);
+    console.log(thigh);
+    console.log(belly);
+    console.log(bicep);
+
+
 
     this._HTTP
          .post(url, options, {headers: headers}) //different from tutorial so error goes away

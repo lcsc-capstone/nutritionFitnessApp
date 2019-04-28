@@ -28,7 +28,8 @@ export class RegisterPage {
   public thumbnail		     : any;
   public items : Array<any>;
 
-  private _HOST : string 			=	"http://18.191.160.170:5000/";
+  private _HOST : string       =  "http://18.191.160.1701:5000/"; //for actual server
+  //private _HOST : string       =  "http://127.0.0.1:5000/";  //for testing in simulator 
 
   constructor(
     private formBuilder: FormBuilder,
