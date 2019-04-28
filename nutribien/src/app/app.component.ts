@@ -15,6 +15,7 @@ export class AppComponent {
     {title: 'Measurements',url: '/measurements'},
     {title: 'Nutrition',url: '/nutrition'},
     {title: 'Workout',url: '/workout'},
+    {title: 'Setting',url: '/setting'},
   ];
 
   constructor(

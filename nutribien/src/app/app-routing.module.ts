@@ -8,7 +8,8 @@ const routes: Routes = [
   {path: 'register', loadChildren: './register/register.module#RegisterPageModule' },
   {path: 'workout', loadChildren: './Workout/Workout.module#WorkoutPageModule' },
   {path: 'measurements', loadChildren: './Measurements/Measurements.module#MeasurementsPageModule' },
-  {path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' }
+  {path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' },
+  { path: 'setting', loadChildren: './setting/setting.module#SettingPageModule' }
 ];
 
 @NgModule({
