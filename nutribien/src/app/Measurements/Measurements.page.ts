@@ -16,7 +16,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 
 export class  MeasurementsPage {
-  private _HOST : string       =  "http://127.0.0.1:5000/";
+  private _HOST : string       =  "http://18.191.160.1701:5000/";
 
   constructor(private formBuilder: FormBuilder, private _HTTP: HttpClient){}
 
@@ -48,13 +48,14 @@ export class  MeasurementsPage {
   {
 
     let  idnum  = 567,
-    neck    = this.Measurements.value.Neck,
-    hip       = this.Measurements.value.Hip,
-    thigh        = this.Measurements.value.Thigh,
-    belly      = this.Measurements.value.Belly,
-    bicep    = this.Measurements.value.Bicep,
+    neck        = this.Measurements.value.Neck,
+    hip         = this.Measurements.value.Hip,
+    thigh       = this.Measurements.value.Thigh,
+    belly       = this.Measurements.value.Belly,
+    bicep       = this.Measurements.value.Bicep,
+    date        = new Date(),
     headers     = new HttpHeaders({ 'Content-Type': 'application/json' }),
-    options     = { idnum : idnum, neck : neck, hip : hip, thigh : thigh, belly : belly, bicep : bicep },
+    options     = { idnum : idnum, neck : neck, hip : hip, thigh : thigh, belly : belly, bicep : bicep, date : date },
     url         = this._HOST + "api/nutriFit.measurements";
 
     console.log(idnum);

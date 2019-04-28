@@ -93,6 +93,7 @@ apiRouter.post('/nutriFit.nutrition', function(req, res)
        fats         =	req.body.fats,
        fibers       =	req.body.fibers,
        calories 	  =	req.body.calories;
+       date         =   req.body.date;
                        
 
 
@@ -105,7 +106,8 @@ apiRouter.post('/nutriFit.nutrition', function(req, res)
          CARBS 		: carbs,
          FATS 		   : fats,
          FIBERS 	   : fibers,
-         CALORIES    : calories
+         CALORIES    : calories,
+         DATE        : date
         },
         function (err, small)
         {
@@ -148,6 +150,7 @@ apiRouter.put('/nutriFit.nutrition:recordID', function(req, res)
          recs.FATS 		         = req.body.fats 	   || recs.FATS;
          recs.FIBERS 		      = req.body.fibers 	|| recs.FIBERS;
          recs.CALORIES 		      = req.body.calories 	|| recs.CALORIES;
+         recs.DATE    		      = req.body.date 	   || recs.DATE;
 
          /* Save the updated document back to the database */
          recs.save((err, recs) =>
@@ -225,9 +228,11 @@ apiRouter.post('/nutriFit.workout', function(req, res)
 {
     /* Retrieve the posted data from the Request object and assign
       this to variables */
-   var sport        =   req.body.sport,
-       distance        =   req.body.distance,
-       time     =  req.body.time;
+   var sport         =   req.body.sport,
+       distance      =   req.body.distance,
+       time          =   req.body.time;
+       calories      =   req.body.calories;
+       date          =   req.body.date;
                        
 
 
@@ -235,9 +240,11 @@ apiRouter.post('/nutriFit.workout', function(req, res)
       add the supplied data as a new document to the MongoDB
       database */
       NUTRITION.create( 
-       { SPORT  : sport,
+       { SPORT    : sport,
          DISTANCE : distance,
-         TIME   : time
+         TIME     : time,
+         CALORIES : calories,
+         DATE     : date
 
         },
         function (err, small)
@@ -275,9 +282,11 @@ apiRouter.put('/nutriFit.workout:recordID', function(req, res)
       {
          /* Assign the posted values to the respective fields for the retrieved
             document */
-        recs.SPORT         = req.body.sport     || recs.SPORT;
+        recs.SPORT            = req.body.sport        || recs.SPORT;
         recs.DISTANCE         = req.body.distance     || recs.DISTANCE;
-        recs.TIME           = req.body.time   || recs.TIME;
+        recs.TIME             = req.body.time         || recs.TIME;
+        recs.CALORIES         = req.body.calories     || recs.calories;
+        recs.DATE             = req.body.date         || recs.DATE;
 
          /* Save the updated document back to the database */
          recs.save((err, recs) =>
@@ -350,23 +359,25 @@ apiRouter.post('/nutriFit.measurements', function(req, res)
     /* Retrieve the posted data from the Request object and assign
       this to variables */
    var idnum        =   req.body.idnum,
-      neck     =  req.body.neck,
-       hip        =  req.body.hip,
-       thigh         =  req.body.thigh,
-       belly       =  req.body.belly,
-       bicep     =  req.body.bicep;
+      neck          =  req.body.neck,
+       hip          =  req.body.hip,
+       thigh        =  req.body.thigh,
+       belly        =  req.body.belly,
+       bicep        =  req.body.bicep,
+       date         =  req.body.bicep;
                        
 
    /* Use the NUTRITION model to access the Mongoose API method to
       add the supplied data as a new document to the MongoDB
       database */
       MEASUREMENTS.create( 
-       { ID_NUM      : idnum,
-         NECK   : neck,
-         HIP     : hip,
-         THIGH        : thigh,
-         BELLY      : belly,
-         BICEP    : bicep
+       { ID_NUM   : idnum,
+         NECK     : neck,
+         HIP      : hip,
+         THIGH    : thigh,
+         BELLY    : belly,
+         BICEP    : bicep,
+         DATE     : date
 
         },
         function (err, small)
@@ -408,11 +419,12 @@ apiRouter.put('/nutriFit.measurements:recordID', function(req, res)
          /* Assign the posted values to the respective fields for the retrieved
             document */
          recs.ID_NUM         = req.body.idnum     || recs.ID_NUM;
-         recs.NECK           = req.body.neck   || recs.NECK;
-         recs.HIP            = req.body.hip     || recs.HIP;
-         recs.THIGH          = req.body.thigh    || recs.THIGH;
-         recs.BELLY           = req.body.belly   || recs.BELLY;
-         recs.BICEP           = req.body.bicep   || recs.BICEP;
+         recs.NECK           = req.body.neck      || recs.NECK;
+         recs.HIP            = req.body.hip       || recs.HIP;
+         recs.THIGH          = req.body.thigh     || recs.THIGH;
+         recs.BELLY          = req.body.belly     || recs.BELLY;
+         recs.BICEP          = req.body.bicep     || recs.BICEP;
+         recs.DATE           = req.body.date      || recs.DATE;
 
          /* Save the updated document back to the database */
          recs.save((err, recs) =>
