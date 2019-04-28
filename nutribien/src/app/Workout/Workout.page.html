@@ -42,11 +42,15 @@
     </ion-item>
     <ion-item *ngIf="showDistance">
       <ion-label position="stacked">Distance</ion-label>
-      <ion-input type="number" placeholder="Enter miles" name="distance"></ion-input>
+      <ion-input type="number" min="0" placeholder="Enter miles" name="distance"></ion-input>
     </ion-item>
-    <ion-item color>
+    <ion-item>
       <ion-label position="stacked">Time</ion-label>
-      <ion-input type="number" placeholder="Enter minutes" name="minutes"></ion-input>
+      <ion-input type="number" min="0" placeholder="Enter minutes" name="minutes"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Calories</ion-label>
+      <ion-input type="number" min="0" name="calories"></ion-input>
     </ion-item>
   </form>
   <div class="row">

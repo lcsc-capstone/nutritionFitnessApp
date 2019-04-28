@@ -55,7 +55,7 @@
                   <ion-input type="number" name="Height" formControlName="Height"required="" ></ion-input>
                 </ion-item>  
 
-                <img [src]="image">
+                <img [src]="image" [hidden]="!image">
                 <input type="hidden" name="thumbnail" formControlName="Thumbnail">
                 <ion-button size="medium" expand="block" (click)="getPhoto()" fill="outline" shape="round" color="success">
                 <ion-icon slot="start" name="add-circle"></ion-icon>Add Image</ion-button>
