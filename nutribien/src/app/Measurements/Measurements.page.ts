@@ -65,10 +65,13 @@ if(USER_ID == this.items[i].USER_ID){
       "bicep": this.items[i].BICEP,
     }
   };
+        //this.router.navigate(['/muser']);
         this.router.navigate(['/measurements'], navigationExtras);
       }
     }
-    
+    //navExtras for muser?
+    //['/measurements'] for ['/muser']?
+    //Can I just retrieve info on the html muser page?
     
   }
 
