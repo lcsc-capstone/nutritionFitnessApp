@@ -53,9 +53,10 @@
       <ion-input type="number" min="0" formControlName="Calories" ></ion-input>
     </ion-item>
   </form>
+
   <div class="row">
     <div class="col text-center" padding>
-        <ion-button mode="ios" color= "success" type="submit">Submit</ion-button>
+        <ion-button (click)="submit()" mode="ios" color= "success" type="submit">Submit</ion-button>
     </div>
   </div>
 </ion-content>
