@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Validators,FormBuilder, FormControl } from '@angular/forms';
+import { Validators,FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { NutrientsValidator } from  './../../../../nutribien/src/app/validators/nutrients';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ActivatedRoute } from "@angular/router";
@@ -14,54 +14,58 @@ import { Router } from '@angular/router';
 
 export class NutritionPage{
 
-  private _HOST : string       =  "http://18.191.160.1701:5000/"; //for actual server
-  //private _HOST : string       =  "http://127.0.0.1:5000/";  //for testing in simulator 
+  //private _HOST : string       =  "http://18.191.160.1701:5000/"; //for actual server
+  private _HOST : string       =  "http://127.0.0.1:5000/";  //for testing in simulator 
   
   private idnum : Number;
+  private nutritionForm : FormGroup;
 
   //constructor(private formBuilder: FormBuilder, private _HTTP: HttpClient){}
 
   constructor(private formBuilder: FormBuilder, private _HTTP: HttpClient, private route: ActivatedRoute,private router: Router)
   {
-     this.route.queryParams.subscribe(params => {this.idnum = params["idnum"];});
+     //this.route.queryParams.subscribe(params => {this.idnum = params["idnum"];}); didn't work
+     this.nutritionForm = this.formBuilder.group({
+      Proteins: new FormControl('Proteins', Validators.compose([
+        Validators.required,
+        NutrientsValidator.isValid
+      ])),
+      Carbs: new FormControl('Carbs', Validators.compose([
+        Validators.required,
+        NutrientsValidator.isValid
+      ])),
+      Fats: new FormControl('Fats', Validators.compose([
+        Validators.required,
+        NutrientsValidator.isValid
+      ])),
+      Fibers: new FormControl('Fibers', Validators.compose([
+        Validators.required,
+        NutrientsValidator.isValid
+      ])),
+      Sugars: new FormControl('Sugars', Validators.compose([
+        Validators.required,
+        NutrientsValidator.isValid
+      ])),
+      Calories: new FormControl('Calories', Validators.compose([
+        Validators.required,
+        NutrientsValidator.isValid
+      ]))
+    });
   }
-  
-  nutrition = this.formBuilder.group({
-    Proteins: new FormControl('Proteins', Validators.compose([
-      Validators.required,
-      NutrientsValidator.isValid
-    ])),
-    Carbs: new FormControl('Carbs', Validators.compose([
-      Validators.required,
-      NutrientsValidator.isValid
-    ])),
-    Fats: new FormControl('Fats', Validators.compose([
-      Validators.required,
-      NutrientsValidator.isValid
-    ])),
-    Fibers: new FormControl('Fibers', Validators.compose([
-      Validators.required,
-      NutrientsValidator.isValid
-    ])),
-    Calories: new FormControl('Calories', Validators.compose([
-      Validators.required,
-      NutrientsValidator.isValid
-    ]))
-  });
-
   
   submit()
   {
     
     let  idnum  = 567,
-    proteins    = this.nutrition.value.Proteins,
-    carbs       = this.nutrition.value.Carbs,
-    fats        = this.nutrition.value.Fats,
-    fibers      = this.nutrition.value.Fibers,
-    calories    = this.nutrition.value.Calories,
+    proteins    = this.nutritionForm.value.Proteins,
+    carbs       = this.nutritionForm.value.Carbs,
+    fats        = this.nutritionForm.value.Fats,
+    fibers      = this.nutritionForm.value.Fibers,
+    sugars      = this.nutritionForm.value.Sugars,
+    calories    = this.nutritionForm.value.Calories,
     date        = new Date(),
     headers     = new HttpHeaders({ 'Content-Type': 'application/json' }),
-    options     = { idnum : idnum, proteins : proteins, carbs : carbs, fats : fats, fibers : fibers, calories : calories, date : date },
+    options     = { idnum : idnum, proteins : proteins, carbs : carbs, fats : fats, fibers : fibers, sugars : sugars, calories : calories, date : date },
     url         = this._HOST + "api/nutriFit.nutrition";
 
     console.log(date);

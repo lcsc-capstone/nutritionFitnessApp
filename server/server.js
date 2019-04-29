@@ -92,6 +92,7 @@ apiRouter.post('/nutriFit.nutrition', function(req, res)
        carbs        =	req.body.carbs,
        fats         =	req.body.fats,
        fibers       =	req.body.fibers,
+       sugars       =	req.body.sugars,
        calories 	  =	req.body.calories;
        date         =   req.body.date;
                        
@@ -106,6 +107,7 @@ apiRouter.post('/nutriFit.nutrition', function(req, res)
          CARBS 		: carbs,
          FATS 		   : fats,
          FIBERS 	   : fibers,
+         SUGARS      : sugars,
          CALORIES    : calories,
          DATE        : date
         },
@@ -149,6 +151,7 @@ apiRouter.put('/nutriFit.nutrition:recordID', function(req, res)
          recs.CARBS  		      = req.body.carbs	   || recs.CARBS;
          recs.FATS 		         = req.body.fats 	   || recs.FATS;
          recs.FIBERS 		      = req.body.fibers 	|| recs.FIBERS;
+         recs.SUGARS 		      = req.body.sugars 	|| recs.SUGARS;
          recs.CALORIES 		      = req.body.calories 	|| recs.CALORIES;
          recs.DATE    		      = req.body.date 	   || recs.DATE;
 
@@ -209,7 +212,7 @@ apiRouter.get('/nutriFit.workout', function(req, res)
     /* Use the gallery model and access Mongoose's API to
       retrieve ALL MongoDB documents whose displayed field
       has a value of true */
-   NUTRITION.find((err, recs) =>
+      WORKOUT.find((err, recs) =>
    {
       /* If we encounter an error log this to the console */
       if (err)
