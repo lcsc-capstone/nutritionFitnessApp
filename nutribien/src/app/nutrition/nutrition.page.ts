@@ -56,7 +56,7 @@ export class NutritionPage{
       ])),
       Calories: new FormControl('Calories', Validators.compose([
         Validators.required,
-        NutrientsValidator.isValid
+        NutrientsValidator.isTooBig
       ]))
     });
   }
