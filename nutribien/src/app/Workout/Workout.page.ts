@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Validators, FormBuilder, FormControl } from '@angular/forms';
+import { Validators, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { WorkoutValidator } from  './../../../../nutribien/src/app/validators/workout';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 

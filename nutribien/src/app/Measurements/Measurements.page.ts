@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Validators,FormBuilder, FormControl } from '@angular/forms';
+import { Validators,FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { NutrientsValidator } from  './../../../../nutribien/src/app/validators/nutrients';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 //import { Router } from '@angular/router';
