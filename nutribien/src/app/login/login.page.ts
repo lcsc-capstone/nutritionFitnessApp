@@ -16,8 +16,8 @@ export class  LoginPage {
 
   public Email: any;
   public Password: any;
-  private _HOST : string 			=	"http://18.191.160.170:5000/"; //for actual server
-  //private _HOST : string       =  "http://127.0.0.1:5000/";  //for testing in simulator 
+  //private _HOST : string 			=	"http://18.191.160.170:5000/"; //for actual server
+  private _HOST : string       =  "http://127.0.0.1:5000/";  //for testing in simulator 
   
   public items : Array<any>;
   constructor(
@@ -56,6 +56,7 @@ export class  LoginPage {
           this.storage.set("image", this.items[i].PICTURE)
       }
     }
+    this.router.navigate(['profile']);
   }
 
   retrieve() : void

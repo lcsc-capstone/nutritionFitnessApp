@@ -15,8 +15,13 @@ export class ProfilePage implements OnInit {
     private storage: Storage) {
   }
   ionViewDidEnter(){
-    this.fName = this.storage.get("fname");
-    this.pic = this.storage.get("image");
+    this.storage.get("fname").then((data)=>{
+      this.fName = data;
+    });
+    console.log(this.fName);
+    this.storage.get("image").then((data)=>{
+      this.pic = data;
+    });
   }
   workout(){
     this.router.navigate(['workout']);
