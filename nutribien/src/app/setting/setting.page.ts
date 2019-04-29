@@ -74,7 +74,6 @@ export class SettingPage implements OnInit {
     });
     this.storage.get("_id").then((data)=>{
       this._id = data;
-      console.log(data);
     });
   }
 
@@ -146,10 +145,6 @@ export class SettingPage implements OnInit {
   
     submit()
     {
-      console.log(this.settingForm.value.PhoneNumber);
-      console.log(this.settingForm.value.EmailAddress);
-      console.log(this.settingForm.value.Height);
-      console.log(this.settingForm.value.Password);
       let phone = 0,
           email = "",
           password ="",
