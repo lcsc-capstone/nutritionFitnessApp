@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-muser',
@@ -55,9 +56,14 @@ if(USER_ID == this.items[i].USER_ID){
 
 export class MuserPage implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
+  back(){
+    this.router.navigate(['/measurements']);
+   }
 
   ngOnInit() {
   }
+
+
 
 }

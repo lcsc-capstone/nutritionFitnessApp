@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, Inject, LOCALE_ID } from '@angular/core';
 //import { CalendarComponent } from 'ionic2-calendar/calendar';
 import { AlertController } from '@ionic/angular';
 import { formatDate } from '@angular/common';
+import { Router } from '@angular/router';
 
 
 
@@ -19,7 +20,13 @@ export class NutritionHistoryPage implements OnInit {
 
   viewTitle: any;
 
-  constructor() { }
+  constructor(private router: Router) { }
+
+  return(){
+    this.router.navigate(['/nutrition']);
+   }
+
+
 
   // Change current month/week/day
  next() {
@@ -52,6 +59,7 @@ onViewTitleChanged(title: any) {
 onDateSelected(ev) {
  //print records.
 }
+
 
   ngOnInit() {
   }

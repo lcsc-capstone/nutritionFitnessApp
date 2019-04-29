@@ -192,7 +192,7 @@ export class RegisterPage {
       });
    }
    back(){
-    this.router.navigate(['/profile']);
+    this.router.navigate(['/login']);
    }
 
    retrieve() : void

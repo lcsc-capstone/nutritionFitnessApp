@@ -54,7 +54,8 @@ ionViewDidEnter() : void
 {
   this.retrieve();
 }
-
+//for loop 
+//look up list for ionic 
 if(USER_ID == this.items[i].USER_ID){
   let navigationExtras: NavigationExtras = {
     queryParams: {
