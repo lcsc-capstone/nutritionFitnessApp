@@ -18,7 +18,6 @@ export class ProfilePage implements OnInit {
     this.storage.get("fname").then((data)=>{
       this.fName = data;
     });
-    console.log(this.fName);
     this.storage.get("image").then((data)=>{
       this.pic = data;
     });

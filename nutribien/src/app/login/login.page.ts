@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Router, NavigationExtras } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import { SelectValueAccessor } from '@ionic/angular';
@@ -29,6 +29,7 @@ export class  LoginPage {
     //private navParams: NavParams
     ){}
 
+
     ionViewDidEnter() : void
    {
       this.retrieve();
@@ -41,6 +42,7 @@ export class  LoginPage {
   });
 
   login(){
+    this.storage.clear();
     let Email    = this.loginForm.value.email,
         Password    = this.loginForm.value.password
     for(let i=0; i<this.items.length; i++){
@@ -53,7 +55,8 @@ export class  LoginPage {
           this.storage.set("password",  this.items[i].PASSWORD),
           this.storage.set("bday",  this.items[i].DATE_OF_BIRTH),
           this.storage.set("height",  this.items[i].HEIGHT),
-          this.storage.set("image", this.items[i].PICTURE)
+          this.storage.set("image", this.items[i].PICTURE),
+          this.storage.set("_id", this.items[i]._id)
       }
     }
     this.router.navigate(['profile']);
@@ -82,18 +85,3 @@ export class  LoginPage {
   }
 }
 
-/*        let navigationExtras: NavigationExtras = {
-          queryParams: {
-            "idnum": this.items[i].ID_NUM,
-            "fname":  this.items[i].FIRSTNAME,
-            "lname":  this.items[i].LASTNAME,
-            "phone":  this.items[i].PHONE,
-            "email":  this.items[i].EMAIL,
-            "password":  this.items[i].PASSWORD,
-            "bday":  this.items[i].DATE_OF_BIRTH,
-            "height":  this.items[i].HEIGHT,
-            "image": this.items[i].PICTURE,
-            "thumbnail": this.items[i].THUMBNAIL
-          }
-        };
-        this.router.navigate(['/profile'], navigationExtras);*/

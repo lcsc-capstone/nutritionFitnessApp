@@ -128,7 +128,7 @@ apiRouter.post('/nutriFit.nutrition', function(req, res)
 });
 
 /* Handle PUT requests with expected recordID parameter */
-apiRouter.put('/nutriFit.nutrition:recordID', function(req, res)
+apiRouter.put('/nutriFit.nutrition/:recordID', function(req, res)
 {
 
     /* Use the NUTRITION model to access the Mongoose API method and
@@ -177,7 +177,7 @@ apiRouter.put('/nutriFit.nutrition:recordID', function(req, res)
 
 
 /* Handle DELETE requests with expected recordID parameter */
-apiRouter.delete('/nutriFit.nutrition:recordID', function(req, res)
+apiRouter.delete('/nutriFit.nutrition/:recordID', function(req, res)
 {
     /* Use the NUTRITION model to access the Mongoose API method and
       find & remove a specific document within the MongoDB database
@@ -269,7 +269,7 @@ apiRouter.post('/nutriFit.workout', function(req, res)
 });
 
 /* Handle PUT requests with expected recordID parameter */
-apiRouter.put('/nutriFit.workout:recordID', function(req, res)
+apiRouter.put('/nutriFit.workout/:recordID', function(req, res)
 {
 
     /* Use the NUTRITION model to access the Mongoose API method and
@@ -316,7 +316,7 @@ apiRouter.put('/nutriFit.workout:recordID', function(req, res)
 
 
 /* Handle DELETE requests with expected recordID parameter */
-apiRouter.delete('/nutriFit.workout:recordID', function(req, res)
+apiRouter.delete('/nutriFit.workout/:recordID', function(req, res)
 {
     /* Use the NUTRITION model to access the Mongoose API method and
       find & remove a specific document within the MongoDB database
@@ -406,7 +406,7 @@ apiRouter.post('/nutriFit.measurements', function(req, res)
 /*here*/
 
 /* Handle PUT requests with expected recordID parameter */
-apiRouter.put('/nutriFit.measurements:recordID', function(req, res)
+apiRouter.put('/nutriFit.measurements/:recordID', function(req, res)
 {
 
     /* Use the NUTRITION model to access the Mongoose API method and
@@ -454,7 +454,7 @@ apiRouter.put('/nutriFit.measurements:recordID', function(req, res)
 
 
 /* Handle DELETE requests with expected recordID parameter */
-apiRouter.delete('/nutriFit.measurements:recordID', function(req, res)
+apiRouter.delete('/nutriFit.measurements/:recordID', function(req, res)
 {
     /* Use the NUTRITION model to access the Mongoose API method and
       find & remove a specific document within the MongoDB database
@@ -553,7 +553,7 @@ apiRouter.post('/nutriFit.profile',function(req, res)
 });
 
 /* Handle PUT requests with expected recordID parameter */
-apiRouter.put('/nutriFit.profile:recordID', function(req, res)
+apiRouter.put('/nutriFit.profile/:recordID', function(req, res)
 {
 
     /* Use the NUTRITION model to access the Mongoose API method and
@@ -604,7 +604,7 @@ apiRouter.put('/nutriFit.profile:recordID', function(req, res)
 
 
 /* Handle DELETE requests with expected recordID parameter */
-apiRouter.delete('/nutriFit.profile:recordID', function(req, res)
+apiRouter.delete('/nutriFit.profile/:recordID', function(req, res)
 {
     /* Use the NUTRITION model to access the Mongoose API method and
       find & remove a specific document within the MongoDB database

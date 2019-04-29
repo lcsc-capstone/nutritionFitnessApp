@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActionSheetController, NavParams, ToastController, Platform, LoadingController } from '@ionic/angular';
+import { ActionSheetController } from '@ionic/angular';
 import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { RegistrationValidator, PhoneValidator, PasswordValidator } from '../validators/registration';
