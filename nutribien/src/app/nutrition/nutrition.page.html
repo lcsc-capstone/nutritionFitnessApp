@@ -23,6 +23,7 @@
   <p class="grams" position="floating">Please enter all values in grams</p>
 
   <form name="nutri_form" [formGroup]="nutritionForm" padding>
+    
     <ion-item>
       <ion-label position="stacked">Proteins</ion-label>
       <ion-input type="number" min="0" id="Proteins" formControlName="Proteins"></ion-input>
@@ -109,11 +110,12 @@
   </form>
 <div padding>
     <ion-button (click)="submit()" mode="ios" type="submit" color="success">Submit</ion-button>
-</div>
+
 
 <ion-item (click)="viewHistory()">
   <ion-icon name="pizza" slot="start"></ion-icon>
   <ion-label>History</ion-label>
 </ion-item>
+</div>
 
 </ion-content>
