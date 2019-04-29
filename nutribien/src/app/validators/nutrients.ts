@@ -6,19 +6,19 @@ export class NutrientsValidator {
 
         if(isNaN(control.value)){
             return {
-                "not a number": true
+                "notNum": true
             };
         }
 
         if(control.value < 0){
             return {
-                "no negative values allowed": true
+                "negative": true
             };
         }
 
         if (control.value > 1000){
             return {
-                "not realistic": true
+                "realistic": true
             };
         }
 

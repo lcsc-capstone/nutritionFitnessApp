@@ -1,18 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
-import { NgCalendarModule  } from 'ionic2-calendar';
-
 
 import { IonicModule } from '@ionic/angular';
 
-import { NutritionHistoryPage } from './nutrition-history.page';
+import { SettingPage } from './setting.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: NutritionHistoryPage
+    component: SettingPage
   }
 ];
 
@@ -21,9 +19,9 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    NgCalendarModule,
+    ReactiveFormsModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [NutritionHistoryPage]
+  declarations: [SettingPage]
 })
-export class NutritionHistoryPageModule {}
+export class SettingPageModule {}

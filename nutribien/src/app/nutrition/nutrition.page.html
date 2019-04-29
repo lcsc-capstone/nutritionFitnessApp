@@ -20,27 +20,90 @@
       </ion-card-header>
     </ion-card>
 
-  <form name="nutri_form" [formGroup]="nutrition" padding>
+  <form name="nutri_form" [formGroup]="nutritionForm" padding>
     <ion-item>
       <ion-label position="stacked">Proteins</ion-label>
       <ion-input type="number" min="0" id="Proteins" formControlName="Proteins"></ion-input>
     </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.number">
+        <div class="error-message" *ngIf="nutritionForm.get('Proteins').hasError(validation.type) && (nutritionForm.get('Proteins').dirty || nutritionForm.get('Proteins').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+
+
+
     <ion-item>
       <ion-label position="stacked">Carbs</ion-label>
       <ion-input type="number" min="0" id="Carbs" formControlName="Carbs"></ion-input>
     </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.number">
+        <div class="error-message" *ngIf="nutritionForm.get('Carbs').hasError(validation.type) && (nutritionForm.get('Carbs').dirty || nutritionForm.get('Carbs').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+
+
+
     <ion-item>
       <ion-label position="stacked">Fats</ion-label>
       <ion-input type="number" min="0" id="Fats" formControlName="Fats"></ion-input>
     </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.number">
+        <div class="error-message" *ngIf="nutritionForm.get('Fats').hasError(validation.type) && (nutritionForm.get('Fats').dirty || nutritionForm.get('Fats').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+
+
+
     <ion-item>
       <ion-label position="stacked">Fibers</ion-label>
       <ion-input type="number" min="0" id="Fibers" formControlName="Fibers"></ion-input>
     </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.number">
+        <div class="error-message" *ngIf="nutritionForm.get('Fibers').hasError(validation.type) && (nutritionForm.get('Fibers').dirty || nutritionForm.get('Fibers').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+
+
+    <ion-item>
+      <ion-label position="stacked">Sugars</ion-label> 
+      <ion-label class="grams" position="floating">grams</ion-label>
+        
+        <ion-input type="number" min="0" id="Sugars" formControlName="Sugars">
+        </ion-input>
+      </ion-item>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.number">
+          <div class="error-message" *ngIf="nutritionForm.get('Sugars').hasError(validation.type) && (nutritionForm.get('Sugars').dirty || nutritionForm.get('Sugars').touched)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+
+
+
     <ion-item>
       <ion-label position="stacked">Total calories</ion-label>
       <ion-input type="number" min="0" id="Calories" formControlName="Calories"></ion-input>
     </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.number">
+        <div class="error-message" *ngIf="nutritionForm.get('Calories').hasError(validation.type) && (nutritionForm.get('Calories').dirty || nutritionForm.get('Calories').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
     
     
   </form>

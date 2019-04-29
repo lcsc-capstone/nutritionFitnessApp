@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
+import { IonicStorageModule } from '@ionic/storage';
 
 //For images
 import { Camera } from '@ionic-native/Camera/ngx';
@@ -21,10 +21,10 @@ import { ImageProvider } from './register/image';
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
+    IonicStorageModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
-
+    FormsModule,
   ],
   providers: [
     StatusBar,
