@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Validators, FormBuilder, FormControl } from '@angular/forms';
-import { NutrientsValidator } from  './../../../../nutribien/src/app/validators/nutrients';
+import { WorkoutValidator } from  './../../../../nutribien/src/app/validators/workout';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
@@ -28,19 +28,19 @@ export class WorkoutPage {
   Workout = this.formBuilder.group({
     Sport: new FormControl('Sport', Validators.compose([
       Validators.required,
-      NutrientsValidator.isValid
+      WorkoutValidator.isValid
     ])),
     Distance: new FormControl('Distance', Validators.compose([
       Validators.required,
-      NutrientsValidator.isValid
+      WorkoutValidator.isValid
     ])),
     Time: new FormControl('Time', Validators.compose([
       Validators.required,
-      NutrientsValidator.isValid
+      WorkoutValidator.isValid
     ])),
     Calories: new FormControl('Calories', Validators.compose([
       Validators.required,
-      NutrientsValidator.isValid
+      WorkoutValidator.isValid
     ]))
   });
 

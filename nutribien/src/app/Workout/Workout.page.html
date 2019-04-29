@@ -21,7 +21,8 @@
       </ion-card-header>
   </ion-card>
 
-  <form name="sport_form" [formGroup]="Workout" padding>
+  <div padding>
+  <form name="choose_sport">
     <ion-item>
       <ion-label position="stacked">Workout</ion-label>
       <ion-select (ionChange)="changeSport()" type="text"  placeholder="Select one" formControlName="Sport">
@@ -40,6 +41,8 @@
         <ion-select-option value="Other">Other</ion-select-option>
       </ion-select>
     </ion-item>
+  </form>
+  <form name="sport_form" [formGroup]="Workout">
     <ion-item *ngIf="showDistance">
       <ion-label position="stacked">Distance</ion-label>
       <ion-input type="number" min="0" placeholder="Enter miles" formControlName="Distance" ></ion-input>
@@ -53,6 +56,7 @@
       <ion-input type="number" min="0" formControlName="Calories" ></ion-input>
     </ion-item>
   </form>
+  </div>
 
   <div class="row">
     <div class="col text-center" padding>
