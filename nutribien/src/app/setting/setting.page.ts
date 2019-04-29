@@ -228,6 +228,10 @@ export class SettingPage implements OnInit {
       });
    }
 
+   back(){
+    this.router.navigate(['/profile']);
+   }
+
   ngOnInit() {
   }
 

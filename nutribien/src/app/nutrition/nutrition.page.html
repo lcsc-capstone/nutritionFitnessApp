@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-menu-button color="success"></ion-menu-button>
     </ion-buttons>
-    <ion-title>
+    <ion-title style="width: 100%; text-align: center;">
       Nutrition
     </ion-title>
   </ion-toolbar>
@@ -19,6 +19,8 @@
         <ion-card-subtitle>Update your daily nutritional intake!</ion-card-subtitle>
       </ion-card-header>
     </ion-card>
+
+  <p class="grams" position="floating">Please enter all values in grams</p>
 
   <form name="nutri_form" [formGroup]="nutritionForm" padding>
     
@@ -78,9 +80,7 @@
 
 
     <ion-item>
-      <ion-label position="stacked">Sugars</ion-label> 
-      <ion-label class="grams" position="floating">grams</ion-label>
-        
+      <ion-label position="stacked">Sugars</ion-label>         
         <ion-input type="number" min="0" id="Sugars" formControlName="Sugars">
         </ion-input>
       </ion-item>

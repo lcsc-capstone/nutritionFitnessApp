@@ -87,8 +87,6 @@
       "cordova-plugin-ionic-keyboard": {},
       "cordova-sqlite-storage": {}
     },
-    "platforms": [
-      "ios"
-    ]
+    "platforms": []
   }
 }
