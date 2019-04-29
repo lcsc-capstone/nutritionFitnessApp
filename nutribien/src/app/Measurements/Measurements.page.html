@@ -22,31 +22,31 @@
       </ion-card-header>
     </ion-card>
   
-    <form padding>
+    <form name="measurements_form" [formGorup]="measurements_form]" padding>
   
     <ion-item>
       <ion-label position="stacked">Neck</ion-label>
-      <ion-input></ion-input>
+      <ion-input type="number" min="0" formControlName="Neck"></ion-input>
     </ion-item>
   
     <ion-item>
       <ion-label position="stacked">Hip</ion-label>
-      <ion-input></ion-input>
+      <ion-input type="number" min="0" formControlName="Hip"></ion-input>
     </ion-item>
   
     <ion-item>
-      <ion-label position="stacked">Thighs</ion-label>
-      <ion-input></ion-input>
+      <ion-label position="stacked">Thigh</ion-label>
+      <ion-input type="number" min="0" formControlName="Thigh"></ion-input>
     </ion-item>
   
     <ion-item>
       <ion-label position="stacked">Belly</ion-label>
-      <ion-input></ion-input>
+      <ion-input type="number" min="0" formControlName="Belly"></ion-input>
     </ion-item>
   
     <ion-item>
       <ion-label position="stacked">Bicep</ion-label>
-      <ion-input ></ion-input>
+      <ion-input type="number" min="0" formControlName="Bicep"></ion-input>
     </ion-item>
   
 

@@ -32,7 +32,7 @@ export class  MeasurementsPage {
       Validators.required,
       NutrientsValidator.isValid
     ])),
-    Thighs: new FormControl('Thighs', Validators.compose([
+    Thigh: new FormControl('Thigh', Validators.compose([
       Validators.required,
       NutrientsValidator.isValid
     ])),
