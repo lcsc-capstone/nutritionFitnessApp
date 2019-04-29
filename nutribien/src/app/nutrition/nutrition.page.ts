@@ -21,8 +21,16 @@ export class NutritionPage{
   private nutritionForm : FormGroup;
 
   //constructor(private formBuilder: FormBuilder, private _HTTP: HttpClient){}
+  validation_messages = {
+    'number': [
+        { type: 'required', message: 'This field is required.' },
+        { type: 'negative', message: 'Sorry, not negative numbers allowed.' },
+        { type: 'notNum', message: 'This field is required.' },
+        { type: 'realistic', message: 'This seems to be too big of a number' }
+      ]
+    }
 
-  constructor(private formBuilder: FormBuilder, private _HTTP: HttpClient, private route: ActivatedRoute,private router: Router)
+  constructor(public formBuilder: FormBuilder, private _HTTP: HttpClient, private route: ActivatedRoute,private router: Router)
   {
      //this.route.queryParams.subscribe(params => {this.idnum = params["idnum"];}); didn't work
      this.nutritionForm = this.formBuilder.group({
