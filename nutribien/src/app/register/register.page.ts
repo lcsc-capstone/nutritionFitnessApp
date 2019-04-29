@@ -191,6 +191,9 @@ export class RegisterPage {
         toastData.present();
       });
    }
+   back(){
+    this.router.navigate(['/profile']);
+   }
 
    retrieve() : void
    {
