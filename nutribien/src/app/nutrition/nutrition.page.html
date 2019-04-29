@@ -20,6 +20,8 @@
       </ion-card-header>
     </ion-card>
 
+  <p class="grams" position="floating">Please enter all values in grams</p>
+
   <form name="nutri_form" [formGroup]="nutritionForm" padding>
     <ion-item>
       <ion-label position="stacked">Proteins</ion-label>
@@ -77,9 +79,7 @@
 
 
     <ion-item>
-      <ion-label position="stacked">Sugars</ion-label> 
-      <ion-label class="grams" position="floating">grams</ion-label>
-        
+      <ion-label position="stacked">Sugars</ion-label>         
         <ion-input type="number" min="0" id="Sugars" formControlName="Sugars">
         </ion-input>
       </ion-item>
