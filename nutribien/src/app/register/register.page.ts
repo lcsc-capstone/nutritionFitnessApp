@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActionSheetController } from '@ionic/angular';
+import { ActionSheetController, ToastController } from '@ionic/angular';
 import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { RegistrationValidator, PhoneValidator, PasswordValidator } from '../validators/registration';
@@ -28,7 +28,7 @@ export class RegisterPage {
   public thumbnail		     : any;
   public items : Array<any>;
 
-  private _HOST : string       =  "http://18.191.160.1701:5000/"; //for actual server
+  private _HOST : string       =  "http://18.191.160.170:5000/"; //for actual server
   //private _HOST : string       =  "http://127.0.0.1:5000/";  //for testing in simulator 
 
   constructor(
@@ -36,6 +36,7 @@ export class RegisterPage {
     private _HTTP: HttpClient,
     private actionSheetController: ActionSheetController,
     private imageProvider: ImageProvider,
+    private _TOAST       : ToastController,
     private router: Router){}
 
     registerForm = this.formBuilder.group({
@@ -156,7 +157,8 @@ export class RegisterPage {
          {
             // If the request was successful clear the form of data
             // and notify the user
-            console.log('New entry was successfully created');
+            this.clearForm();
+            this.displayNotification('Account Created');
             //this.clearForm();
          },
          (error : any) =>
@@ -178,6 +180,16 @@ export class RegisterPage {
     this.birthday    = "";
     this.image    = "";
     this.thumbnail    = "";
+   }
+
+   displayNotification(message : string) : void
+   {
+      let toast = this._TOAST.create({
+         message 	: message,
+         duration 	: 3000
+      }).then((toastData)=>{
+        toastData.present();
+      });
    }
 
    retrieve() : void

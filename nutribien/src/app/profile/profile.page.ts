@@ -31,6 +31,9 @@ export class ProfilePage implements OnInit {
   nutrition(){
     this.router.navigate(['nutrition']);
   }
+  settings(){
+    this.router.navigate(['setting']);
+  }
 
  
 

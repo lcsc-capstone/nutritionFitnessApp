@@ -3,7 +3,7 @@ import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms'
 import { HttpClient } from '@angular/common/http';
 import { Router, NavigationExtras } from '@angular/router';
 import { Storage } from '@ionic/storage';
-import { SelectValueAccessor } from '@ionic/angular';
+import { SelectValueAccessor, ToastController } from '@ionic/angular';
 
 
 @Component({
@@ -16,14 +16,16 @@ export class  LoginPage {
 
   public Email: any;
   public Password: any;
-  //private _HOST : string 			=	"http://18.191.160.170:5000/"; //for actual server
-  private _HOST : string       =  "http://127.0.0.1:5000/";  //for testing in simulator 
+  public success: boolean = false;
+  private _HOST : string 			=	"http://18.191.160.170:5000/"; //for actual server
+  //private _HOST : string       =  "http://127.0.0.1:5000/";  //for testing in simulator 
   
   public items : Array<any>;
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
     private _HTTP: HttpClient,
+    private _TOAST       : ToastController,
     private storage: Storage
     //private actionSheetController: ActionSheetController,
     //private navParams: NavParams
@@ -57,11 +59,27 @@ export class  LoginPage {
           this.storage.set("height",  this.items[i].HEIGHT),
           this.storage.set("image", this.items[i].PICTURE),
           this.storage.set("_id", this.items[i]._id)
+          this.success = true;
       }
     }
-    this.router.navigate(['profile']);
+    if(this.success){
+      this.router.navigate(['profile']);
+      this.displayNotification('Successfully Logged in');
+    }else{
+      this.displayNotification('Login Failed');
+    }
+    
   }
 
+  displayNotification(message : string) : void
+  {
+     let toast = this._TOAST.create({
+        message 	: message,
+        duration 	: 3000
+     }).then((toastData)=>{
+       toastData.present();
+     });
+  }
   retrieve() : void
    {
       this._HTTP

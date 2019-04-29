@@ -4,7 +4,7 @@ import { Storage } from '@ionic/storage';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { RegistrationValidator, PhoneValidator, PasswordValidator } from '../validators/registration';
-import { ActionSheetController } from '@ionic/angular';
+import { ActionSheetController, ToastController } from '@ionic/angular';
 import { ImageProvider } from '../register/image';
 
 @Component({
@@ -24,11 +24,12 @@ export class SettingPage implements OnInit {
   public image: any;
   public _id: any;
   public thumbnail		     : any;
+  public success: boolean = false;
   
   public items : Array<any>;
 
-  //private _HOST : string 			=	"http://18.191.160.170:5000/"; //for actual server
-  private _HOST : string       =  "http://127.0.0.1:5000/";  //for testing in simulator 
+  private _HOST : string 			=	"http://18.191.160.170:5000/"; //for actual server
+  //private _HOST : string       =  "http://127.0.0.1:5000/";  //for testing in simulator 
 
   constructor(
     private router: Router,
@@ -36,6 +37,7 @@ export class SettingPage implements OnInit {
     private formBuilder: FormBuilder,
     private actionSheetController: ActionSheetController,
     private imageProvider: ImageProvider,
+    private _TOAST       : ToastController,
     private storage: Storage) {
     }
 
@@ -188,7 +190,8 @@ export class SettingPage implements OnInit {
            {
               // If the request was successful clear the form of data
               // and notify the user
-              console.log('profile was successfully updated');
+              this.clearForm();
+              this.displayNotification('Account Updated');
               //this.clearForm();
            },
            (error : any) =>
@@ -196,9 +199,34 @@ export class SettingPage implements OnInit {
               console.dir(error);
            });
            this.router.navigate(['/profile']);
+           this.success = true;
+           if (this.success){
+            this.storage.clear();
+           }
     }
+    clearForm() : void
+   {
+    this.idnum  = "";
+    this.fname    = "";
+    this.lname       = "";
+    this.phone        = "";
+    this.email      = "";
+    this.password    = "";
+    this.height    = "";
+    this.bday    = "";
+    this.image    = "";
+    this.thumbnail    = "";
+   }
 
-
+   displayNotification(message : string) : void
+   {
+      let toast = this._TOAST.create({
+         message 	: message,
+         duration 	: 3000
+      }).then((toastData)=>{
+        toastData.present();
+      });
+   }
 
   ngOnInit() {
   }
