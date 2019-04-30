@@ -36,9 +36,23 @@
                     <ion-input type="password" name="conformPassword" formControlName="ConformPassword" required=""></ion-input>
                   </ion-item> 
   
+                  <ion-item class="feet">
+                      <ion-label position="stacked">Height</ion-label>
+                      <ion-select  type="number"  placeholder={{ft}} formControlName="Feet" >
+                        <ion-select-option *ngFor="let num of feet" [value]="num">
+                          {{num}}
+                        </ion-select-option>
+                      </ion-select>
+                      <ion-text slot="end">feet</ion-text>
+                  </ion-item>
                   <ion-item>
-                    <ion-label position="stacked">Height</ion-label>
-                    <ion-input type="number" placeholder={{height}} name="Height" formControlName="Height"required="" ></ion-input>
+                      <ion-label position="stacked"></ion-label>
+                        <ion-select type="number"  placeholder={{inch}} formControlName="Inches">
+                          <ion-select-option *ngFor="let num of inches" [value]="num">
+                            {{num}}
+                          </ion-select-option>
+                        </ion-select>
+                        <ion-text slot="end">inches</ion-text>  
                   </ion-item>  
   
                   <img [src]="image" [hidden]="!image">

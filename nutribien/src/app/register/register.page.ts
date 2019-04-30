@@ -26,6 +26,8 @@ export class RegisterPage {
   public birthday		     : any;
   public image        :any;
   public thumbnail		     : any;
+  public feet : any[] = [];
+  public inches : any[] = [];
   public items : Array<any>;
 
   private _HOST : string       =  "http://18.191.160.170:5000/"; //for actual server
@@ -37,7 +39,16 @@ export class RegisterPage {
     private actionSheetController: ActionSheetController,
     private imageProvider: ImageProvider,
     private _TOAST       : ToastController,
-    private router: Router){}
+    private router: Router){
+      //Height
+      for (let num = 2; num < 10; num++){
+        this.feet.push(num)
+      }
+      for (let num = 0; num < 12; num++){
+        this.inches.push(num)
+      }
+      console.log(this.feet);
+    }
 
     registerForm = this.formBuilder.group({
       FirstName: new FormControl('', Validators.required),
@@ -50,7 +61,11 @@ export class RegisterPage {
         Validators.required,
         Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
       ])),
-      Height: new FormControl('', Validators.compose([
+      Feet: new FormControl('', Validators.compose([
+        Validators.required,
+        RegistrationValidator.isValid
+      ])),
+      Inches: new FormControl('', Validators.compose([
         Validators.required,
         RegistrationValidator.isValid
       ])),
@@ -125,11 +140,17 @@ export class RegisterPage {
       });
    }
    
-  
+  convertion(){
+    let feet = this.registerForm.value.Feet;
+    let inches = this.registerForm.value.Inches;
+    this.height = (feet * 30.48) + (inches * 2.54)
+    return this.height
+  }
 
 
   submit()
   {
+    
     let idnum = 0,
         prevID = 0;   
     if (this.items == undefined||this.items.length == 0){
@@ -143,14 +164,13 @@ export class RegisterPage {
     phone        = this.registerForm.value.PhoneNumber,
     email      = this.registerForm.value.EmailAddress,
     password    = this.registerForm.value.Password,
-    height    = this.registerForm.value.Height,
+    height = this.convertion(),
     birthday    = this.registerForm.value.Birthday,
     image    = this.thumbnail,
     thumbnail    = this.thumbnail,
     headers     = new HttpHeaders({ 'Content-Type': 'application/json' }),
     options     = { idnum : idnum, fName : fName, lName : lName, phone : phone, email : email, password : password, height : height, birthday : birthday, image: image, thumbnail : thumbnail },
     url         = this._HOST + "api/nutriFit.profile";
-
     this._HTTP
          .post(url, options, {headers: headers}) //different from tutorial so error goes away
          .subscribe((data : any) =>
