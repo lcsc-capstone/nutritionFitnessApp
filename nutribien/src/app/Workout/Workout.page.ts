@@ -10,6 +10,18 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class WorkoutPage {
 
+  public sport:string 
+  public showDistance:boolean=true
+
+  changeSport()
+  {  
+    //console.log(this.sport)
+    if (this.sport=="Swimming" || this.sport=="Running" || this.sport=="Hiking"|| this.sport=="Biking"|| this.sport=="Walking"){
+      this.showDistance=true
+    }
+  }
+  
+
   private WorkoutForm : FormGroup;
   private _HOST : string       =  "http://18.191.160.170:5000/"; //for actual server
   //private _HOST : string       =  "http://127.0.0.1:5000/";  //for testing in simulator 
@@ -42,17 +54,6 @@ export class WorkoutPage {
       ]))
     });
   }
-
-  public sport:string 
-  public showDistance:boolean=false
-
-  changeSport(){  
-    //console.log(this.sport)
-    if (this.sport=="Swimming" || this.sport=="Running" || this.sport=="Hiking"|| this.sport=="Biking"|| this.sport=="Walking"){
-      this.showDistance=true
-    }
-  }
-  
   
 
   submit()
