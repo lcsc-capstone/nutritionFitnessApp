@@ -55,7 +55,7 @@
   <form name="sport_form" [formGroup]="WorkoutForm">
     <ion-item *ngIf="showDistance">
       <ion-label position="stacked">Distance</ion-label>
-      <ion-input type="number" min="0" placeholder="Enter miles" formControlName="Distance" ></ion-input>
+      <ion-input type="number" min="0" placeholder="(miles)" formControlName="Distance" ></ion-input>
     </ion-item>
     <div class="validation-errors">
       <ng-container *ngFor="let validation of validation_messages.number">
@@ -70,7 +70,7 @@
 
     <ion-item>
       <ion-label position="stacked">Time</ion-label>
-      <ion-input type="number" min="0" placeholder="Enter minutes" formControlName="Time" ></ion-input>
+      <ion-input type="number" min="0" placeholder="(minutes)" formControlName="Time" ></ion-input>
     </ion-item>
     <div class="validation-errors">
       <ng-container *ngFor="let validation of validation_messages.number">
