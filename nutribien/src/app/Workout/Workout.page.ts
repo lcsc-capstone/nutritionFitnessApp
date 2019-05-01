@@ -10,8 +10,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class WorkoutPage {
 
-  public sport:string 
-  public showDistance:boolean=true
+  public sport:string
+  public showDistance:boolean=false
+  public WorkoutForm: any
 
   changeSport()
   {  
@@ -35,7 +36,7 @@ export class WorkoutPage {
       ]
     }
 
-  constructor(private formBuilder: FormBuilder, private _HTTP: HttpClient,   public WorkoutForm : FormGroup){
+  constructor(public formBuilder: FormBuilder, private _HTTP: HttpClient){
     this.WorkoutForm = this.formBuilder.group({
       Sport: new FormControl('Sport', Validators.compose([
         Validators.required
