@@ -19,12 +19,7 @@ export class ProfilePage implements OnInit {
       this.fName = data;
     });
     this.storage.get("image").then((data)=>{
-      console.log(data);
-      if (data == null){
-        this.pic = "https://www.seekpng.com/png/detail/41-410093_circled-user-icon-user-profile-icon-png.png";
-      }else{
-        this.pic = data;
-      }
+      this.pic = data;
     });
   }
   workout(){

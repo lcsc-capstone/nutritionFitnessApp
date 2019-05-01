@@ -57,7 +57,7 @@ if(USER_ID == this.items[i].USER_ID){
 export class MuserPage implements OnInit {
 
   constructor(private router: Router) { }
-  return(){
+  back(){
     this.router.navigate(['/measurements']);
    }
 

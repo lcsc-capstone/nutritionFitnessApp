@@ -211,7 +211,7 @@ export class RegisterPage {
         toastData.present();
       });
    }
-   return(){
+   back(){
     this.router.navigate(['/login']);
    }
 
