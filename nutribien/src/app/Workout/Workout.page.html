@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-menu-button color="success"></ion-menu-button>
     </ion-buttons>
-    <ion-title>
+    <ion-title style="width: 100%; text-align: center;">
       Workout
     </ion-title>
   </ion-toolbar>
@@ -22,7 +22,7 @@
   </ion-card>
 
   <div padding>
-  <form name="choose_sport">
+  <form name="sport_form" [formGroup]="WorkoutForm">
     <ion-item>
       <ion-label position="stacked">Workout</ion-label>
       <ion-select (ionChange)="changeSport()" type="text"  placeholder="Select one" formControlName="Sport">
@@ -41,23 +41,60 @@
         <ion-select-option value="Other">Other</ion-select-option>
       </ion-select>
     </ion-item>
+
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.number">
+        <div class="error-message" *ngIf="WorkoutForm.get('Sport').hasError(validation.type) && (WorkoutForm.get('Sport').dirty || WorkoutForm.get('Sport').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+
+    
   </form>
-  <form name="sport_form" [formGroup]="Workout">
+  <form name="sport_form" [formGroup]="WorkoutForm">
     <ion-item *ngIf="showDistance">
       <ion-label position="stacked">Distance</ion-label>
-      <ion-input type="number" min="0" placeholder="Enter miles" formControlName="Distance" ></ion-input>
+      <ion-input type="number" min="0" placeholder="(miles)" formControlName="Distance" ></ion-input>
     </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.number">
+        <div class="error-message" *ngIf="WorkoutForm.get('Distance').hasError(validation.type) && (WorkoutForm.get('Distance').dirty || WorkoutForm.get('Distance').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+
+
+
+
     <ion-item>
       <ion-label position="stacked">Time</ion-label>
-      <ion-input type="number" min="0" placeholder="Enter minutes" formControlName="Time" ></ion-input>
+      <ion-input type="number" min="0" placeholder="(minutes)" formControlName="Time" ></ion-input>
     </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.number">
+        <div class="error-message" *ngIf="WorkoutForm.get('Time').hasError(validation.type) && (WorkoutForm.get('Time').dirty || WorkoutForm.get('Time').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+
+
     <ion-item>
       <ion-label position="stacked">Calories</ion-label>
       <ion-input type="number" min="0" formControlName="Calories" ></ion-input>
     </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.number">
+        <div class="error-message" *ngIf="WorkoutForm.get('Calories').hasError(validation.type) && (WorkoutForm.get('Calories').dirty || WorkoutForm.get('Calories').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+
   </form>
   </div>
-
   <div class="row">
     <div class="col text-center" padding>
         <ion-button (click)="submit()" mode="ios" color= "success" type="submit">Submit</ion-button>

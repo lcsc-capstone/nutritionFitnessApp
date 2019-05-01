@@ -18,7 +18,7 @@ export class NutritionPage{
   //private _HOST : string       =  "http://127.0.0.1:5000/";  //for testing in simulator 
   
   private idnum : Number;
-  private nutritionForm : FormGroup;
+
 
   //constructor(private formBuilder: FormBuilder, private _HTTP: HttpClient){}
   validation_messages = {
@@ -30,7 +30,7 @@ export class NutritionPage{
       ]
     }
 
-  constructor(public formBuilder: FormBuilder, private _HTTP: HttpClient, private route: ActivatedRoute,private router: Router)
+  constructor(  public nutritionForm : FormGroup, public formBuilder: FormBuilder, private _HTTP: HttpClient, private route: ActivatedRoute,private router: Router)
   {
      //this.route.queryParams.subscribe(params => {this.idnum = params["idnum"];}); didn't work
      this.nutritionForm = this.formBuilder.group({
@@ -56,7 +56,7 @@ export class NutritionPage{
       ])),
       Calories: new FormControl('Calories', Validators.compose([
         Validators.required,
-        NutrientsValidator.isValid
+        NutrientsValidator.isTooBig
       ]))
     });
   }

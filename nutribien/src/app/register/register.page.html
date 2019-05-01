@@ -1,7 +1,7 @@
 
 <ion-header>
   <ion-toolbar>
-      <ion-button (click)="back()" slot="start" fill="clear" color="success" >
+      <ion-button (click)="return()" slot="start" fill="clear" color="success" >
           <ion-icon name="arrow-round-back"></ion-icon>
       </ion-button>
     <ion-title style="width: 100%; text-align: center;">register</ion-title>
@@ -53,9 +53,23 @@
                   <ion-datetime type="date" formControlName="Birthday" name="Birthday" required=""></ion-datetime>
                 </ion-item>  
 
+                <ion-item class="feet">
+                    <ion-label position="stacked">Height</ion-label>
+                    <ion-select  type="number"  placeholder="0" formControlName="Feet" >
+                      <ion-select-option *ngFor="let num of feet" [value]="num">
+                        {{num}}
+                      </ion-select-option>
+                    </ion-select>
+                    <ion-text slot="end">feet</ion-text>
+                </ion-item>
                 <ion-item>
-                  <ion-label position="floating">Height</ion-label>
-                  <ion-input type="number" name="Height" formControlName="Height"required="" ></ion-input>
+                    <ion-label position="stacked"></ion-label>
+                      <ion-select type="number"  placeholder="0" formControlName="Inches">
+                        <ion-select-option *ngFor="let num of inches" [value]="num">
+                          {{num}}
+                        </ion-select-option>
+                      </ion-select>
+                      <ion-text slot="end">inches</ion-text>  
                 </ion-item>  
 
                 <img [src]="image" [hidden]="!image">

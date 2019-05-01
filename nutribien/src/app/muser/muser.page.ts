@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+
 
 //*
 @Component({
@@ -58,8 +60,22 @@ export class MuserPage implements OnInit {
       });
    }
 
+
+//*/
+
+
+export class MuserPage implements OnInit {
+
+  constructor(private router: Router) { }
+  return(){
+    this.router.navigate(['/measurements']);
+   }
+
+
   ngOnInit() {
   }
+
+
 
 }
 //*/

@@ -6,19 +6,42 @@ export class WorkoutValidator {
 
         if(isNaN(control.value)){
             return {
-                "not a number": true
+                "notNum": true
             };
         }
 
         if(control.value < 0){
             return {
-                "no negative values allowed": true
+                "negative": true
             };
         }
 
         if (control.value > 1000){
             return {
-                "not realistic": true
+                "realistic": true
+            };
+        }
+
+        return null;
+    }
+
+    static isTooBig(control: FormControl): any {
+
+        if(isNaN(control.value)){
+            return {
+                "notNum": true
+            };
+        }
+
+        if(control.value < 0){
+            return {
+                "negative": true
+            };
+        }
+
+        if (control.value > 10000){
+            return {
+                "realistic": true
             };
         }
 
