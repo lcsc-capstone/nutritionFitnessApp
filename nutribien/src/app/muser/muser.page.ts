@@ -12,7 +12,11 @@ import { Router } from '@angular/router';
 
 
 export class MuserPage implements OnInit {
+  ngOnInit(): void {
+    throw new Error("Method not implemented.");
+  }
 
+  public idnum: any;
   public neck: any;
   public hip: any;
   public thigh: any;
@@ -25,7 +29,7 @@ export class MuserPage implements OnInit {
 
   public items : Array<any>;
   constructor(
-    private _HTTP: HttpClient
+    private _HTTP: HttpClient,private router: Router
     ) {}
 
 
@@ -33,7 +37,7 @@ export class MuserPage implements OnInit {
    {
       this.retrieve();
       for(let i=0; i<this.items.length; i++){
-        if(idnum == this.items[i].ID_NUM){
+        if(this.idnum == this.items[i].ID_NUM){
          this.neck = this.items[i].NECK;
          this.hip = this.items[i].NECK;
          this.thigh = this.items[i].NECK;
@@ -44,6 +48,9 @@ export class MuserPage implements OnInit {
      };
    }
 
+   return(){
+    this.router.navigate(['/measurements']);
+   }
 
     retrieve() : void
    {
@@ -59,23 +66,7 @@ export class MuserPage implements OnInit {
          console.dir(error);
       });
    }
-
-
-//*/
-
-
-export class MuserPage implements OnInit {
-
-  constructor(private router: Router) { }
-  return(){
-    this.router.navigate(['/measurements']);
-   }
-
-
-  ngOnInit() {
   }
 
-
-
-}
 //*/
+
