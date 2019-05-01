@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
+
+//*
 @Component({
   selector: 'app-muser',
   templateUrl: './muser.page.html',
@@ -8,35 +11,48 @@ import { Router } from '@angular/router';
 })
 
 
-
-/*
-
-ionViewDidEnter() : void
-{
-  this.retrieve();
-}
-
-if(USER_ID == this.items[i].USER_ID){
-  let navigationExtras: NavigationExtras = {
-    queryParams: {
-      "idnum": this.items[i].ID_NUM,
-      "neck": this.items[i].NECK,
-      "hip": this.items[i].HIP,
-      "thigh": this.items[i].THIGH,
-      "belly": this.items[i].BELLY,
-      "bicep": this.items[i].BICEP,
-    }
-  };
-        //this.router.navigate(['/muser']);
-        this.router.navigate(['/measurements'], navigationExtras);
-      }
-    }
-    //navExtras for muser?
-    //['/measurements'] for ['/muser']?
-    //Can I just retrieve info on the html muser page?
+export class MuserPage implements OnInit {
+  ngOnInit(): void {
+    throw new Error("Method not implemented.");
   }
 
-  retrieve() : void
+  public idnum: any;
+  public neck: any;
+  public hip: any;
+  public thigh: any;
+  public belly: any;
+  public bicep: any;
+  public date: any;
+  public success: boolean = false;
+  private _HOST : string  =  "http://18.191.160.170:5000/";
+
+
+  public items : Array<any>;
+  constructor(
+    private _HTTP: HttpClient,private router: Router
+    ) {}
+
+
+    ionViewDidEnter() : void
+   {
+      this.retrieve();
+      for(let i=0; i<this.items.length; i++){
+        if(this.idnum == this.items[i].ID_NUM){
+         this.neck = this.items[i].NECK;
+         this.hip = this.items[i].NECK;
+         this.thigh = this.items[i].NECK;
+         this.belly = this.items[i].NECK;
+         this.bicep = this.items[i].NECK;
+         this.date = this.items[i].NECK;
+       }
+     };
+   }
+
+   return(){
+    this.router.navigate(['/measurements']);
+   }
+
+    retrieve() : void
    {
       this._HTTP
       .get(this._HOST + "api/nutriFit.measurements")
@@ -50,20 +66,7 @@ if(USER_ID == this.items[i].USER_ID){
          console.dir(error);
       });
    }
+  }
 
 //*/
 
-
-export class MuserPage implements OnInit {
-
-  constructor(private router: Router) { }
-  return(){
-    this.router.navigate(['/measurements']);
-   }
-
-  ngOnInit() {
-  }
-
-
-
-}

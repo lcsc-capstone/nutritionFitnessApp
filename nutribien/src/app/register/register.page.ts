@@ -177,7 +177,7 @@ export class RegisterPage {
          {
             // If the request was successful clear the form of data
             // and notify the user
-            this.clearForm();
+            this.registerForm.reset();
             this.displayNotification('Account Created');
             //this.clearForm();
          },
@@ -187,7 +187,7 @@ export class RegisterPage {
          });
          this.router.navigate(['/login']);
   }
-
+/*
   clearForm() : void
    {
     this.idnum  = "";
@@ -201,7 +201,7 @@ export class RegisterPage {
     this.image    = "";
     this.thumbnail    = "";
    }
-
+*/
    displayNotification(message : string) : void
    {
       let toast = this._TOAST.create({
