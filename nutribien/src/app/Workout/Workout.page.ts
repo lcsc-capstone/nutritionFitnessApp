@@ -22,7 +22,7 @@ export class WorkoutPage {
   }
   
 
-  private WorkoutForm : FormGroup;
+
   private _HOST : string       =  "http://18.191.160.170:5000/"; //for actual server
   //private _HOST : string       =  "http://127.0.0.1:5000/";  //for testing in simulator 
   
@@ -35,7 +35,7 @@ export class WorkoutPage {
       ]
     }
 
-  constructor(private formBuilder: FormBuilder, private _HTTP: HttpClient){
+  constructor(private formBuilder: FormBuilder, private _HTTP: HttpClient,   public WorkoutForm : FormGroup){
     this.WorkoutForm = this.formBuilder.group({
       Sport: new FormControl('Sport', Validators.compose([
         Validators.required

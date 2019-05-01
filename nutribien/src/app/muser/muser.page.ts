@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
+
+//*
 @Component({
   selector: 'app-muser',
   templateUrl: './muser.page.html',
@@ -8,35 +11,41 @@ import { Router } from '@angular/router';
 })
 
 
+export class MuserPage implements OnInit {
 
-/*
+  public neck: any;
+  public hip: any;
+  public thigh: any;
+  public belly: any;
+  public bicep: any;
+  public date: any;
+  public success: boolean = false;
+  private _HOST : string  =  "http://18.191.160.170:5000/";
 
-ionViewDidEnter() : void
-{
-  this.retrieve();
-}
 
-if(USER_ID == this.items[i].USER_ID){
-  let navigationExtras: NavigationExtras = {
-    queryParams: {
-      "idnum": this.items[i].ID_NUM,
-      "neck": this.items[i].NECK,
-      "hip": this.items[i].HIP,
-      "thigh": this.items[i].THIGH,
-      "belly": this.items[i].BELLY,
-      "bicep": this.items[i].BICEP,
-    }
-  };
-        //this.router.navigate(['/muser']);
-        this.router.navigate(['/measurements'], navigationExtras);
-      }
-    }
-    //navExtras for muser?
-    //['/measurements'] for ['/muser']?
-    //Can I just retrieve info on the html muser page?
-  }
+  public items : Array<any>;
+  constructor(
+    private _HTTP: HttpClient
+    ) {}
 
-  retrieve() : void
+
+    ionViewDidEnter() : void
+   {
+      this.retrieve();
+      for(let i=0; i<this.items.length; i++){
+        if(idnum == this.items[i].ID_NUM){
+         this.neck = this.items[i].NECK;
+         this.hip = this.items[i].NECK;
+         this.thigh = this.items[i].NECK;
+         this.belly = this.items[i].NECK;
+         this.bicep = this.items[i].NECK;
+         this.date = this.items[i].NECK;
+       }
+     };
+   }
+
+
+    retrieve() : void
    {
       this._HTTP
       .get(this._HOST + "api/nutriFit.measurements")
@@ -51,6 +60,7 @@ if(USER_ID == this.items[i].USER_ID){
       });
    }
 
+
 //*/
 
 
@@ -61,9 +71,11 @@ export class MuserPage implements OnInit {
     this.router.navigate(['/measurements']);
    }
 
+
   ngOnInit() {
   }
 
 
 
 }
+//*/
