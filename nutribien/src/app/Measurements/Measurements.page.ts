@@ -8,7 +8,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 //import { Toast } from '@ionic-native/toast/ngx';
 //import { NavController, MenuController } from '@ionic/angular'; 
 //import { LoginPage } from '../login/login.page';
-
+/*
 @Component({
   selector: 'app-Measurements',
   templateUrl: 'Measurements.page.html',
@@ -91,7 +91,7 @@ if(USER_ID == this.items[i].USER_ID){
       });
    }
 
-*/
+
 
   
   submit()
