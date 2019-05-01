@@ -4,6 +4,8 @@ import { NutrientsValidator } from  './../../../../nutribien/src/app/validators/
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ActivatedRoute } from "@angular/router";
 import { Router } from '@angular/router';
+import { Storage } from '@ionic/storage';
+
 
 @Component({
   selector: 'app-nutrition',
@@ -17,8 +19,8 @@ export class NutritionPage{
   //private _HOST : string       =  "http://18.191.160.170:5000/"; //for actual server
   private _HOST : string       =  "http://127.0.0.1:5000/";  //for testing in simulator 
   
-  private idnum : Number;
-
+  public idnum : any;
+  public nutritionForm : any;
 
   //constructor(private formBuilder: FormBuilder, private _HTTP: HttpClient){}
   validation_messages = {
@@ -30,10 +32,10 @@ export class NutritionPage{
       ]
     }
 
-  constructor(  public nutritionForm : FormGroup, public formBuilder: FormBuilder, private _HTTP: HttpClient, private route: ActivatedRoute,private router: Router)
+  constructor(  public formBuilder: FormBuilder, private _HTTP: HttpClient, private route: ActivatedRoute,private router: Router, private storage: Storage)
   {
      //this.route.queryParams.subscribe(params => {this.idnum = params["idnum"];}); didn't work
-     this.nutritionForm = this.formBuilder.group({
+    this.nutritionForm = this.formBuilder.group({
       Proteins: new FormControl('Proteins', Validators.compose([
         Validators.required,
         NutrientsValidator.isValid
@@ -60,11 +62,19 @@ export class NutritionPage{
       ]))
     });
   }
+
   
+ 
+
+
+
   submit()
   {
-    
-    let  idnum  = 567,
+    this.storage.get("idnum").then((data)=>{
+      this.idnum = data;
+      console.log(this.idnum);
+    });
+    let idnum       = this.idnum,
     proteins    = this.nutritionForm.value.Proteins,
     carbs       = this.nutritionForm.value.Carbs,
     fats        = this.nutritionForm.value.Fats,
