@@ -93,8 +93,8 @@ apiRouter.post('/nutriFit.nutrition', function(req, res)
        fats         =	req.body.fats,
        fibers       =	req.body.fibers,
        sugars       =	req.body.sugars,
-       calories 	  =	req.body.calories;
-       date         =   req.body.date;
+       calories 	  =	req.body.calories,
+       date         =   req.body.date
                        
 
 
@@ -234,9 +234,9 @@ apiRouter.post('/nutriFit.workout', function(req, res)
    var idnum         =   req.body.idnum,
        sport         =   req.body.sport,
        distance      =   req.body.distance,
-       time          =   req.body.time;
-       calories      =   req.body.calories;
-       date          =   req.body.date;
+       time          =   req.body.time,
+       calories      =   req.body.calories,
+       date          =   req.body.date
                        
 
 

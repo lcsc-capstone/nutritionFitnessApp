@@ -11,7 +11,8 @@ const routes: Routes = [
   {path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' },
   { path: 'setting', loadChildren: './setting/setting.module#SettingPageModule' },
   { path: 'muser', loadChildren: './muser/muser.module#MuserPageModule' },
-  { path: 'nutrition-history', loadChildren: './nutrition-history/nutrition-history.module#NutritionHistoryPageModule' }
+  { path: 'nutrition-history', loadChildren: './nutrition-history/nutrition-history.module#NutritionHistoryPageModule' },
+  { path: 'record', loadChildren: './record/record.module#RecordPageModule' }
 ];
 
 @NgModule({
