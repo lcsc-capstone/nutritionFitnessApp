@@ -33,7 +33,7 @@ var config 			= require('./config'),
        with Mongoose */
    NUTRITION         = require('./models/nutrition');
    PROFILE         = require('./models/profile');
-   EXERCISE         = require('./models/exercise');
+   WORKOUT         = require('./models/exercise');
    MEASUREMENTS         = require('./models/measurements');
 
 
@@ -291,7 +291,7 @@ apiRouter.put('/nutriFit.workout/:recordID', function(req, res)
         recs.SPORT            = req.body.sport        || recs.SPORT;
         recs.DISTANCE         = req.body.distance     || recs.DISTANCE;
         recs.TIME             = req.body.time         || recs.TIME;
-        recs.CALORIES         = req.body.calories     || recs.calories;
+        recs.CALORIES         = req.body.calories     || recs.CALORIES;
         recs.DATE             = req.body.date         || recs.DATE;
 
          /* Save the updated document back to the database */
@@ -316,7 +316,7 @@ apiRouter.put('/nutriFit.workout/:recordID', function(req, res)
 
 
 /* Handle DELETE requests with expected recordID parameter */
-apiRouter.delete('/nutriFit.workout/:recordID', function(req, res)
+apiRouter.delete('/nutriFit.exercise/:recordID', function(req, res)
 {
     /* Use the NUTRITION model to access the Mongoose API method and
       find & remove a specific document within the MongoDB database
