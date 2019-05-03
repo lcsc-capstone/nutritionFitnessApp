@@ -32,7 +32,7 @@ export class NutritionPage{
       ]
     }
 
-  constructor(  public formBuilder: FormBuilder, private _HTTP: HttpClient, private route: ActivatedRoute,private router: Router, private storage: Storage)
+  constructor(  public formBuilder: FormBuilder, private _HTTP: HttpClient,private router: Router, private storage: Storage)
   {
      //this.route.queryParams.subscribe(params => {this.idnum = params["idnum"];}); didn't work
     this.nutritionForm = this.formBuilder.group({
@@ -64,8 +64,6 @@ export class NutritionPage{
   }
 
   
- 
-
 
 
   submit()

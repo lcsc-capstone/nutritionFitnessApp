@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { Validators,FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { NutrientsValidator } from  './../../../../nutribien/src/app/validators/nutrients';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Router } from '@angular/router';
 import { NavController, MenuController } from '@ionic/angular'; 
 import { LoginPage } from '../login/login.page';
 

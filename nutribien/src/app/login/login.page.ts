@@ -35,7 +35,7 @@ export class  LoginPage {
     ionViewDidEnter() : void
    {
       this.retrieve();
-      
+      console.dir(this.items);
    }
 
 
