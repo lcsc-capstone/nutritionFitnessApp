@@ -70,8 +70,9 @@ export class NutritionPage{
   {
     this.storage.get("idnum").then((data)=>{
       this.idnum = data;
-      console.log(this.idnum);
+      
     });
+    console.log(this.idnum);
     let idnum       = this.idnum,
     proteins    = this.nutritionForm.value.Proteins,
     carbs       = this.nutritionForm.value.Carbs,
