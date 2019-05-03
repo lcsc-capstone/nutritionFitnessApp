@@ -19,9 +19,9 @@ export class RecordPage implements OnInit {
   public sport : Array<any>;
   public distance : any[] = [];
   public time : any[] = [];
-  public calories: Array<any> = [];
+  public calories: any[] = [];
 
-  public date : Array<any> = [];
+  public date : any[] = [];
   public success: boolean = false;
 
 
@@ -31,7 +31,7 @@ export class RecordPage implements OnInit {
   public lineChartData:Array<any> = [
     {data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A'},
   ];
-  public lineChartLabels:Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+  public lineChartLabels:any[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
   
   public lineChartOptions:any = {
     responsive: true
@@ -137,9 +137,10 @@ return(){
           console.log(i);
           if( i.ID_NUM == this.idnum){
             console.log(i);
-            this.sport = i.SPORT;
-            this.calories = i.CALORIES;
-            this.date = i.DATE;
+            //this.sport = i.SPORT;
+            this.calories.push(i.CALORIES);
+            this.date.push(i.DATE);
+          
             /*
             this.sport.push(i.SPORT);
             this.calories.push(i.CALORIES);
@@ -160,7 +161,7 @@ return(){
           }
         }
         console.dir(this.date);
-        console.dir(this.sport);
+        //console.dir(this.sport);
         console.dir(this.calories);
         
 
