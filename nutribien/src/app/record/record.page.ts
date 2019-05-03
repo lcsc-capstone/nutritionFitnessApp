@@ -19,7 +19,8 @@ export class RecordPage implements OnInit {
   public sport : any[] = [];
   public distance : any[] = [];
   public time : any[] = [];
-  public calories: any[] = [];
+  public calories: Array<any>;
+
   public date : Array<any>;
   public success: boolean = false;
 
@@ -103,7 +104,7 @@ return(){
 
   constructor(    private router: Router,
     private _HTTP: HttpClient,
-    private _TOAST       : ToastController,
+    private _TOAST: ToastController,
     private storage: Storage) {
       this.storage.get("idnum").then((id)=>{
         this.idnum = id;
@@ -147,10 +148,10 @@ return(){
               this.distance.push(this.items[i].DISTANCE);
             }
             this.time.push(this.items[i].TIME);
-            console.log(this.items[i].DATE);
-            this.date[i] = this.items[i].DATE;
-           
-            this.calories.push(this.items[i].CALORIES);
+            
+            this.date = this.items[i].DATE;
+            console.dir(this.date);
+            this.calories = this.items[i].CALORIES;
   
             this.success = true;
           }
