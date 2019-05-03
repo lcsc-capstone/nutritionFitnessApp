@@ -18,10 +18,13 @@ import { Document } from './documents'
 
 export class NutritionHistoryPage implements OnInit {
 
-  constructor(private router: Router, private storage: Storage, private _HTTP: HttpClient){}
+  @ViewChild(CalendarComponent) myCal: CalendarComponent;
+
+  constructor(private router: Router, private storage: Storage, private _HTTP: HttpClient, private alertCtrl: AlertController, @Inject(LOCALE_ID) private locale: string){}
 
   private _HOST : string       =  "http://18.191.160.170:5000/"; //for actual server
   //private _HOST : string       =  "http://127.0.0.1:5000/";  //for testing in simulator 
+  eventSource = [];
   viewTitle: any;
   private idnum: any;
   docs: Array<Document> = [];
@@ -57,6 +60,24 @@ export class NutritionHistoryPage implements OnInit {
            this.docSource.push(doc);
          }
        }
+
+       for(let item of this.docSource){
+        let eventCopy = {
+          title: "Nutrition",
+          proteins: item.proteins,
+          carbs: item.carbs,
+          fats: item.fats,
+          fibers: item.fibers,
+          sugars: item.sugars,
+          calories: item.proteins,
+          startTime: new Date(item.date),
+          endTime: new Date(),
+          allDay: false
+        }
+        this.eventSource.push(eventCopy);
+        console.log(eventCopy);
+        this.myCal.loadEvents();
+       }
     },
     (error : any) =>
     {
@@ -74,7 +95,19 @@ export class NutritionHistoryPage implements OnInit {
   
 
 
-  onEventSelected(){
+  async onEventSelected(event){
+
+    // Use Angular date pipe for conversion
+    let start = formatDate(event.startTime, 'medium', this.locale);
+    let end = formatDate(event.endTime, 'medium', this.locale);
+  
+    const alert = await this.alertCtrl.create({
+      header: event.title,
+      subHeader: "Your nutrition intake was",
+      message: 'From: ' + start + '<br><br>To: ' + end,
+      buttons: ['OK']
+    });
+    alert.present();
 
   }
 
