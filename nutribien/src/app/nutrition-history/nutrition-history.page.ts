@@ -53,6 +53,7 @@ export class NutritionHistoryPage implements OnInit {
        //console.log(data);
        for(let entry of data.records)
        {
+         console.log(this.idnum);
          if(entry.ID_NUM == this.idnum)
          {
            console.log(entry);

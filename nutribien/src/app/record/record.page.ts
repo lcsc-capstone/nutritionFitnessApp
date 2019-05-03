@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import { ToastController } from '@ionic/angular';
@@ -15,13 +15,13 @@ export class RecordPage implements OnInit {
 
   private _HOST : string 			=	"http://18.191.160.170:5000/";
   public items : Array<any>;
-  public idnum: any;
-  public sport : any[] = [];
+  private idnum: any;
+  public sport : Array<any>;
   public distance : any[] = [];
   public time : any[] = [];
-  public calories: Array<any>;
+  public calories: Array<any> = [];
 
-  public date : Array<any>;
+  public date : Array<any> = [];
   public success: boolean = false;
 
 
@@ -106,14 +106,7 @@ return(){
     private _HTTP: HttpClient,
     private _TOAST: ToastController,
     private storage: Storage) {
-      this.storage.get("idnum").then((id)=>{
-        this.idnum = id;
-        console.log(this.idnum);
-      });
-      this.retrieve();
      }
-
-  
 
 
 
@@ -127,20 +120,32 @@ return(){
      });
   }
 
-  retrieve() : void
-  {
+  ionViewDidEnter(){
+    this.storage.get("idnum").then((data)=>{
+      this.idnum = data;
+      console.log(this.idnum);
+    });
+    console.log(this.idnum);
+    let headers     = new HttpHeaders({ 'Content-Type': 'application/json' }),
+        url         = this._HOST + "api/nutriFit.workout";
      this._HTTP
-     .get(this._HOST + "api/nutriFit.workout")
+     .get(url,{headers: headers})
      .subscribe((data : any) =>
      {
         // If the request was successful notify the user
-        this.items = data.records;
-        console.log(this.idnum);
-        for(let i=0; i<this.items.length; i++){
-          if(this.idnum == this.items[i].ID_NUM){
-            console.log(this.idnum);
-            this.sport.push(this.items[i].SPORT);
-            
+        for(let i of data.records){
+          console.log(i);
+          if( i.ID_NUM == this.idnum){
+            console.log(i);
+            this.sport = i.SPORT;
+            this.calories = i.CALORIES;
+            this.date = i.DATE;
+            /*
+            this.sport.push(i.SPORT);
+            this.calories.push(i.CALORIES);
+            this.date.push(i.DATE);
+
+            /*
             if (this.items[i].DISTANCE == null){
               this.distance.push("null");
             }else{
@@ -150,20 +155,23 @@ return(){
             
             this.date = this.items[i].DATE;
             console.dir(this.date);
-            this.calories = this.items[i].CALORIES;
-  
+            this.calories = this.items[i].CALORIES;*/
             this.success = true;
           }
         }
+        console.dir(this.date);
+        console.dir(this.sport);
+        console.dir(this.calories);
+        
+
         if(!this.success){
           this.displayNotification('No Records');
-        }
-        
-     },
-     (error : any) =>
-     {
-        console.dir(error);
-     });
+        }},
+        (error : any) =>
+        {
+           console.dir(error);
+        });
+
   }
 
   ngOnInit() {
