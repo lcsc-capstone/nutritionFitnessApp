@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Validators, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { WorkoutValidator } from  './../../../../nutribien/src/app/validators/workout';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-Workout',
@@ -13,6 +14,7 @@ export class WorkoutPage {
   public sport:string;
   public showDistance:boolean=false;
   public WorkoutForm: any;
+  public idnum : any;
 
   changeSport()
   {  
@@ -36,7 +38,7 @@ export class WorkoutPage {
       ]
     }
 
-  constructor(public formBuilder: FormBuilder, private _HTTP: HttpClient){
+  constructor(private storage: Storage, public formBuilder: FormBuilder, private _HTTP: HttpClient){
     this.WorkoutForm = this.formBuilder.group({
       Sport: new FormControl('', Validators.compose([
         Validators.required
@@ -59,7 +61,11 @@ export class WorkoutPage {
 
   submit()
   {
-    let  idnum  = 567,
+    this.storage.get("idnum").then((data)=>{
+      this.idnum = data;
+      console.log(this.idnum);
+    });
+    let idnum       = this.idnum,
     sport       = this.WorkoutForm.value.Sport,
     distance    = this.WorkoutForm.value.Distance,
     time        = this.WorkoutForm.value.Time,

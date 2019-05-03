@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { Validators, FormBuilder, FormControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { Router, NavigationExtras } from '@angular/router';
+import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
-import { SelectValueAccessor, ToastController } from '@ionic/angular';
+import { ToastController } from '@ionic/angular';
 
 
 @Component({
@@ -35,6 +35,7 @@ export class  LoginPage {
     ionViewDidEnter() : void
    {
       this.retrieve();
+      
    }
 
 
@@ -47,6 +48,7 @@ export class  LoginPage {
     this.storage.clear();
     let Email    = this.loginForm.value.email,
         Password    = this.loginForm.value.password
+       
     for(let i=0; i<this.items.length; i++){
       if(Email == this.items[i].EMAIL && Password == this.items[i].PASSWORD){
           this.storage.set("idnum", this.items[i].ID_NUM),
