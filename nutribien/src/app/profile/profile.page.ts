@@ -19,7 +19,13 @@ export class ProfilePage implements OnInit {
       this.fName = data;
     });
     this.storage.get("image").then((data)=>{
-      this.pic = data;
+      console.log(data);
+      if (data == null){
+        this.pic = "http://www.personalbrandingblog.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png";
+      }else{
+        this.pic = data;
+      }
+
     });
   }
   workout(){
