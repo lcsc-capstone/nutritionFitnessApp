@@ -19,7 +19,8 @@ export class RecordPage implements OnInit {
   public sport : any[] = [];
   public distance : any[] = [];
   public time : any[] = [];
-  public calories: any[] = [];
+  public calories: Array<any>;
+
   public date : Array<any>;
   public success: boolean = false;
 
@@ -103,18 +104,16 @@ return(){
 
   constructor(    private router: Router,
     private _HTTP: HttpClient,
-    private _TOAST       : ToastController,
+    private _TOAST: ToastController,
     private storage: Storage) {
       this.storage.get("idnum").then((id)=>{
         this.idnum = id;
+        console.log(this.idnum);
       });
+      this.retrieve();
      }
 
   
-  ionViewDidEnter() : void
-  {
-    this.retrieve();
-  }
 
 
 
@@ -136,9 +135,10 @@ return(){
      {
         // If the request was successful notify the user
         this.items = data.records;
-
+        console.log(this.idnum);
         for(let i=0; i<this.items.length; i++){
           if(this.idnum == this.items[i].ID_NUM){
+            console.log(this.idnum);
             this.sport.push(this.items[i].SPORT);
             
             if (this.items[i].DISTANCE == null){
@@ -147,10 +147,10 @@ return(){
               this.distance.push(this.items[i].DISTANCE);
             }
             this.time.push(this.items[i].TIME);
-            console.log(this.items[i].DATE);
-            this.date[i] = this.items[i].DATE;
-           
-            this.calories.push(this.items[i].CALORIES);
+            
+            this.date = this.items[i].DATE;
+            console.dir(this.date);
+            this.calories = this.items[i].CALORIES;
   
             this.success = true;
           }
