@@ -2,9 +2,10 @@ import { Component, OnInit, ViewChild, Inject, LOCALE_ID } from '@angular/core';
 import { CalendarComponent } from 'ionic2-calendar/calendar';
 import { AlertController } from '@ionic/angular';
 import { formatDate } from '@angular/common';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Document } from './documents'
 
 
 
@@ -13,6 +14,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   templateUrl: './nutrition-history.page.html',
   styleUrls: ['./nutrition-history.page.scss'],
 })
+
+
 export class NutritionHistoryPage implements OnInit {
 
   constructor(private router: Router, private storage: Storage, private _HTTP: HttpClient){}
@@ -21,21 +24,7 @@ export class NutritionHistoryPage implements OnInit {
   //private _HOST : string       =  "http://127.0.0.1:5000/";  //for testing in simulator 
   viewTitle: any;
   private idnum: any;
-
-  proteins: any;
-
-
-  document = {
-    proteins:'',
-    carbs:'',
-    fats:'',
-    fibers:'',
-    sugars:'',
-    calories:'',
-    startTime:'',
-    endTime:'',
-    allday: false
-  }
+  docs: Array<Document> = [];
 
   ionViewDidEnter(){
     this.storage.get("idnum").then((data)=>{
@@ -64,6 +53,8 @@ export class NutritionHistoryPage implements OnInit {
          if(entry.ID_NUM == this.idnum)
          {
            console.log(entry);
+           let doc = new Document(entry.PROTEINS,entry.CARBS,entry.FATS,entry.FIBERS,entry.SUGARS,entry.CALORIES,entry.DATE);
+           this.docSource.push(doc);
          }
        }
     },

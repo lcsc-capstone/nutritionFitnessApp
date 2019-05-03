@@ -370,7 +370,7 @@ apiRouter.post('/nutriFit.measurements', function(req, res)
        thigh        =  req.body.thigh,
        belly        =  req.body.belly,
        bicep        =  req.body.bicep,
-       date         =  req.body.bicep;
+       date         =  req.body.date;
                        
 
    /* Use the NUTRITION model to access the Mongoose API method to
