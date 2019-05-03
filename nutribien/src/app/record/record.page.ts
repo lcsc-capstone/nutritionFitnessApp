@@ -138,7 +138,7 @@ return(){
           if( i.ID_NUM == this.idnum){
             console.log(i);
             //this.sport = i.SPORT;
-            this.calories.push(i.CALORIES);
+            //this.calories = i.CALORIES;
             this.date.push(i.DATE);
           
             /*
@@ -162,7 +162,7 @@ return(){
         }
         console.dir(this.date);
         //console.dir(this.sport);
-        console.dir(this.calories);
+        //console.dir(this.calories);
         
 
         if(!this.success){
