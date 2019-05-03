@@ -18,6 +18,18 @@ export class MuserPage implements OnInit {
 
   viewTitle: any;
   private idnum: any;
+  private neck: any;
+  private hip: any;
+  private thigh: any;
+  private belly: any;
+  private bicep: any;
+  private date: any;
+
+  
+
+
+
+
   
   ngOnInit(): void {
     throw new Error("Method not implemented.");
@@ -55,9 +67,6 @@ export class MuserPage implements OnInit {
     success: false,
   
   }
-
-
-  
 
    return(){
     this.router.navigate(['/measurements']);
