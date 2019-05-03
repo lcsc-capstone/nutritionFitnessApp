@@ -30,6 +30,8 @@
     "@ionic/angular": "^4.1.0",
     "@ionic/pro": "2.0.4",
     "@ionic/storage": "^2.2.0",
+    "angular-chart.js": "^1.1.1",
+    "chart.js": "^2.8.0",
     "cordova-plugin-ionic-webview": "4.0.1",
     "core-js": "^2.5.4",
     "express": "^4.16.4",
@@ -37,6 +39,7 @@
     "ionic2-calendar": "^0.5.2",
     "moment": "^2.24.0",
     "multer": "^1.4.1",
+    "ng2-charts": "^2.2.3",
     "ngx-bootstrap": "^4.0.1",
     "rxjs": "~6.3.3",
     "zone.js": "~0.8.29"

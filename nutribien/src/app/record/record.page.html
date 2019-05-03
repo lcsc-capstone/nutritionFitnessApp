@@ -1,13 +1,39 @@
+<script src="node_modules/chart.js/Chart.min.js"></script>
+<script src="node_modules/angular-chart.js/dist/angular-chart.min.js"></script>
 <ion-header>
   <ion-toolbar>
-    <ion-title>record</ion-title>
+      <ion-button (click)="return()" slot="start" fill="clear" color="success" >
+          <ion-icon name="arrow-round-back"></ion-icon>
+      </ion-button>
+    <ion-title style="width: 100%; text-align: center;">Activity Graph</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
+    <div class="row">
+        <div class="col-md-6">
+          <div style="display: block;">
+          <canvas baseChart width="300" height="400"
+                      [datasets]="lineChartData"
+                      [labels]="lineChartLabels"
+                      [options]="lineChartOptions"
+                      [colors]="lineChartColors"
+                      [legend]="lineChartLegend"
+                      [chartType]="lineChartType"
+                      (chartHover)="chartHovered($event)"
+                      (chartClick)="chartClicked($event)">
+            </canvas>
+          </div>
+        </div>
+      </div>
+
+
+  <!--
   <ion-card >
     <ion-card-header>
     <ion-card-subtitle *ngFor="let date of date" [value]="date">{{date}}</ion-card-subtitle>
     </ion-card-header>
+  
 </ion-card>
+-->
 </ion-content>
