@@ -71,7 +71,7 @@ export class NutritionHistoryPage implements OnInit {
           sugars: item.sugars,
           calories: item.proteins,
           startTime: new Date(item.date),
-          endTime: new Date(),
+          endTime: new Date(item.date),
           allDay: false
         }
         this.eventSource.push(eventCopy);
