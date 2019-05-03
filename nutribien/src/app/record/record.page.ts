@@ -108,14 +108,12 @@ return(){
     private storage: Storage) {
       this.storage.get("idnum").then((id)=>{
         this.idnum = id;
+        console.log(this.idnum);
       });
+      this.retrieve();
      }
 
   
-  ionViewDidEnter() : void
-  {
-    this.retrieve();
-  }
 
 
 
@@ -137,9 +135,10 @@ return(){
      {
         // If the request was successful notify the user
         this.items = data.records;
-
+        console.log(this.idnum);
         for(let i=0; i<this.items.length; i++){
           if(this.idnum == this.items[i].ID_NUM){
+            console.log(this.idnum);
             this.sport.push(this.items[i].SPORT);
             
             if (this.items[i].DISTANCE == null){
