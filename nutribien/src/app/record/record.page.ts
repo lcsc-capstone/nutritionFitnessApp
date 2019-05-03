@@ -29,10 +29,20 @@ export class RecordPage implements OnInit {
 
 
   public lineChartData:Array<any> = [
-    {data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A'},
+    {data: [500, 300, 450], label: 'Calories'},
   ];
+  public lineChartData2:Array<any> = [
+    {data: [], label: 'Calories'},
+  ];
+
   public lineChartLabels:any[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-  
+  /*
+  public calArr: this.lineChartData2.concat(this.calories);
+  public calArr2: this.lineChartData2.concat(this.calories);
+
+  Array.prototype.push.apply(lineChartData2: any, calories:any);
+
+*/
   public lineChartOptions:any = {
     responsive: true
   };
@@ -139,7 +149,8 @@ return(){
             console.log(i);
             //this.sport = i.SPORT;
             //this.calories = i.CALORIES;
-            this.date.push(i.DATE);
+            this.date.push(i.DATE.toString());
+            console.dir(this.date.toString());
           
             /*
             this.sport.push(i.SPORT);
