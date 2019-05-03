@@ -58,8 +58,7 @@ export class MuserPage implements OnInit {
       .get(this._HOST + "api/nutriFit.measurements")
       .subscribe((data : any) =>
       {
-         this.items = data.records;
-         
+         this.items = data.records;         
       },
       (error : any) =>
       {
