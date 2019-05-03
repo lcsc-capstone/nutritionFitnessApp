@@ -16,13 +16,7 @@ export class WorkoutPage {
   public WorkoutForm: any;
   public idnum : any;
 
-  changeSport()
-  {  
-    //console.log(this.sport)
-    if (this.sport=="Swimming" || this.sport=="Running" || this.sport=="Hiking"|| this.sport=="Biking"|| this.sport=="Walking"){
-      this.showDistance=true
-    }
-  }
+
   
 
 
@@ -56,6 +50,13 @@ export class WorkoutPage {
         WorkoutValidator.isTooBig
       ]))
     });
+  }
+  changeSport()
+  {  
+    console.log(this.sport)
+    if (this.sport=="Swimming" || this.sport=="Running" || this.sport=="Hiking"|| this.sport=="Biking"|| this.sport=="Walking"){
+      this.showDistance=true
+    }
   }
   
 

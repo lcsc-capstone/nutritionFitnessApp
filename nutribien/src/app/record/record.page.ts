@@ -27,7 +27,9 @@ export class RecordPage implements OnInit {
     private _HTTP: HttpClient,
     private _TOAST       : ToastController,
     private storage: Storage) {
-  
+      this.storage.get("idnum").then((id)=>{
+        this.idnum = id;
+      });
      }
 
   
@@ -59,13 +61,10 @@ export class RecordPage implements OnInit {
      {
         // If the request was successful notify the user
         this.items = data.records;
-        this.storage.get("idnum").then((data)=>{
-          this.idnum = data;
-          console.dir(this.idnum);
-        });
+
         for(let i=0; i<this.items.length; i++){
           console.dir(this.items[i].ID_NUM);
-          
+          console.dir(this.idnum);
           if(this.idnum == this.items[i].ID_NUM){
             this.sport.push(this.items[i].SPORT);
             

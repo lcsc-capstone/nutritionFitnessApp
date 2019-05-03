@@ -25,7 +25,7 @@
   <form name="sport_form" [formGroup]="WorkoutForm">
     <ion-item>
       <ion-label position="stacked">Workout</ion-label>
-      <ion-select (ionChange)="changeSport()" type="text"  placeholder="Select one" formControlName="Sport">
+      <ion-select (ionChange)="changeSport()" type="text"  [(ngModel)]="sport" placeholder="Select one" formControlName="Sport">
         <ion-select-option value="Basketball">Basketball</ion-select-option>
         <ion-select-option value="Soccer">Soccer</ion-select-option>
         <ion-select-option value="Baseball">Baseball</ion-select-option>
