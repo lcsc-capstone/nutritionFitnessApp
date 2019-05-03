@@ -4,6 +4,8 @@ import { NutrientsValidator } from  './../../../../nutribien/src/app/validators/
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { NavController, MenuController } from '@ionic/angular'; 
 import { LoginPage } from '../login/login.page';
+import { Router } from '@angular/router';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-Measurements',
@@ -18,8 +20,9 @@ export class  MeasurementsPage {
   private _HOST : string       =  "http://18.191.160.170:5000/"; //for actual server
   //private _HOST : string       =  "http://127.0.0.1:5000/";  //for testing in simulator 
 
+  public idnum : any;
 
-  constructor(public formBuilder: FormBuilder, private _HTTP: HttpClient){
+  constructor(  public formBuilder: FormBuilder, private _HTTP: HttpClient,private router: Router, private storage: Storage){
 
   this.measurementsForm = this.formBuilder.group({
     Neck: new FormControl('Neck', Validators.compose([
@@ -82,8 +85,12 @@ ionViewDidEnter() : void
   
   submit()
   {
-    let  idnum  = 567,
-
+    this.storage.get("idnum").then((data)=>{
+      this.idnum = data;
+      
+    });
+    console.log(this.idnum);
+    let idnum   = this.idnum,
     neck        = this.measurementsForm.value.Neck,
     hip         = this.measurementsForm.value.Hip,
     thigh       = this.measurementsForm.value.Thigh,
@@ -100,6 +107,7 @@ ionViewDidEnter() : void
     console.log(thigh);
     console.log(belly);
     console.log(bicep);
+    console.log(date);
 
 
 
