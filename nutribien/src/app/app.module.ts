@@ -9,10 +9,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage';
+import { ChartsModule } from 'ng2-charts';
 
 //For images
 import { Camera } from '@ionic-native/Camera/ngx';
 import { ImageProvider } from './register/image';
+import { RecordPage } from './record/record.page';
 
 
 @NgModule({
@@ -25,6 +27,7 @@ import { ImageProvider } from './register/image';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ChartsModule,
   ],
   providers: [
     StatusBar,
